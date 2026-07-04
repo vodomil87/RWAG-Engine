@@ -16,18 +16,16 @@
 };
 
 async function start() {
-
     await loadGame("nebakov");
-
-    gotoScene(Engine.game.startScene);
-
+    render();
 }
 
 async function loadGame(gameName) {
-    const res = await fetch(`games/${gameName}.json`);
-    Engine.game = await res.json();
-}
+    const response = await fetch(`games/${gameName}.json`);
+    Engine.game = await response.json();
 
+    Engine.currentScene = getScene(Engine.game.startScene);
+}
 function getScene(id) {
     return Engine.game.scenes.find(scene => scene.id === id);
 }
