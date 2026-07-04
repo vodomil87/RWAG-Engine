@@ -1,4 +1,4 @@
-﻿const Engine = {
+const Engine = {
     game: null,
     currentScene: null,
 
@@ -21,68 +21,84 @@ async function start() {
 }
 
 async function loadGame(gameName) {
-    const response = await fetch(`games/${gameName}.json`);
+    try {
+        const response = await fetch(`games/${gameName}.json`);
 
-    if (!response.ok) {
-        console.error("JSON load failed");
-        return;
+        if (!response.ok) {
+            throw new Error("JSON load failed: " + response.status);
+        }
+
+        Engine.game = await response.json();
+
+        Engine.currentScene = getScene(Engine.game.startScene);
+
+        if (!Engine.currentScene) {
+            console.error("❌ Start scene not found:", Engine.game.startScene);
+        }
+
+    } catch (err) {
+        console.error("❌ loadGame error:", err);
+
+        document.getElementById("game").innerHTML =
+            "❌ Failed to load game data.";
     }
-
-    Engine.game = await response.json();
-    Engine.currentScene = getScene(Engine.game.startScene);
 }
-    
+
 function getScene(id) {
+    if (!Engine.game) return null;
     return Engine.game.scenes.find(scene => scene.id === id);
 }
 
 function gotoScene(id) {
-    Engine.currentScene = getScene(id);
+    const scene = getScene(id);
+
+    if (!scene) {
+        console.error("❌ Scene not found:", id);
+        return;
+    }
+
+    Engine.currentScene = scene;
     render();
 }
 
 function render() {
+    const root = document.getElementById("game");
 
-  const scene = Engine.currentScene;
-  const root = document.getElementById("game");
+    if (!root) {
+        console.error("❌ Missing #game container in HTML");
+        return;
+    }
 
-  root.innerHTML = "";
+    const scene = Engine.currentScene;
 
-  // TEXT
-  const textDiv = document.createElement("div");
-  textDiv.className = "text";
+    if (!scene) {
+        root.innerHTML = "❌ Scene not loaded";
+        return;
+    }
 
-  if (Array.isArray(scene.text)) {
-    textDiv.innerHTML = scene.text.join("<br><br>");
-  } else {
-    textDiv.innerText = scene.text;
-  }
+    root.innerHTML = "";
 
-  root.appendChild(textDiv);
+    // TEXT
+    const textDiv = document.createElement("div");
+    textDiv.className = "text";
 
-  // CHOICES
-  scene.choices.forEach(choice => {
+    if (Array.isArray(scene.text)) {
+        textDiv.innerHTML = scene.text.join("<br><br>");
+    } else {
+        textDiv.innerText = scene.text;
+    }
 
-    const btn = document.createElement("button");
-    btn.className = "choice";
+    root.appendChild(textDiv);
 
-    const icon = icons?.[choice.icon] || "";
-    const label = choice.text;
+    // CHOICES
+    if (!scene.choices) {
+        root.innerHTML += "<br>❌ No choices in scene";
+        return;
+    }
 
-    btn.innerText = `${icon} ${label}`;
+    scene.choices.forEach(choice => {
 
-    btn.disabled = !isChoiceEnabled(choice);
+        const btn = document.createElement("button");
+        btn.className = "choice";
 
-    btn.onclick = () => {
-      gotoScene(choice.goto);
-    };
-
-    root.appendChild(btn);
-  });
-}
-
-function isChoiceEnabled(choice) {
-    return true;
-}
-
-start();
+        const icon = (
