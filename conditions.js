@@ -1,0 +1,7 @@
+evaluateCondition()
+
+evaluateAnd()
+
+evaluateOr()
+
+evaluateNot()
