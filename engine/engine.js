@@ -22,10 +22,16 @@ async function start() {
 
 async function loadGame(gameName) {
     const response = await fetch(`games/${gameName}.json`);
-    Engine.game = await response.json();
 
+    if (!response.ok) {
+        console.error("JSON load failed");
+        return;
+    }
+
+    Engine.game = await response.json();
     Engine.currentScene = getScene(Engine.game.startScene);
 }
+    
 function getScene(id) {
     return Engine.game.scenes.find(scene => scene.id === id);
 }
@@ -76,7 +82,7 @@ function render() {
 }
 
 function isChoiceEnabled(choice) {
-
+    return true;
 }
 
 start();
