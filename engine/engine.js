@@ -22,22 +22,20 @@ const Engine = {
 // START
 // ===================================
 
-async function start(gameName) {
+async function start() {
+    console.log("START ENGINE");
 
-    UI.init();
+    await loadGame("nebakov");
 
-    console.log("🚀 start");
-
-    await loadGame(gameName);
-
-    console.log("🎬 startScene:", Engine.game?.startScene);
+    console.log("GAME AFTER LOAD:", Engine.game);
 
     if (!Engine.game) {
-        console.error("❌ Game se nenačetla");
+        document.getElementById("game").innerText =
+            "❌ JSON se nenačetl";
         return;
     }
 
-    gotoScene(Engine.game.startScene);
+    render();
 }
 
 // ===================================
