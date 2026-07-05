@@ -23,19 +23,21 @@ const Engine = {
 // ===================================
 
 async function start() {
-    console.log("START ENGINE");
+    try {
+        await loadGame("nebakov");
 
-    await loadGame("nebakov");
+        if (!Engine.currentScene) {
+            document.getElementById("game").innerText =
+                "❌ Start scéna nenalezena";
+            return;
+        }
 
-    console.log("GAME AFTER LOAD:", Engine.game);
-
-    if (!Engine.game) {
+        render();
+    } catch (e) {
+        console.error(e);
         document.getElementById("game").innerText =
-            "❌ JSON se nenačetl";
-        return;
+            "❌ Engine error: " + e.message;
     }
-
-    render();
 }
 
 // ===================================
@@ -43,31 +45,25 @@ async function start() {
 // ===================================
 
 async function loadGame(gameName) {
-async function loadGame(gameName) {
-    try {
-        const url = `./games/${gameName}.json`;
+    const response = await fetch(`games/${gameName}.json`);
 
-        const response = await fetch(url);
-
-        if (!response.ok) {
-            throw new Error("JSON neexistuje: " + url);
-        }
-
-        Engine.game = await response.json();
-
-        console.log("GAME LOADED:", Engine.game);
-
-        Engine.currentScene = getScene(Engine.game.startScene);
-
-        if (!Engine.currentScene) {
-            throw new Error("START SCÉNA NEEXISTUJE: " + Engine.game.startScene);
-        }
-
-    } catch (err) {
-        console.error("LOAD ERROR:", err);
-        document.getElementById("game").innerText =
-            "❌ Engine load error: " + err.message;
+    if (!response.ok) {
+        throw new Error("JSON se nenačetl");
     }
+
+    Engine.game = await response.json();
+
+    console.log("GAME LOADED", Engine.game);
+
+    const startId = Engine.game.startScene;
+    const scene = getScene(startId);
+
+    if (!scene) {
+        console.error("START SCÉNA NEEXISTUJE:", startId);
+        return;
+    }
+
+    Engine.currentScene = scene;
 }
 
 // ===================================
