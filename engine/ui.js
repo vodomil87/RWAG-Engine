@@ -3,16 +3,27 @@ const UI = {
     root: null,
 
     init() {
+
+        console.log("UI init");
+
         this.root = document.getElementById("game");
+
+        if (!this.root) {
+            console.error("❌ #game element nenalezen!");
+        }
     },
 
     renderScene(scene) {
+
+        if (!this.root) {
+            console.error("UI root není připraven");
+            return;
+        }
 
         this.root.innerHTML = "";
 
         this.renderText(scene);
         this.renderChoices(scene);
-
     },
 
     renderText(scene) {
