@@ -22,23 +22,20 @@ async function start() {
 
 async function loadGame(gameName) {
     try {
-        // 🔥 pokud máš JSON v rootu repo:
         const response = await fetch(`games/${gameName}.json`);
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        Engine.game = await response.json();
+
         console.log(Engine.game);
         console.log(Engine.game.startScene);
         console.log(Engine.game.scenes);
 
-        // 🔥 DEBUG (vidíš přesně co se načítá)
-        console.log("Loading game from:", response.url);
-
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status} - JSON nenalezen`);
-        }
-
-        Engine.game = await response.json();
         Engine.currentScene = getScene(Engine.game.startScene);
-
-    } catch (err) {
+        } catch (err) {
         console.error("❌ LOAD GAME ERROR:", err);
 
         document.getElementById("game").innerHTML =
@@ -50,11 +47,8 @@ async function loadGame(gameName) {
 }
 
 function getScene(id) {
-    return Engine.game.scenes.find(scene => scene.id === id);
-    function getScene(id) {
     console.log("Hledám scénu:", id);
     return Engine.game.scenes.find(scene => scene.id === id);
-    }
 }
 
 function gotoScene(id) {
