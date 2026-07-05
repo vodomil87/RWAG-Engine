@@ -24,6 +24,9 @@ async function loadGame(gameName) {
     try {
         // 🔥 pokud máš JSON v rootu repo:
         const response = await fetch(`games/${gameName}.json`);
+        console.log(Engine.game);
+        console.log(Engine.game.startScene);
+        console.log(Engine.game.scenes);
 
         // 🔥 DEBUG (vidíš přesně co se načítá)
         console.log("Loading game from:", response.url);
@@ -48,6 +51,10 @@ async function loadGame(gameName) {
 
 function getScene(id) {
     return Engine.game.scenes.find(scene => scene.id === id);
+    function getScene(id) {
+    console.log("Hledám scénu:", id);
+    return Engine.game.scenes.find(scene => scene.id === id);
+    }
 }
 
 function gotoScene(id) {
