@@ -16,74 +16,51 @@ const Engine = {
 };
 
 async function start() {
-    console.log("🚀 RWAG Engine starting...");
-
     await loadGame("nebakov");
-
-    if (!Engine.currentScene) {
-        console.error("❌ No starting scene loaded");
-        showError("Start scene not found");
-        return;
-    }
-
     render();
 }
 
 async function loadGame(gameName) {
     try {
-        console.log("📦 Loading game:", gameName);
+        // 🔥 pokud máš JSON v rootu repo:
+        const response = await fetch(`${gameName}.json`);
 
-        const response = await fetch(`games/${gameName}.json`);
+        // 🔥 DEBUG (vidíš přesně co se načítá)
+        console.log("Loading game from:", response.url);
 
         if (!response.ok) {
-            throw new Error("HTTP " + response.status);
+            throw new Error(`HTTP ${response.status} - JSON nenalezen`);
         }
 
         Engine.game = await response.json();
-
-        console.log("✅ Game loaded");
-
         Engine.currentScene = getScene(Engine.game.startScene);
 
-        if (!Engine.currentScene) {
-            console.error("❌ Scene not found:", Engine.game.startScene);
-        }
-
     } catch (err) {
-        console.error("❌ loadGame failed:", err);
-        showError("Failed to load game JSON");
+        console.error("❌ LOAD GAME ERROR:", err);
+
+        document.getElementById("game").innerHTML =
+            `<div style="color:red;font-family:Arial">
+                ❌ Engine se nenačetl<br><br>
+                ${err.message}
+            </div>`;
     }
 }
 
 function getScene(id) {
-    if (!Engine.game || !Engine.game.scenes) return null;
     return Engine.game.scenes.find(scene => scene.id === id);
 }
 
 function gotoScene(id) {
-    const scene = getScene(id);
-
-    if (!scene) {
-        console.error("❌ Scene not found:", id);
-        return;
-    }
-
-    Engine.currentScene = scene;
+    Engine.currentScene = getScene(id);
     render();
 }
 
 function render() {
+    const scene = Engine.currentScene;
     const root = document.getElementById("game");
 
-    if (!root) {
-        console.error("❌ Missing #game container");
-        return;
-    }
-
-    const scene = Engine.currentScene;
-
     if (!scene) {
-        root.innerHTML = "❌ Scene not loaded";
+        root.innerHTML = "❌ Scéna nenalezena";
         return;
     }
 
@@ -102,20 +79,11 @@ function render() {
     root.appendChild(textDiv);
 
     // CHOICES
-    if (!scene.choices || scene.choices.length === 0) {
-        root.innerHTML += "<br>❌ No choices";
-        return;
-    }
-
     scene.choices.forEach(choice => {
-
         const btn = document.createElement("button");
         btn.className = "choice";
 
-        const icon = (typeof icons !== "undefined")
-            ? (icons[choice.icon] || "")
-            : "";
-
+        const icon = icons?.[choice.icon] || "";
         const label = Array.isArray(choice.text)
             ? choice.text.join(" ")
             : choice.text;
@@ -124,21 +92,16 @@ function render() {
 
         btn.disabled = !isChoiceEnabled(choice);
 
-        btn.onclick = () => gotoScene(choice.goto);
+        btn.onclick = () => {
+            gotoScene(choice.goto);
+        };
 
         root.appendChild(btn);
     });
 }
 
 function isChoiceEnabled(choice) {
-    return true;
-}
-
-function showError(msg) {
-    const root = document.getElementById("game");
-    if (root) {
-        root.innerHTML = "❌ " + msg;
-    }
+    return true; // zatím jednoduché
 }
 
 start();
