@@ -25,13 +25,6 @@ const Engine = {
 async function start() {
     try {
         await loadGame("nebakov");
-
-        if (!Engine.currentScene) {
-            document.getElementById("game").innerText =
-                "❌ Start scéna nenalezena";
-            return;
-        }
-
         render();
     } catch (e) {
         console.error(e);
@@ -52,6 +45,10 @@ async function loadGame(gameName) {
     }
 
     Engine.game = await response.json();
+
+    // 👇 TADY
+    console.log("START SCENE ID:", Engine.game.startScene);
+    console.log("AVAILABLE SCENES:", Engine.game.scenes.map(s => s.id));
 
     console.log("GAME LOADED", Engine.game);
 
