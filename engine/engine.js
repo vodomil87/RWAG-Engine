@@ -25,13 +25,20 @@ const Engine = {
 async function start(gameName) {
 
     UI.init();
-    
+
+    console.log("🚀 start");
+
     await loadGame(gameName);
 
+    console.log("🎬 startScene:", Engine.game?.startScene);
+
+    if (!Engine.game) {
+        console.error("❌ Game se nenačetla");
+        return;
+    }
+
     gotoScene(Engine.game.startScene);
-
 }
-
 
 // ===================================
 // LOAD GAME
