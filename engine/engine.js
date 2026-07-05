@@ -45,49 +45,51 @@ async function start(gameName) {
 // ===================================
 
 async function loadGame(gameName) {
+async function loadGame(gameName) {
+    try {
+        const url = `./games/${gameName}.json`;
 
-    console.log("1. loadGame start");
+        const response = await fetch(url);
 
-    const url = `games/${gameName}.json`;
+        if (!response.ok) {
+            throw new Error("JSON neexistuje: " + url);
+        }
 
-    console.log("2. URL:", url);
+        Engine.game = await response.json();
 
-    const response = await fetch(url);
+        console.log("GAME LOADED:", Engine.game);
 
-    console.log("3. response status:", response.status);
+        Engine.currentScene = getScene(Engine.game.startScene);
 
-    const text = await response.text();
-    console.log("4. raw response:", text);
+        if (!Engine.currentScene) {
+            throw new Error("START SCÉNA NEEXISTUJE: " + Engine.game.startScene);
+        }
 
-    Engine.game = JSON.parse(text);
-
-    console.log("5. game loaded");
-
+    } catch (err) {
+        console.error("LOAD ERROR:", err);
+        document.getElementById("game").innerText =
+            "❌ Engine load error: " + err.message;
+    }
 }
-
 
 // ===================================
 // SCÉNY
 // ===================================
 
 function getScene(id) {
+    if (!Engine.game) return null;
 
-    return Engine.game.scenes.find(scene => scene.id === id);
-
+    return Engine.game.scenes.find(scene => scene.id === id) || null;
 }
 
-
 function gotoScene(id) {
-
     const scene = getScene(id);
 
     if (!scene) {
-        console.error("Scéna neexistuje:", id);
+        console.error("SCÉNA NENALEZENA:", id);
         return;
     }
 
     Engine.currentScene = scene;
-
-    UI.renderScene(scene);
-
+    render();
 }
