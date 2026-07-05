@@ -23,7 +23,7 @@ async function start() {
 async function loadGame(gameName) {
     try {
         // 🔥 pokud máš JSON v rootu repo:
-        const response = await fetch(`${gameName}.json`);
+        const response = await fetch(`games/${gameName}.json`);
 
         // 🔥 DEBUG (vidíš přesně co se načítá)
         console.log("Loading game from:", response.url);
