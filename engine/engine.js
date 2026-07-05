@@ -46,13 +46,22 @@ async function start(gameName) {
 
 async function loadGame(gameName) {
 
-    const response = await fetch(`games/${gameName}.json`);
+    console.log("1. loadGame start");
 
-    if (!response.ok) {
-        throw new Error(`Nepodařilo se načíst hru "${gameName}"`);
-    }
+    const url = `games/${gameName}.json`;
 
-    Engine.game = await response.json();
+    console.log("2. URL:", url);
+
+    const response = await fetch(url);
+
+    console.log("3. response status:", response.status);
+
+    const text = await response.text();
+    console.log("4. raw response:", text);
+
+    Engine.game = JSON.parse(text);
+
+    console.log("5. game loaded");
 
 }
 
