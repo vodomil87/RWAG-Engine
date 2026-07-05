@@ -24,6 +24,8 @@ const Engine = {
 
 async function start(gameName) {
 
+    UI.init();
+    
     await loadGame(gameName);
 
     gotoScene(Engine.game.startScene);
@@ -70,6 +72,6 @@ function gotoScene(id) {
 
     Engine.currentScene = scene;
 
-    render();
+    UI.renderScene(scene);
 
 }
