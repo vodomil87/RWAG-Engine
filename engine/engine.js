@@ -30,6 +30,17 @@ async function loadGame(gameName) {
 
         Engine.game = await response.json();
 
+console.log("Start:", Engine.game.startScene);
+
+console.log(
+    "Scény:",
+    Engine.game.scenes.map(s => s.id)
+);
+
+Engine.currentScene = getScene(Engine.game.startScene);
+
+console.log("Načtená scéna:", Engine.currentScene);
+        
         console.log(Engine.game);
         console.log(Engine.game.startScene);
         console.log(Engine.game.scenes);
