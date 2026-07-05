@@ -17,6 +17,47 @@ const Engine = {
 
 };
 
+function render() {
+    const scene = Engine.currentScene;
+
+    const root = document.getElementById("game");
+
+    if (!scene) {
+        root.innerHTML = "❌ Scéna neexistuje";
+        return;
+    }
+
+    root.innerHTML = "";
+
+    // TEXT
+    const textDiv = document.createElement("div");
+    textDiv.className = "text";
+
+    if (Array.isArray(scene.text)) {
+        textDiv.innerHTML = scene.text.join("<br><br>");
+    } else {
+        textDiv.innerText = scene.text;
+    }
+
+    root.appendChild(textDiv);
+
+    // CHOICES
+    scene.choices.forEach(choice => {
+        const btn = document.createElement("button");
+        btn.className = "choice";
+
+        const icon = icons?.[choice.icon] || "";
+        const label = Array.isArray(choice.text)
+            ? choice.text.join(" ")
+            : choice.text;
+
+        btn.innerText = `${icon} ${label}`;
+
+        btn.onclick = () => gotoScene(choice.goto);
+
+        root.appendChild(btn);
+    });
+}
 
 // ===================================
 // START
