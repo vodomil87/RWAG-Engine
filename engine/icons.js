@@ -12,7 +12,7 @@ bublina:"💬",
 
 priroda:"🌿",
 
-koruna:"👑"
+koruna:"👑",
 
 hodiny:"⏳",
 
