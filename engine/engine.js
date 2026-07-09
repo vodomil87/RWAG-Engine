@@ -90,6 +90,21 @@ async function loadGame(gameName) {
 }
 
 // ===================================
+// START
+// ===================================
+
+async function start() {
+    try {
+        await loadGame("nebakov");
+        render();
+    } catch (e) {
+        console.error(e);
+        document.getElementById("game").innerHTML =
+            "❌ " + e.message;
+    }
+}
+
+// ===================================
 // SCÉNY
 // ===================================
 
