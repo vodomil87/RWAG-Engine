@@ -60,21 +60,6 @@ function render() {
 }
 
 // ===================================
-// START
-// ===================================
-
-async function start() {
-    try {
-        await loadGame("nebakov");
-        render();
-    } catch (e) {
-        console.error(e);
-        document.getElementById("game").innerText =
-            "❌ Engine error: " + e.message;
-    }
-}
-
-// ===================================
 // LOAD GAME
 // ===================================
 
