@@ -62,5 +62,19 @@ const UI = {
 
             this.root.appendChild(btn);
         });
+    },
+
+    function createSceneImage(imageName) {
+
+        const img = document.createElement("img");
+
+        img.src = `images/${imageName}`;
+        img.className = "scene-image";
+
+        img.onerror = () => {
+            console.error("Obrázek nenalezen:", img.src);
+    };
+
+    return img;
     }
 };
