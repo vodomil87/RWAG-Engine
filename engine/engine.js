@@ -29,6 +29,13 @@ function render() {
 
     root.innerHTML = "";
 
+    // IMAGE
+    if (scene.image) {
+        root.appendChild(
+            createSceneImage(scene.image)
+        );
+    }
+    
     // TEXT
     const textDiv = document.createElement("div");
     textDiv.className = "text";
