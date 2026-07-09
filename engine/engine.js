@@ -109,9 +109,8 @@ async function loadGame(gameName) {
 // ===================================
 
 function getScene(id) {
-    if (!Engine.game) return null;
-
-    return Engine.game.scenes.find(scene => scene.id === id) || null;
+    console.log("Hledám scénu:", id);
+    return Engine.game.scenes.find(scene => scene.id === id);
 }
 
 function gotoScene(id) {
