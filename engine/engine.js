@@ -48,6 +48,8 @@ const Engine = {
 
             console.log("CALL UI");
 
+            UI.init();
+
             UI.renderScene(
                 this.currentScene
             );
@@ -141,3 +143,5 @@ async loadGame(gameName) {
     }
 
 };
+
+window.Engine = Engine;
