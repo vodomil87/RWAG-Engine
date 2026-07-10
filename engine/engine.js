@@ -1,6 +1,7 @@
 const Engine = {
 
     game: null,
+
     currentScene: null,
 
     player: {
@@ -13,122 +14,110 @@ const Engine = {
         inventory: [],
         roles: [],
         flags: {}
+    },
+
+
+    // ===============================
+    // START HRY
+    // ===============================
+
+    async start(gameName) {
+
+        try {
+
+            await this.loadGame(gameName);
+
+            const startScene = this.getScene(
+                this.game.startScene
+            );
+
+            if (!startScene) {
+                throw new Error(
+                    "Start scéna nenalezena"
+                );
+            }
+
+            this.currentScene = startScene;
+
+            UI.renderScene(
+                this.currentScene
+            );
+
+        } catch(error) {
+
+            console.error(error);
+
+            document.getElementById("game").innerHTML =
+                "❌ " + error.message;
+        }
+    },
+
+
+    // ===============================
+    // NAČTENÍ JSON
+    // ===============================
+
+    async loadGame(gameName) {
+
+        const response = await fetch(
+            `games/${gameName}.json`
+        );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Nelze načíst hru: " + gameName
+            );
+        }
+
+
+        this.game = await response.json();
+
+        console.log(
+            "Načtena hra:",
+            this.game.gameId
+        );
+    },
+
+
+    // ===============================
+    // HLEDÁNÍ SCÉNY
+    // ===============================
+
+    getScene(id) {
+
+        return this.game.scenes.find(
+            scene => scene.id === id
+        );
+    },
+
+
+    // ===============================
+    // PŘECHOD NA SCÉNU
+    // ===============================
+
+    gotoScene(id) {
+
+
+        const scene = this.getScene(id);
+
+
+        if (!scene) {
+
+            console.error(
+                "Scéna nenalezena:",
+                id
+            );
+
+            return;
+        }
+
+
+        this.currentScene = scene;
+
+
+        UI.renderScene(scene);
     }
 
 };
-
-function render() {
-    const scene = Engine.currentScene;
-
-    const root = document.getElementById("game");
-
-    if (!scene) {
-        root.innerHTML = "❌ Scéna neexistuje";
-        return;
-    }
-
-    root.innerHTML = "";
-
-    // IMAGE
-    if (scene.image) {
-        const img = document.createElement("img");
-        img.src = `images/${scene.image}`;
-        img.className = "scene-image";
-        root.appendChild(img);
-    }
-    
-    // TEXT
-    const textDiv = document.createElement("div");
-    textDiv.className = "text";
-
-    if (Array.isArray(scene.text)) {
-        textDiv.innerHTML = scene.text.join("<br><br>");
-    } else {
-        textDiv.innerText = scene.text;
-    }
-
-    root.appendChild(textDiv);
-
-    // CHOICES
-    scene.choices.forEach(choice => {
-        const btn = document.createElement("button");
-        btn.className = "choice";
-
-        const icon = icons?.[choice.icon] || "";
-        const label = Array.isArray(choice.text)
-            ? choice.text.join(" ")
-            : choice.text;
-
-        btn.innerText = `${icon} ${label}`;
-
-        btn.onclick = () => gotoScene(choice.goto);
-
-        root.appendChild(btn);
-    });
-}
-
-// ===================================
-// LOAD GAME
-// ===================================
-
-async function loadGame(gameName) {
-    const response = await fetch(`games/${gameName}.json`);
-
-    if (!response.ok) {
-        throw new Error("JSON se nenačetl");
-    }
-
-    Engine.game = await response.json();
-
-    // 👇 TADY
-    console.log("START SCENE ID:", Engine.game.startScene);
-    console.log("AVAILABLE SCENES:", Engine.game.scenes.map(s => s.id));
-
-    console.log("GAME LOADED", Engine.game);
-
-    const startId = Engine.game.startScene;
-    const scene = getScene(startId);
-
-    if (!scene) {
-        console.error("START SCÉNA NEEXISTUJE:", startId);
-        return;
-    }
-
-    Engine.currentScene = scene;
-}
-
-// ===================================
-// START
-// ===================================
-
-async function start() {
-    try {
-        await loadGame("nebakov");
-        render();
-    } catch (e) {
-        console.error(e);
-        document.getElementById("game").innerHTML =
-            "❌ " + e.message;
-    }
-}
-
-// ===================================
-// SCÉNY
-// ===================================
-
-function getScene(id) {
-    console.log("Hledám scénu:", id);
-    return Engine.game.scenes.find(scene => scene.id === id);
-}
-
-function gotoScene(id) {
-    const scene = getScene(id);
-
-    if (!scene) {
-        console.error("SCÉNA NENALEZENA:", id);
-        return;
-    }
-
-    Engine.currentScene = scene;
-    render();
-}
