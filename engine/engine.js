@@ -31,9 +31,10 @@ function render() {
 
     // IMAGE
     if (scene.image) {
-        root.appendChild(
-            createSceneImage(scene.image)
-        );
+        const img = document.createElement("img");
+        img.src = `images/${scene.image}`;
+        img.className = "scene-image";
+        root.appendChild(img);
     }
     
     // TEXT
