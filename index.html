@@ -72,25 +72,31 @@
 
   <div id="game">Načítám hru...</div>
 
-  <!-- UI (musí být před enginem) -->
-  <script src="engine/ui.js"></script>
-  
   <!-- ICONS (musí být před enginem) -->
   <script src="engine/icons.js"></script>
   
+  <!-- UI (musí být před enginem) -->
+  <script src="engine/ui.js"></script>
+    
   <!-- ENGINE -->
   <script src="engine/engine.js"></script>
 
   <!-- SAFE START -->
   <script>
-    window.addEventListener("load", () => {
-      if (typeof start === "function") {
-        start();
-      } else {
+  window.addEventListener("load", () => {
+
+    if (typeof Engine !== "undefined") {
+
+        Engine.start("nebakov");
+
+    } else {
+
         document.getElementById("game").innerHTML =
-          "❌ Engine se nenačetl";
-      }
-    });
+            "❌ Engine se nenačetl";
+
+    }
+
+  });
   </script>
 
 </body>
