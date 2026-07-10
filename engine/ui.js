@@ -22,6 +22,12 @@ const UI = {
 
         this.root.innerHTML = "";
 
+        if (scene.image) {
+            this.root.appendChild(
+                this.createSceneImage(scene.image)
+            );
+        }
+
         this.renderText(scene);
         this.renderChoices(scene);
     },
@@ -49,7 +55,7 @@ const UI = {
             const btn = document.createElement("button");
             btn.className = "choice";
 
-            const icon = choice.icon || "";
+            const icon = icons?.[choice.icon] || "";
             const text = Array.isArray(choice.text)
                 ? choice.text.join(" ")
                 : choice.text;
@@ -64,7 +70,7 @@ const UI = {
         });
     },
 
-    function createSceneImage(imageName) {
+    createSceneImage(imageName) {
 
         const img = document.createElement("img");
 
