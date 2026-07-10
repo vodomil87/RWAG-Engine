@@ -23,21 +23,30 @@ const Engine = {
 
     async start(gameName) {
 
-        try {
+    console.log("ENGINE START");
 
-            await this.loadGame(gameName);
+    try {
 
-            const startScene = this.getScene(
-                this.game.startScene
-            );
+        await this.loadGame(gameName);
+
+        console.log("GAME READY", this.game);
+
+        const startScene = this.getScene(
+            this.game.startScene
+        );
+
+        console.log("START SCENE", startScene);
+
 
             if (!startScene) {
-                throw new Error(
-                    "Start scéna nenalezena"
+               throw new Error(
+                  "Start scéna nenalezena"
                 );
             }
 
             this.currentScene = startScene;
+
+            console.log("CALL UI");
 
             UI.renderScene(
                 this.currentScene
@@ -45,7 +54,7 @@ const Engine = {
 
         } catch(error) {
 
-            console.error(error);
+            console.error("ENGINE ERROR", error);
 
             document.getElementById("game").innerHTML =
                 "❌ " + error.message;
@@ -55,30 +64,41 @@ const Engine = {
 
     // ===============================
     // NAČTENÍ JSON
-    // ===============================
+    // ==============================
+    
+async loadGame(gameName) {
 
-    async loadGame(gameName) {
+    console.log(
+        "LOADING GAME:",
+        gameName
+    );
 
-        const response = await fetch(
-            `games/${gameName}.json`
+    const response = await fetch(
+        `games/${gameName}.json`
+    );
+
+
+    console.log(
+        "JSON RESPONSE:",
+        response.status
+    );
+
+
+    if (!response.ok) {
+
+        throw new Error(
+            "Nelze načíst hru"
         );
+    }
 
 
-        if (!response.ok) {
+    this.game = await response.json();
 
-            throw new Error(
-                "Nelze načíst hru: " + gameName
-            );
-        }
-
-
-        this.game = await response.json();
-
-        console.log(
-            "Načtena hra:",
-            this.game.gameId
-        );
-    },
+    console.log(
+        "JSON DATA:",
+        this.game
+    );
+},
 
 
     // ===============================
