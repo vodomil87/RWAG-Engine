@@ -51,10 +51,12 @@ console.log("CALL UI");
 UI.init();
 
 // Spustit efekty pouze při prvním vstupu
-if (!scene._visited) {
+if (!this.currentScene._visited) {
 
-    scene._visited = true;
-Effects.apply(this.currentScene.effects);
+    this.currentScene._visited = true;
+
+    Effects.apply(this.currentScene.effects);
+
 }
 
 // Vykreslit scénu
@@ -152,6 +154,11 @@ if (!scene._visited) {
     scene._visited = true;
 
     Effects.apply(scene.effects);
+
+}
+
+// Překreslit scénu
+UI.renderScene(this.currentScene);
 
 // Překreslit stavový řádek
 Status.render();
