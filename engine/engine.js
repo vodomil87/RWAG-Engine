@@ -50,8 +50,12 @@ console.log("CALL UI");
 
 UI.init();
 
-// Efekty první scény
+// Spustit efekty pouze při prvním vstupu
+if (!scene._visited) {
+
+    scene._visited = true;
 Effects.apply(this.currentScene.effects);
+}
 
 // Vykreslit scénu
 UI.renderScene(this.currentScene);
@@ -142,11 +146,12 @@ async loadGame(gameName) {
 
 this.currentScene = scene;
 
-// Spustit efekty scény
-Effects.apply(scene.effects);
+// Spustit efekty pouze při prvním vstupu
+if (!scene._visited) {
 
-// Překreslit scénu
-UI.renderScene(scene);
+    scene._visited = true;
+
+    Effects.apply(scene.effects);
 
 // Překreslit stavový řádek
 Status.render();
