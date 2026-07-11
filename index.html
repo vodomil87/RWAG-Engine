@@ -19,9 +19,10 @@
 
   <div id="status"></div>
 
-  <div id="game">
-      Načítám scénář...
-  </div>
+<div id="launcher"></div>
+
+<div id="game" style="display:none;">
+</div>
 
   <!-- ICONS a STATUS (musí být před enginem) -->
   <script src="engine/icons.js"></script>
@@ -33,6 +34,7 @@
     
   <!-- ENGINE -->
   <script src="engine/engine.js"></script>
+  <script src="engine/launcher.js"></script>
 
   <!-- SAFE START -->
   <script>
@@ -40,7 +42,11 @@
 
     if (typeof Engine !== "undefined") {
 
-        Engine.start("nebakov");
+        window.addEventListener("load", () => {
+
+    Launcher.init();
+
+});
 
     } else {
 
