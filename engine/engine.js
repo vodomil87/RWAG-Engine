@@ -46,13 +46,18 @@ const Engine = {
 
             this.currentScene = startScene;
 
-            console.log("CALL UI");
+console.log("CALL UI");
 
-            UI.init();
+UI.init();
 
-            UI.renderScene(
-                this.currentScene
-            );
+// Efekty první scény
+Effects.apply(this.currentScene.effects);
+
+// Vykreslit scénu
+UI.renderScene(this.currentScene);
+
+// Aktualizovat horní lištu
+Status.render();
 
         } catch(error) {
 
@@ -135,11 +140,17 @@ async loadGame(gameName) {
             return;
         }
 
+this.currentScene = scene;
 
-        this.currentScene = scene;
+// Spustit efekty scény
+Effects.apply(scene.effects);
 
+// Překreslit scénu
+UI.renderScene(scene);
 
-        UI.renderScene(scene);
+// Překreslit stavový řádek
+Status.render();
+        
     }
 
 };
