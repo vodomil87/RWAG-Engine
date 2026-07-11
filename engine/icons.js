@@ -1,27 +1,29 @@
 ﻿const icons = {
 
 stopy:"👣",
-
 lupa:"🔍",
-
 mozek:"🧠",
-
 nuz:"🗡️",
-
 bublina:"💬",
-
 priroda:"🌿",
-
 koruna:"👑",
-
 hodiny:"⏳",
-
 rep_pos:"🙂",
-
 rep_neg:"😡",
-
 rep_neu:"😐",
-
-lebka:"💀"
-
+lebka:"💀",
+role: "👤",
+batoh: "🎒",
+svitek: "📜",
+knihy: "📚",
+graf: "📈",
+diskera: "💾",
+dvere: "🚪",
+nastaveni: "⚙️",
+den_noc: "🌓",
+zvonek: "🔔",
+info: "ℹ️",
+srdce: "❤️",
+smrt: "☠️"
+   
 };
