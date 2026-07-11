@@ -58,5 +58,22 @@
   });
   </script>
 
+  <script>
+window.addEventListener("load", () => {
+
+    if (typeof Launcher !== "undefined") {
+
+        Launcher.init();
+
+    } else {
+
+        document.getElementById("launcher").innerHTML =
+            "❌ Launcher se nenačetl";
+
+    }
+
+});
+  </script>
+
 </body>
 </html>
