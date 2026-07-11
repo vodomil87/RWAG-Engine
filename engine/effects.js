@@ -1,9 +1,1 @@
-applyEffects()
-
-applyReputation()
-
-applyInventory()
-
-showToast()
-
-playSound()
+Effects.apply(scene.effects);
