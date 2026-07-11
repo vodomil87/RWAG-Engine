@@ -30,6 +30,7 @@ const UI = {
 
         this.renderText(scene);
         this.renderChoices(scene);
+        Status.render();
     },
 
     renderText(scene) {
