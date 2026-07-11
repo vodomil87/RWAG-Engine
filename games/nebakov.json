@@ -1,6 +1,10 @@
 {
-  "gameId": "ukazka",
+  "gameId": "nebakov",
+  "scenarioName": "Tajemství Nebákova",
+  "description": "Dobrodružný scénář v okolí Nebákova.",
+  
   "startScene": "scene_211",
+  
   "scenes": [
     {
       "id": "scene_206",
