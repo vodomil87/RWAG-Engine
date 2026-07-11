@@ -73,6 +73,10 @@
       "id":"scene_306",
       "image":"lipa02.jpg",
       "text":"Mužova tvář se kroutí bolestí. Zkusíte mu sehnat něco na utišení bolesti? Nebo se rozhodnete zbavit ho trápení jednou provždy?",
+            "effects":[
+        {"type":"reputation","value":1},
+        {"type":"toast","text":"Za váš čin jste získali 1 bod reputace!"}
+      ],
       "choices":[
         {"icon":"mozek","text":"Pokusit se pomoci mu od bolesti.","goto":"scene_999"},
         {"icon":"nuz","text":"Zbavit ho trápení natrvalo.","goto":"scene_999"}
