@@ -1,5 +1,7 @@
 const Launcher = {
 
+    console.log("LAUNCHER JS NACTEN");
+    
     scenarios: [],
 
 
