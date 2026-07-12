@@ -40,54 +40,47 @@
   <script src="engine/launcher.js"></script>
 
   <!-- SAFE START -->
-  <script>
+<script>
+
 window.addEventListener("load", () => {
 
-    if (typeof Menu !== "undefined") {
+    console.log("PAGE READY");
+
+
+    if(typeof Menu !== "undefined"){
 
         Menu.init();
 
     }
 
 
-    if (typeof Engine !== "undefined") {
+    if(typeof start === "function"){
 
-        Engine.start("nebakov");
+        start();
 
     }
-
-});
-
-    } else {
+    else{
 
         document.getElementById("game").innerHTML =
-            "❌ Engine se nenačetl";
-
-    }
-
-  });
-  </script>
-
-  <script>
-window.addEventListener("load", () => {
-
-    if (typeof Launcher !== "undefined") {
-
-        Launcher.init();
-
-    } else {
-
-        document.getElementById("launcher").innerHTML =
-            "❌ Launcher se nenačetl";
+        "❌ Start nenalezen";
 
     }
 
 });
-  </script>
+
+</script>
   
-<button id="menuButton">
-☰
-</button>
+<div id="topbar">
+
+    <button id="menuButton">
+        ☰
+    </button>
+
+    <div id="status">
+    </div>
+
+</div>
+
 
 <div id="menuPanel"></div>
   
