@@ -41,13 +41,20 @@
 
   <!-- SAFE START -->
   <script>
-  window.addEventListener("load", () => {
+window.addEventListener("load", () => {
+
+    if (typeof Menu !== "undefined") {
+
+        Menu.init();
+
+    }
+
 
     if (typeof Engine !== "undefined") {
 
-        window.addEventListener("load", () => {
+        Engine.start("nebakov");
 
-    Launcher.init();
+    }
 
 });
 
@@ -77,6 +84,12 @@ window.addEventListener("load", () => {
 
 });
   </script>
+  
+<button id="menuButton">
+☰
+</button>
 
+<div id="menuPanel"></div>
+  
 </body>
 </html>
