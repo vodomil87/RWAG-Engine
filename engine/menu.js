@@ -1,3 +1,5 @@
+console.log("MENU INIT");
+
 const Menu = {
 
     open: false,
