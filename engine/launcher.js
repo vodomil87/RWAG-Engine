@@ -1,5 +1,3 @@
-console.log("LAUNCHER JS NACTEN");
-    
 const Launcher = {
 
     scenarios: [],
