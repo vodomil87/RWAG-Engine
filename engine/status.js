@@ -38,6 +38,8 @@ const Status = {
             </div>
         `;
 
+        Menu.init();
+
     }
 
 };
