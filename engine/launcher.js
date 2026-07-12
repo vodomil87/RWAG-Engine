@@ -1,9 +1,8 @@
+console.log("LAUNCHER JS NACTEN");
+    
 const Launcher = {
 
-    console.log("LAUNCHER JS NACTEN");
-    
     scenarios: [],
-
 
     async init() {
 
