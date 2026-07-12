@@ -31,3 +31,41 @@ const Menu = {
     }
 
 };
+
+panel.innerHTML = `
+<b>${Engine.game.scenarioName}</b>
+<hr>
+
+${icons.role} Role
+
+<br>
+
+${Engine.state.reputation > 0 ? icons.rep_pos :
+Engine.state.reputation < 0 ? icons.rep_neg :
+icons.rep_neu}
+ Reputace
+
+<br>
+
+${icons.batoh} Inventář
+
+<br>
+
+${icons.svitek} Úkoly
+
+<br>
+
+${icons.knihy} Přehled pravidel
+
+<br>
+
+${icons.graf} Statistiky
+
+<br>
+
+${icons.disketa} Uložit / Načíst
+
+<br>
+
+${icons.dvere} Ukončit scénář
+`;
