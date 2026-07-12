@@ -168,3 +168,4 @@ Status.render();
 };
 
 window.Engine = Engine;
+window.start = start;
