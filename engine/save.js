@@ -1,7 +1,0 @@
-save()
-
-load()
-
-clear()
-
-autosave()

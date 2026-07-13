@@ -1,7 +1,0 @@
-evaluateCondition()
-
-evaluateAnd()
-
-evaluateOr()
-
-evaluateNot()
