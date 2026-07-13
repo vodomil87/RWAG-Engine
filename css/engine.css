@@ -1,218 +1,136 @@
 body {
-
     font-family: Arial, sans-serif;
     background: #111;
     color: #eee;
-
     margin: 0;
     padding: 15px;
-
 }
 
 #status {
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     margin-bottom: 15px;
-
     padding: 8px 0;
-
     font-size: 22px;
-
 }
 
 #menuButton {
-
     background: none;
     border: none;
-
     color: white;
-
     font-size: 26px;
-
     cursor: pointer;
-
 }
 
 #menuPanel{
-
     position:fixed;
-
     top:0;
     left:-320px;
-
     width:300px;
     height:100vh;
-
     background:#222;
     color:#fff;
-
     padding:20px;
-
     box-sizing:border-box;
-
     transition:left .25s ease;
-
     z-index:1000;
-
     overflow-y:auto;
-
 }
 
 .status-right {
-
     font-size: 22px;
-
 }
 
 #game {
-
     max-width: 600px;
     margin: auto;
-
 }
 
 .scene-image {
-
     width: 100%;
     height: auto;
-
     display: block;
-
     border-radius: 12px;
-
     margin-bottom: 20px;
-
 }
 
 .text {
-
     margin-bottom: 20px;
-
     line-height: 1.6;
-
     white-space: pre-wrap;
-
 }
 
 .choice {
-
     display: block;
-
     width: 100%;
-
     margin: 10px 0;
-
     padding: 12px;
-
     background: #222;
-
     border: 1px solid #444;
-
     color: white;
-
     border-radius: 8px;
-
     cursor: pointer;
-
     text-align: left;
-
     font-size: 16px;
-
 }
 
 .choice:hover {
-
     background: #333;
-
 }
 
 .choice:disabled {
-
     opacity: .5;
-
 }
 
 #menuPanel{
-
     position:fixed;
-
     top:0;
     left:-320px;
-
     width:300px;
     height:100vh;
-
     background:#222;
-
     padding:20px;
-
     box-sizing:border-box;
-
     transition:left .25s ease;
-
     z-index:1000;
-
     overflow-y:auto;
-
 }
 
 #menuPanel.menu-open{
-
     left:0;
-
+    display:block;
 }
 
 .menu-title{
-
     font-size:20px;
     font-weight:bold;
-
     margin-bottom:20px;
-
 }
 
 .menu-item{
-
     padding:12px 0;
-
     cursor:pointer;
-
 }
 
 .menu-item:hover{
-
     opacity:.8;
-
 }
 
 .menu-section{
-
     margin-top:15px;
     margin-bottom:10px;
-
     font-weight:bold;
-
 }
 
 .menu-buttons{
-
     display:flex;
-
     gap:8px;
-
     flex-wrap:wrap;
-
 }
 
 .menu-buttons button{
-
     padding:8px 12px;
-
 }
 
 #menuPanel{position:fixed;top:0;left:-320px;width:300px;height:100vh;background:#222;color:#fff;padding:20px;transition:.2s;z-index:10;}
