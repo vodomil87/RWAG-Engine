@@ -2,7 +2,13 @@ const Menu={
 open:false,
 init(){
  const b=document.getElementById("menuButton");
- if(b) b.onclick=()=>this.toggle();
+ console.log("MENU INIT", b);
+ if(b){
+    b.onclick=()=>{
+        console.log("MENU CLICK");
+        this.toggle();
+    };
+ }
 },
 toggle(){
  this.open=!this.open;
