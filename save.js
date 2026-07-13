@@ -1,0 +1,7 @@
+save()
+
+load()
+
+clear()
+
+autosave()
