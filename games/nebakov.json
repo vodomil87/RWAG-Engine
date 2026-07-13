@@ -9,6 +9,10 @@
     {
       "id": "scene_206",
       "text": "Teď, když mezi vámi není žádný pacifista, na jehož znechucený výraz byste se museli koukat a poslouchat jeho poznámky, můžete se pustit do ohledání místa. Dokud budete na tomto místě, postarejte se o to, aby se zde nenacházel pacifista. Nezapomeňte ho ale vzít s sebou, až odsud půjdete pryč a informovat ho o postupu. Ale v jeho zájmu možná vynechejte zbytečné detaily.",
+      "effects":[
+        {"type":"reputation","value":1},
+        {"type":"toast","text":"Za váš čin jste ztratili 1 bod reputace."}
+      ],
       "choices": [
         {
           "icon": "stopy",
