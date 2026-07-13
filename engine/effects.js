@@ -12,6 +12,10 @@ const Effects = {
 
                     Engine.state.reputation += effect.value;
 
+                    if (window.Status) {
+                        Status.render();
+                    }
+
                     break;
 
             }
@@ -21,3 +25,5 @@ const Effects = {
     }
 
 };
+
+window.Effects = Effects;
