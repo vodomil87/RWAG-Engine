@@ -12,8 +12,9 @@ const Engine = {
         try{
             await this.loadGame(gameName);
             UI.init();
-            Menu.init();
             this.gotoScene(this.game.startScene);
+            Status.render();
+            Menu.init();
         }catch(e){
             console.error(e);
             document.getElementById("game").innerHTML="❌ "+e.message;
