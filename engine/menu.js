@@ -13,8 +13,15 @@ init(){
 toggle(){
  this.open=!this.open;
  const p=document.getElementById("menuPanel");
- p.classList.toggle("menu-open",this.open);
- if(this.open)this.render();
+ console.log("MENU PANEL:",p);
+ console.log("OPEN:",this.open);
+ p.classList.toggle(
+     "menu-open",
+     this.open
+ );
+ if(this.open){
+     this.render();
+ }
 },
 render(){
  document.getElementById("menuPanel").innerHTML=`
