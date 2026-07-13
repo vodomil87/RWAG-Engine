@@ -54,10 +54,13 @@ const Menu = {
         <div class="menu-item">${icons.role} Role</div>
         <div class="menu-item">${icons.svitek} Úkoly</div>
         <div class="menu-item">${icons.batoh} Inventář</div>
-        <div class="menu-item">${icons.knihy} Pravidla</div>
+        <div class="menu-item">${icons.knihy} Přehled pravidel</div>
         <div class="menu-item">${icons.graf} Statistiky</div>
+        <div class="menu-item">${icons.disketa} Uložit / Načíst pozici</div>
+        <div class="menu-item">${icons.dvere} Ukončit scénář</div>
         <hr>
         <div class="menu-item">${icons.nastaveni} Nastavení</div>
+        <hr>
         <div class="menu-item">${icons.info} O aplikaci</div>
         `;
     }
