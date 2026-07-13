@@ -50,20 +50,18 @@ window.addEventListener("load", () => {
 
     console.log("PAGE READY");
 
-
-    if(typeof Menu !== "undefined"){
-
-        Menu.init();
-
-    }
-
-
     if(typeof Launcher !== "undefined"){
-        Launcher.init();
-    } else if(typeof Engine !== "undefined"){
-        document.getElementById("game").style.display="block";
-        Engine.start("nebakov");
-    }
+
+    Launcher.init();
+
+}
+else if(typeof Engine !== "undefined"){
+
+    document.getElementById("game").style.display="block";
+
+    Engine.start("nebakov");
+
+}
 
 });
 
