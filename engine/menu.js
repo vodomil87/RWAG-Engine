@@ -62,6 +62,9 @@ const Menu = {
             case "about":
                 this.renderAbout();
                 break;
+            case "roles":
+                this.renderRoles();
+                break;
             default:
                 this.renderMain();
         }
@@ -70,9 +73,11 @@ const Menu = {
     renderMain(){
         document.getElementById("menuPanel").innerHTML=`
         <div class="menu-title">
-        ${icons.svitek} ${Engine.game?.scenarioName || "Scénář"}
+            ${icons.svitek} ${Engine.game?.scenarioName || "Scénář"}
         </div>
-        <div class="menu-item">${icons.role} Role</div>
+        <div class="menu-item" id="menuRoles">
+            ${icons.role} Role ${icons.vpred}
+        </div>
         <div class="menu-item">${icons.svitek} Úkoly</div>
         <div class="menu-item">${icons.batoh} Inventář</div>
         <div class="menu-item">${icons.knihy} Přehled pravidel</div>
@@ -95,6 +100,10 @@ const Menu = {
         document.getElementById("menuAbout").onclick = (e) => {
             e.stopPropagation();
             this.showAbout();
+        };
+        document.getElementById("menuRoles").onclick=(e)=>{
+            e.stopPropagation();
+            this.showRoles();
         };
     },
     
@@ -178,8 +187,74 @@ const Menu = {
         };
     },
 
+    renderRoles(){
+    const role = Engine.state.roles?.[0];
+    if(!role){
+        document.getElementById("menuPanel").innerHTML=`
+        <div class="menu-title">
+            ${icons.role} Role
+        </div>
+        <p>
+            Žádná role není přidělena.
+        </p>
+        <hr>
+        <div class="menu-item" id="menuBack">
+            ${icons.zpet} Zpět
+        </div>
+        `;
+        document.getElementById("menuBack").onclick=(e)=>{
+            e.stopPropagation();
+            this.showMain();
+        };
+        return;
+    }
+
+    document.getElementById("menuPanel").innerHTML=`
+    <div class="menu-title">
+        ${icons.role} ${role.name}
+    </div>
+    <div style="opacity:.7;margin-bottom:15px;">
+        ${role.description}
+    </div>
+    <div class="menu-section">
+        ${icons.role} Charakter
+    </div>
+    ${role.character.map(text=>`
+        <div style="margin-bottom:8px;">
+            • ${text}
+        </div>
+    `).join("")}
+    <div class="menu-section">
+        ${icons.plus} Výhoda
+    </div>
+    <div>
+        ${role.advantages[0].text}
+    </div>
+    <div class="menu-section">
+        ${icons.minus} Nevýhoda
+    </div>
+    <div>
+        ${role.disadvantages[0].text}
+    </div>
+    <hr>
+    <div class="menu-item" id="menuBack">
+        ${icons.zpet} Zpět
+    </div>
+    `;
+
+    document.getElementById("menuBack").onclick=(e)=>{
+        e.stopPropagation();
+        this.showMain();
+        };
+    },
+    
     showMain(){
         this.page="main";
+        this.render();
+    },
+    
+    showRoles(){
+        this.page="roles";
         this.render();
     }
 };
