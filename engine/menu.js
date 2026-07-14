@@ -71,6 +71,10 @@ const Menu = {
     },
 
     renderMain(){
+        if(!Engine.game){
+            this.renderLauncherMenu();
+        return;
+            
         document.getElementById("menuPanel").innerHTML=`
         <div class="menu-title">
             ${icons.svitek} ${Engine.game?.scenarioName || "Scénář"}
@@ -104,6 +108,29 @@ const Menu = {
         document.getElementById("menuRoles").onclick=(e)=>{
             e.stopPropagation();
             this.showRoles();
+        };
+    },
+
+    renderLauncherMenu(){
+        document.getElementById("menuPanel").innerHTML=`
+        <div class="menu-title">
+            ${icons.menu} Menu
+        </div>
+        <div class="menu-item" id="menuSettings">
+            ${icons.nastaveni} Nastavení ${icons.vpred}
+        </div>
+        <hr>
+        <div class="menu-item" id="menuAbout">
+            ${icons.info} O aplikaci ${icons.vpred}
+        </div>
+        `;
+        document.getElementById("menuSettings").onclick=(e)=>{
+            e.stopPropagation();
+            this.showSettings();
+        };
+        document.getElementById("menuAbout").onclick=(e)=>{
+            e.stopPropagation();
+            this.showAbout();
         };
     },
     
