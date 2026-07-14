@@ -22,9 +22,12 @@ disketa: "💾",
 dvere: "🚪",
 nastaveni: "⚙️",
 den_noc: "🌓",
+fotn: "🆎",
 zvonek: "🔔",
 info: "ℹ️",
 srdce: "❤️",
-smrt: "☠️"
+smrt: "☠️",
+zpet: "◀",
+vpred: "▶"
    
 };
