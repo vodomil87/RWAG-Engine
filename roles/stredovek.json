@@ -122,8 +122,8 @@
 				{
 				"type":"gps_zone",
 				"zone":"pubs"
-				}
-                    	"text":"[vždy] V hospodách a jejich okolí se vaší skupině počítá +1 k reputaci."
+				},
+                "text":"[vždy] V hospodách a jejich okolí se vaší skupině počítá +1 k reputaci."
 			}
             	],
 		"disadvantages":[
@@ -137,7 +137,7 @@
 				{
 				"type":"gps_zone",
 				"zone":"pubs"
-				}
+				},
 			"text":"[vždy] Pokud jsi u místa, kde se prodává jídlo si musíš něco koupit a hned to sníst."
 			}
 		]
@@ -158,13 +158,13 @@
 			"icon":"plus",			
 			"effects":
 				{
-				"type":"return_on_choice"
+    			"type":"return_on_choice"
 				},
 			"usage":
 				{
 				"type":"once"
 				},
-                    	"text":"[1/hru] Můžete vzít zpět jednou rozhodnutí."
+                "text":"[1/hru] Můžete vzít zpět jednou rozhodnutí."
 			}
             	],
 		"disadvantages":[
@@ -178,7 +178,7 @@
 				{
 				"type":"once"
 				},
-			"text":"[následek] Ihned poté nastane náhodné setkání."
+				"text":"[následek] Ihned poté nastane náhodné setkání."
 			}
 		]
         },
@@ -289,7 +289,7 @@
 				{
 				"type":"gps_zone",
 				"zone":"no_village"
-				}
+				},
             		"text":"[vždy] Mimo obce se vaší skupině počítá -1 k reputaci."
 	  		}
   		]
