@@ -74,7 +74,8 @@ const Menu = {
         if(!Engine.game){
             this.renderLauncherMenu();
         return;
-            
+        }
+        
         document.getElementById("menuPanel").innerHTML=`
         <div class="menu-title">
             ${icons.svitek} ${Engine.game?.scenarioName || "Scénář"}
