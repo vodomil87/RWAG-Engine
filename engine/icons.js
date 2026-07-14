@@ -30,6 +30,7 @@ smrt: "☠️",
 zpet: "◀",
 vpred: "▶",
 plus: "➕",
-minus: "➖"
+minus: "➖",
+masky: "🎭"
    
 };
