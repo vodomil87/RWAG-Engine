@@ -4,6 +4,7 @@
 	{
 		"id":"tupec",
 		"name":"Tupec",
+		"description":"Neoplývá intelektem, ale má srdce na dlani.",
 		"icon":"role",
 		"character":[
 			"Hned po porodu jsi spadl na hlavu.",
@@ -38,6 +39,7 @@
 	{
 		"id":"pacifista",
 		"name":"Pacifista",
+		"description":"Příčí se mu násilí a krev.",
 		"icon":"role",
 		"character":[
 			"Vyhýbáš se konfliktům a příčí se ti násilí.",
@@ -72,6 +74,7 @@
 	{
 		"id":"analfabet",
 		"name":"Alanafbet",
+		"description":"Ve čtení a psaní nevyniká, ale má to i své výhody.",
 		"icon":"role",
 		"character":[
 			"Jsi čvoljek sporsýtch pomjerů a vdzěnálí se ti nidky nedosalto.",
@@ -102,6 +105,7 @@
 	{
 		"id":"nenasyta",
 		"name":"Nenasyta",
+		"description":"Stále hladový, ale vděčný strávník.",
 		"icon":"role",
 		"character":[
 			"Jako nejmladší dítě jsi se musel hodně snažit, aby na tebe něco zbylo.",
@@ -141,6 +145,7 @@
 	{
 		"id":"pedant",
 		"name":"Vzdělaný pedant",
+		"description":"Osina v zadku pro ty, kdo mluví jak jim zobák narostl.",
 		"icon":"role",
 		"character":[
 			"Byl jsi na učení jazyka českého v Kutné Hoře.",
@@ -180,6 +185,7 @@
 	{
 		"id":"slechtic",
 		"name":"Šlechtic",
+		"description":"Nejspíše urozený člověk, který očekává odpovídající zacházení.",
 		"icon":"role",
 		"character":[
 			"Máš urozený původ. … nebo si to alespoň myslíš.",
@@ -215,6 +221,7 @@
 	{
 		"id":"vegetarian",
 		"name":"Milovník přírody",
+		"description":"Zapřísáhlý bíložravec s láskou k přírodě.",
 		"icon":"role",
 		"character":[
 			"Miluješ přírodu a zvlášť zvířata.",
@@ -249,6 +256,7 @@
 	{
 		"id":"lenoch",
 		"name":"Lenoch",
+		"description":"Vesnický povaleč. Málokde je oblíbený.",
 		"icon":"role",
 		"character":[
 			"Už od mala jsi pohodlný.",
