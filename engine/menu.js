@@ -211,7 +211,7 @@ const Menu = {
 
     document.getElementById("menuPanel").innerHTML=`
     <div class="menu-title">
-        ${icons.role} ${role.name}
+        ${role.name}
     </div>
     <div style="opacity:.7;margin-bottom:15px;">
         ${role.description}
@@ -221,7 +221,7 @@ const Menu = {
     </div>
     ${role.character.map(text=>`
         <div style="margin-bottom:8px;">
-            • ${text}
+            ${text}
         </div>
     `).join("")}
     <div class="menu-section">
