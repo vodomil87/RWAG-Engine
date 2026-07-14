@@ -81,7 +81,7 @@ const Menu = {
         <div class="menu-item">${icons.dvere} Ukončit scénář</div>
         <hr>
         <div class="menu-item" id="menuSettings">
-            ${icons.nastaveni} Nastavení ▶
+            ${icons.nastaveni} Nastavení ${icons.vpred}
         </div>
         <hr>
         <div class="menu-item" id="menuAbout">
@@ -111,10 +111,10 @@ const Menu = {
     renderSettings(){
         document.getElementById("menuPanel").innerHTML=`
         <div class="menu-title">
-            Nastavení
+            ${icons.nastaveni} Nastavení
         </div>
         <div class="menu-section">
-            🌓 Barevné schéma
+            ${icons.den_noc} Barevné schéma
         </div>
         <div class="menu-buttons">
             <button>Černé</button>
@@ -122,7 +122,7 @@ const Menu = {
             <button>Stylové</button>
         </div>
         <div class="menu-section">
-            🆎 Font
+            ${icons.font} Font
         </div>
         <div class="menu-buttons">
             <button>Výchozí</button>
@@ -138,7 +138,7 @@ const Menu = {
         value="16"
         style="width:100%;">
         <div class="menu-section">
-           🔔 Oznámení
+           ${icons.zvonek} Oznámení
         </div>
         <div class="menu-item">
             Zvuky
@@ -148,7 +148,7 @@ const Menu = {
         </div>
         <hr>
         <div class="menu-item" id="menuBack">
-            ◀ Zpět
+            ${icons.zpet} Zpět
         </div>
         `;
         document.getElementById("menuBack").onclick = (e) => {
@@ -160,7 +160,7 @@ const Menu = {
     renderAbout(){
         document.getElementById("menuPanel").innerHTML=`
         <div class="menu-title">
-            ℹ️ O aplikaci ▶
+            ${icons.info} O aplikaci ${icons.vpred}
         </div>
         <p>
         RWAG Engine
@@ -169,7 +169,7 @@ const Menu = {
         </p>
         <hr>
         <div class="menu-item" id="menuBack">
-           ◀ Zpět
+           ${icons.zpet} Zpět
         </div>
         `;
         document.getElementById("menuBack").onclick = (e) => {
