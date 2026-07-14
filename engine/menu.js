@@ -85,7 +85,7 @@ const Menu = {
         </div>
         <hr>
         <div class="menu-item" id="menuAbout">
-            ${icons.info} O aplikaci
+            ${icons.info} O aplikaci ${icons.vpred}
         </div>
         `;
         document.getElementById("menuSettings").onclick = (e) => {
@@ -160,7 +160,7 @@ const Menu = {
     renderAbout(){
         document.getElementById("menuPanel").innerHTML=`
         <div class="menu-title">
-            ${icons.info} O aplikaci ${icons.vpred}
+            ${icons.info} O aplikaci
         </div>
         <p>
         RWAG Engine
