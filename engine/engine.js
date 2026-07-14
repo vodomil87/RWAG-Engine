@@ -11,6 +11,7 @@ const Engine = {
     async start(gameName){
         try{
             await this.loadGame(gameName);
+            await this.loadRoles();
             UI.init();
             this.gotoScene(this.game.startScene);
             Status.render();
@@ -26,7 +27,32 @@ const Engine = {
         if(!response.ok) throw new Error("Nelze načíst scénář");
         this.game=await response.json();
     },
+    
+    async loadRoles(){
+        if(!this.game.roleSet){
+            console.log(
+                "Scénář nemá role"
+            );
+            return;
+        }
 
+        const roles =
+            await Roles.load(
+                this.game.roleSet
+            );
+
+        this.state.roles =
+            Roles.assign(
+                roles,
+                1
+            );
+    
+        console.log(
+            "PLAYER ROLES:",
+            this.state.roles
+        );
+    },
+    
     getScene(id){
         return this.game?.scenes?.find(s=>s.id===id) || null;
     },
