@@ -96,10 +96,6 @@ const Menu = {
             e.stopPropagation();
             this.showAbout();
         };
-        document.getElementById("menuBack").onclick = (e) => {
-            e.stopPropagation();
-            this.showMain();
-        };
     },
     
     showSettings(){
@@ -115,7 +111,7 @@ const Menu = {
     renderSettings(){
         document.getElementById("menuPanel").innerHTML=`
         <div class="menu-title">
-            ◀ Nastavení
+            Nastavení
         </div>
         <div class="menu-section">
             🌓 Barevné schéma
@@ -155,12 +151,16 @@ const Menu = {
             ◀ Zpět
         </div>
         `;
+        document.getElementById("menuBack").onclick = (e) => {
+            e.stopPropagation();
+            this.showMain();
+        };
     },
 
     renderAbout(){
         document.getElementById("menuPanel").innerHTML=`
         <div class="menu-title">
-            ℹ️ O aplikaci
+            ℹ️ O aplikaci ▶
         </div>
         <p>
         RWAG Engine
@@ -168,7 +168,6 @@ const Menu = {
         Verze 0.2
         </p>
         <hr>
-        <div
         <div class="menu-item" id="menuBack">
            ◀ Zpět
         </div>
