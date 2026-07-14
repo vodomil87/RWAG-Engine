@@ -13,15 +13,24 @@
 		"advantages":[
 			{
 			"icon":"plus",
-			"type":"ignore_choice_condition",
-			"limit":1,
+			"effects":
+				{
+				"type":"ignore_choice_condition"
+				},
+			"usage":
+				{
+				"type":"once"
+				},
 			"text":"[1/hru] Vaše skupina může ignorovat podmínku rozhodnutí (vyjma závěru hry)."
 			}
 		],
 		"disadvantages":[
 			{
 			"icon":"minus",
-			"type":"releplay_twice_answer",
+			"effects":
+				{
+				"type":"roleplay_twice_answer"
+				},			
 			"text":"[vždy] Pokud se na něco zeptáš, musí ti to dotazovaný říci dvakrát, abys to pochopil. Tvých přátel se to však netýká."
 			}
 		]
@@ -39,15 +48,23 @@
 			{
 			"icon":"plus",
 			"effects":
-				{"type":"reputation","value":1},
-                    	"limit":1,
+				{
+				"type":"reputation","value":1
+				},
+			"usage":
+				{
+				"type":"once"
+				},
                     	"text":"[začátek] Vaše skupina získává +1 k reputaci."
 			}
             	],
 		"disadvantages":[
 			{
 			"icon":"minus",
-			"type":"releplay_cant_use_weapons",
+			"effects":
+				{
+				"type":"roleplay_cant_use_weapons"
+				},			
 			"text":"[vždy] Nemůžeš používat zbraně a nože."
 			}
 		]
@@ -64,14 +81,20 @@
 		"advantages":[
 			{
 			"icon":"plus",
-			"type":"releplay_no_tips",
+			"effects":
+				{
+				"type":"roleplay_no_tips"
+				},
                     	"text":"[vdžy] Nmeusíš nechváat srpopitné."
 			}
             	],
 		"disadvantages":[
 			{
 			"icon":"minus",
-			"type":"releplay_cant_read_nor_calculate",
+			"effects":
+				{
+				"type":"roleplay_cant_read_nor_calculate"
+				},
 			"text":"[vdžy] Nemuíš čsít ani počtíat."
 			}
 		]
@@ -86,17 +109,31 @@
 		],
 		"advantages":[
 			{
+			"icon":"plus",			
 			"effects":
-				{"type":"reputation","value":1},
-                    	"limit":"GPS_pubs",
+				{
+				"type":"reputation","value":1
+				},
+			"condition":
+				{
+				"type":"gps_zone",
+				"zone":"pubs"
+				}
                     	"text":"[vždy] V hospodách a jejich okolí se vaší skupině počítá +1 k reputaci."
 			}
             	],
 		"disadvantages":[
 			{
 			"icon":"minus",
-			"type":"releplay_buy_and_eat",
-                    	"limit":"GPS_pubs",
+			"effects":
+				{
+				"type":"roleplay_buy_and_eat"
+				},
+			"condition":
+				{
+				"type":"gps_zone",
+				"zone":"pubs"
+				}
 			"text":"[vždy] Pokud jsi u místa, kde se prodává jídlo si musíš něco koupit a hned to sníst."
 			}
 		]
@@ -113,16 +150,29 @@
 		],
 		"advantages":[
 			{
-			"effects":"return_on_choice",
-                    	"limit":1,
+			"icon":"plus",			
+			"effects":
+				{
+				"type":"return_on_choice"
+				},
+			"usage":
+				{
+				"type":"once"
+				},
                     	"text":"[1/hru] Můžete vzít zpět jednou rozhodnutí."
 			}
             	],
 		"disadvantages":[
 			{
 			"icon":"minus",
-			"type":"encounter",
-                    	"limit":1,
+			"effects":
+				{
+				"type":"encounter"
+				},
+			"usage":
+				{
+				"type":"once"
+				},
 			"text":"[následek] Ihned poté nastane náhodné setkání."
 			}
 		]
@@ -140,15 +190,24 @@
 		"advantages":[
 			{
 			"icon":"plus",
-			"type":"ignore_reputation_loss",
-			"limit":1,
+			"effects":
+				{
+				"type":"ignore_reputation_loss"
+				},
+			"usage":
+				{
+				"type":"once"
+				},
 			"text":"[1/hru] Vaše skupina může ignorovat jednu ztrátu reputace."
 			}
             	],
 		"disadvantages":[
 			{
 			"icon":"minus",
-			"type":"roleplay_higher_tip",
+			"effects":
+				{
+				"type":"roleplay_higher_tip"
+				},
 			"text":"[vždy] Platíš jako poslední a musíš dávat vyšší spropitné."
 			}
 		]
@@ -165,15 +224,24 @@
 		"advantages":[
 			{
 			"icon":"plus",
-			"type":"roleplay_nature_quest_done",
-			"limit":1,
+			"effects":
+				{
+				"type":"nature_quest_done"
+				},
+			"usage":
+				{
+				"type":"once"
+				},
 			"text":"[1/hru] Vaše skupina může ihned splnit úkol charakteru příroda (🌿)."
 			}
             	],
 		"disadvantages":[
 			{
 			"icon":"minus",
-			"type":"roleplay_no_meat",
+			"effects":
+				{
+				"type":"roleplay_no_meat"
+				},
 			"text":"[vždy] Jíš pouze bezmasá jídla."
 			}
 		]
@@ -191,17 +259,30 @@
 		"advantages":[
 			{
 			"icon":"plus",
-			"type":"ignore_encounter",
-			"limit":1,
+			"effects":
+				{
+				"type":"ignore_encounter"
+				},
+			"usage":
+				{
+				"type":"once"
+				},
 			"text":"[1/hru] Vaše skupina může předejít náhodnému setkání (⌛)."
 			}
             	],
-		  "disadvantages":[
-			  {
-			  "effects":
-		  	{"type":"reputation","value":-1},
-            "limit":"GPS_no_village",
-            "text":"[vždy] Mimo obce se vaší skupině počítá -1 k reputaci."
+		"disadvantages":[
+			{
+			"icon":"minus",			
+			"effects":
+		  		{
+				"type":"reputation","value":-1
+				},
+			"condition":
+				{
+				"type":"gps_zone",
+				"zone":"no_village"
+				}
+            		"text":"[vždy] Mimo obce se vaší skupině počítá -1 k reputaci."
 	  		}
   		]
   	}
