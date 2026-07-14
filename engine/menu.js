@@ -10,6 +10,13 @@ const Menu = {
             };
         }
 
+        const panel = document.getElementById("menuPanel");
+        if(panel){
+            panel.onclick = (e)=>{
+                e.stopPropagation();
+            };
+        }
+
         document.addEventListener(
             "click",
             (e)=>{
@@ -73,16 +80,26 @@ const Menu = {
         <div class="menu-item">${icons.disketa} Uložit / Načíst pozici</div>
         <div class="menu-item">${icons.dvere} Ukončit scénář</div>
         <hr>
-        <div class="menu-item"
-            onclick="Menu.showSettings()">
+        <div class="menu-item" id="menuSettings">
             ${icons.nastaveni} Nastavení ▶
         </div>
         <hr>
-        <div class="menu-item"
-            onclick="Menu.showAbout()">
+        <div class="menu-item" id="menuAbout">
             ${icons.info} O aplikaci
         </div>
         `;
+        document.getElementById("menuSettings").onclick = (e) => {
+            e.stopPropagation();
+            this.showSettings();
+        };
+        document.getElementById("menuAbout").onclick = (e) => {
+            e.stopPropagation();
+            this.showAbout();
+        };
+        document.getElementById("menuBack").onclick = (e) => {
+            e.stopPropagation();
+            this.showMain();
+        };
     },
     
     showSettings(){
@@ -134,9 +151,7 @@ const Menu = {
             Vibrace
         </div>
         <hr>
-        <div
-        class="menu-item"
-        onclick="Menu.showMain()">
+        <div class="menu-item" id="menuBack">
             ◀ Zpět
         </div>
         `;
@@ -154,11 +169,14 @@ const Menu = {
         </p>
         <hr>
         <div
-        class="menu-item"
-        onclick="Menu.showMain()">
-            ◀ Zpět
+        <div class="menu-item" id="menuBack">
+           ◀ Zpět
         </div>
         `;
+        document.getElementById("menuBack").onclick = (e) => {
+            e.stopPropagation();
+        this.showMain();
+        };
     },
 
     showMain(){
