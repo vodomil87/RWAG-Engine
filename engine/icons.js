@@ -29,7 +29,7 @@ srdce: "❤️",
 smrt: "☠️",
 zpet: "◀",
 vpred: "▶",
-plus: "⊕︀",
-minus: "⊝"
+plus: "➕",
+minus: "➖"
    
 };
