@@ -70,19 +70,19 @@ const Launcher = {
             "START SCENARIO:",
             id
         );
-
+    
         document.getElementById(
             "launcher"
         ).style.display = "none";
-
+    
         document.getElementById(
             "game"
         ).style.display = "block";
-
+    
         document.getElementById(
             "appTitle"
-        ).style.display="block";
-
+        ).style.display="none";
+    
         Engine.start(id);
     }
 };
