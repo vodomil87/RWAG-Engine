@@ -8,7 +8,7 @@ const Settings = {
         document.body.classList.remove(
             "font-default",
             "font-medieval",
-            "font-typewriter"
+            "font-typo"
         );
         document.body.classList.add(
             "font-" + font
