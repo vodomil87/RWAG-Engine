@@ -18,7 +18,8 @@
   <div id="launcher"></div>
   <div id="game" style="display:none;"></div>
 
-  <!-- ICONS, STATUS, EFFECTS, ROLES, MENU (musí být před enginem) -->
+  <!-- SETTINGS, ICONS, STATUS, EFFECTS, ROLES, MENU (musí být před enginem) -->
+  <script src="engine/settings.js"></script>
   <script src="engine/icons.js"></script>
   <script src="engine/status.js"></script>
   <script src="engine/effects.js"></script>
@@ -36,7 +37,9 @@
   <script>
     window.addEventListener("load", () => {
       console.log("PAGE READY");
-
+      Settings.init();
+      Launcher.init();
+      
     if(typeof Launcher !== "undefined"){
       Launcher.init();
     }
