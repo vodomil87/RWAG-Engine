@@ -194,19 +194,19 @@ body.font-typewriter{
     align-items: center;
     margin-bottom: 15px;
     padding: 8px 0;
-    font-size:var(--game-font-size);
+    font-size:calc(var(--game-font-size) + 4px);
 }
 
 #menuButton {
     background:none;
     border:none;
     color:var(--text-color);
-    font-size:calc(var(--game-font-size) + 4px);
+    font-size:calc(var(--game-font-size) + 8px);
     cursor:pointer;
 }
 
 .status-right {
-    font-size:var(--game-font-size);
+    font-size:calc(var(--game-font-size) + 4px);
 }
 
 #game {
@@ -274,7 +274,9 @@ body.font-typewriter{
 
 .menu-title{
     font-size:calc(var(--game-font-size) + 4px);
+/*    
     font-weight:bold;
+*/
     margin-bottom:20px;
 }
 
@@ -295,7 +297,9 @@ body.font-typewriter{
 .menu-section{
     margin-top:15px;
     margin-bottom:10px;
+/*    
     font-weight:bold;
+*/
 }
 
 .menu-buttons{
