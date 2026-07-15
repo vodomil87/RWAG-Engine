@@ -101,8 +101,8 @@ body.theme-medieval{
     color:#111;
 }
 
-.theme-btn.active{
-    outline:3px solid #4ea3ff;
+.theme-preview.active{
+    outline:3px solid var(--text-color);
     transform:scale(1.08);
 }
 
