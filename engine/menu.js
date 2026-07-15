@@ -153,17 +153,23 @@ const Menu = {
         <div class="menu-section">
             ${icons.den_noc} Barevné schéma
         </div>
-    <div class="theme-picker">
-        <button class="theme-btn dark">
-            Aa
-        </button>
-        <button class="theme-btn light">
-            Aa
-        </button>
-        <button class="theme-btn medieval">
-        Aa
-        </button>
-    </div>
+        <div class="theme-picker">
+            <button
+                id="themeDark"
+                class="theme-preview dark">
+                Aa
+            </button>
+            <button
+                id="themeLight"
+                class="theme-preview light">
+                Aa
+            </button>
+            <button
+                id="themeMedieval"
+                class="theme-preview medieval">
+                Aa
+            </button>
+        </div>
         <div class="menu-section">
             ${icons.font} Font
         </div>
@@ -194,6 +200,15 @@ const Menu = {
             ${icons.zpet} Zpět
         </div>
         `;
+        document.getElementById("themeDark").onclick=()=>{
+            Settings.setTheme("dark");
+        };
+        document.getElementById("themeLight").onclick=()=>{
+            Settings.setTheme("light");
+        };
+        document.getElementById("themeMedieval").onclick=()=>{
+            Settings.setTheme("medieval");
+        };
         document.getElementById("menuBack").onclick = (e) => {
             e.stopPropagation();
             this.showMain();
@@ -292,9 +307,5 @@ const Menu = {
         this.render();
     }
 };
-
-Settings.setTheme("dark");
-Settings.setTheme("light");
-Settings.setTheme("medieval");
 
 window.Menu=Menu;
