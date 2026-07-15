@@ -19,8 +19,8 @@
   <div id="game" style="display:none;"></div>
 
   <!-- SETTINGS, ICONS, STATUS, EFFECTS, ROLES, MENU (musí být před enginem) -->
-  <script src="engine/settings.js"></script>
   <script src="engine/icons.js"></script>
+  <script src="engine/settings.js"></script>
   <script src="engine/status.js"></script>
   <script src="engine/effects.js"></script>
   <script src="engine/roles.js"></script>
@@ -37,7 +37,7 @@
   <script>
     window.addEventListener("load", () => {
       console.log("PAGE READY");
-      Settings.init();
+      Settings.load();
       Launcher.init();
       
     if(typeof Launcher !== "undefined"){
