@@ -50,11 +50,23 @@ body.font-default{
     font-family: Arial, sans-serif;
 }
 
+#fontDefault{
+    font-family: Arial, sans-serif;
+}
+
 body.font-medieval{
-    font-family:"Alegreya", serif;
+    font-family: "Alegreya", serif;
+}
+
+#fontMedieval{
+    font-family: "Alegreya", serif;
 }
 
 body.font-typewriter{
+    font-family: "Courier New", monospace;
+}
+
+#fontTypewriter{
     font-family: "Courier New", monospace;
 }
 
