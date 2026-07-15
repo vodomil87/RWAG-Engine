@@ -25,6 +25,7 @@ textarea {
     --panel-bg:#222;
     --panel-item-bg:#222;
     --panel-border:#444;
+    --font-active-color:#4ea3ff;
     --font-default: system-ui, sans-serif;
     --font-medieval: "MedievalSharp", serif;
     --font-typewriter: "Special Elite", monospace;
@@ -76,6 +77,21 @@ body.theme-medieval{
     --panel-bg:#efb05d;
     --panel-item-bg:#efb05d;
     --panel-border:#8b5a20;
+}
+
+body.font-default{
+    --font-active-color:#666;
+    /* šedá */
+}
+
+body.font-medieval{
+    --font-active-color:#8b5a20;
+    /* hnědá */
+}
+
+body.font-typewriter{
+    --font-active-color:#3d85c6;
+     /* modrá default #4ea3ff */
 }
 
 body.font-default{
@@ -201,7 +217,7 @@ body.font-typewriter{
 }
 
 .theme-preview.active{
-    outline:3px solid var(--text-color);
+    outline:2px solid var(--font-active-color);
     transform:scale(1.08);
 }
 
@@ -210,7 +226,7 @@ body.font-typewriter{
 }
 
 .font-preview.active{
-    outline:3px solid #4ea3ff;
+    outline:2px solid var(--font-active-color);
     transform:scale(1.08);
 }
 
