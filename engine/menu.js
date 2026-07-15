@@ -252,6 +252,7 @@ const Menu = {
             e.stopPropagation();
             this.showMain();
         };
+        Settings.updateThemeButtons();
         const currentTheme =
             localStorage.getItem("rwag_theme") || "dark";
         document
