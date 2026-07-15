@@ -193,8 +193,10 @@ const Menu = {
         </div>
         <div class="menu-section">
             Velikost písma
+            <span id="fontSizeValue">16</span> px
         </div>
         <input
+        id="fontSizeRange"
         type="range"
         min="14"
         max="28"
@@ -215,7 +217,7 @@ const Menu = {
         </div>
         `;
         
-       document.getElementById("themeDark").onclick=()=>{
+        document.getElementById("themeDark").onclick=()=>{
             Settings.setTheme("dark");
         };
         
@@ -248,6 +250,25 @@ const Menu = {
         document.getElementById("fontTypewriter").onclick=()=>{
             Settings.setFont("typewriter");
             Settings.updateFontButtons();
+        };
+
+        document.getElementById("fontSizeRange").oninput=(e)=>{
+            Settings.setFontSize(
+            e.target.value
+            );
+        };
+
+        const slider=document.getElementById("fontSizeRange");
+        const value=document.getElementById("fontSizeValue");
+
+        slider.value =
+            localStorage.getItem("rwag_font_size") || 16;
+
+        value.innerText=slider.value;
+
+        slider.oninput=(e)=>{
+            Settings.setFontSize(e.target.value);
+            value.innerText=e.target.value;
         };
     },
 
