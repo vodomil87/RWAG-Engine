@@ -202,17 +202,61 @@ const Menu = {
         `;
         document.getElementById("themeDark").onclick=()=>{
             Settings.setTheme("dark");
+            document
+                .querySelectorAll(".theme-preview")
+                .forEach(btn=>{
+                    btn.classList.remove("active");
+            });
+            document
+                .getElementById(
+                    "theme" +
+                    theme.charAt(0).toUpperCase() +
+                    theme.slice(1)
+                )
+                ?.classList.add("active");
         };
         document.getElementById("themeLight").onclick=()=>{
             Settings.setTheme("light");
+            document
+                .querySelectorAll(".theme-preview")
+                .forEach(btn=>{
+                    btn.classList.remove("active");
+            });
+            document
+                .getElementById(
+                    "theme" +
+                    theme.charAt(0).toUpperCase() +
+                    theme.slice(1)
+                )
+                ?.classList.add("active");
         };
         document.getElementById("themeMedieval").onclick=()=>{
             Settings.setTheme("medieval");
+                document
+                .querySelectorAll(".theme-preview")
+                .forEach(btn=>{
+                    btn.classList.remove("active");
+            });
+            document
+                .getElementById(
+                    "theme" +
+                    theme.charAt(0).toUpperCase() +
+                    theme.slice(1)
+                )
+                ?.classList.add("active");
         };
         document.getElementById("menuBack").onclick = (e) => {
             e.stopPropagation();
             this.showMain();
         };
+        const currentTheme =
+            localStorage.getItem("rwag_theme") || "dark";
+        document
+            .getElementById("theme" + 
+                currentTheme.charAt(0).toUpperCase() +
+                currentTheme.slice(1)
+            )
+            ?.classList.add("active");
     },
 
     renderAbout(){
@@ -234,6 +278,14 @@ const Menu = {
             e.stopPropagation();
         this.showMain();
         };
+        const currentTheme =
+            localStorage.getItem("rwag_theme") || "dark";
+        document
+            .getElementById("theme" + 
+                currentTheme.charAt(0).toUpperCase() +
+                currentTheme.slice(1)
+            )
+            ?.classList.add("active");
     },
 
     renderRoles(){
