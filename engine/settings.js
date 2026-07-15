@@ -30,6 +30,20 @@ const Settings = {
         )
         ?.classList.add("active");
     },
+
+    setFontSize(size){
+
+        document.documentElement.style
+            .setProperty(
+                "--game-font-size",
+                size + "px"
+            );
+
+        localStorage.setItem(
+            "rwag_font_size",
+            size
+        );
+    },
     
     setTheme(theme){
         document.body.classList.remove(
@@ -101,6 +115,16 @@ const Settings = {
         document.body.classList.add(
             "font-" + font
         );
+
+        const size =
+            localStorage.getItem("rwag_font_size")
+            || 16;
+
+        document.documentElement.style
+            .setProperty(
+                "--game-font-size",
+                size + "px"
+            );
     }
 };
 
