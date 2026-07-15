@@ -247,14 +247,14 @@ const Menu = {
     <div class="menu-title">
         ${icons.role} ${role.name}
     </div>
-    <div style="opacity:.7;margin-bottom:15px;">
+    <div class="menu-description">
         ${role.description}
     </div>
     <div class="menu-section">
         ${icons.masky} Charakter
     </div>
     ${role.character.map(text=>`
-        <div style="margin-bottom:8px;">
+        <<div class="menu-description">
             ${text}
         </div>
     `).join("")}
