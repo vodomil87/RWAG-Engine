@@ -199,13 +199,14 @@ body.theme-medieval{
     padding:12px 0;
     margin:6px 0;
     background:var(--panel-item-bg);
-    border:1px solid var(--panel-border);
+    border:none;
     border-radius:8px;
     cursor:pointer;
 }
 
 .menu-item:hover{
     opacity:.8;
+    filter:brightness(1.15);
 }
 
 .menu-section{
