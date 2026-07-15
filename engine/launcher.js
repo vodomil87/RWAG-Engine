@@ -3,6 +3,7 @@ console.log("launcher.js načten");
 const Launcher = {
     scenarios: [],
     async init() {
+        Settings.load();
         console.log("Launcher.init()");
         console.log("LAUNCHER INIT");
         const response = await fetch(
