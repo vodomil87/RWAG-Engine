@@ -46,6 +46,18 @@ body.theme-medieval{
     --panel-border:#8b5a20;
 }
 
+body.font-default{
+    font-family: Arial, sans-serif;
+}
+
+body.font-medieval{
+    font-family:"Alegreya", serif;
+}
+
+body.font-typewriter{
+    font-family: "Courier New", monospace;
+}
+
 .theme-picker{
     display:flex;
     gap:10px;
