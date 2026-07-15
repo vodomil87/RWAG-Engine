@@ -1,6 +1,6 @@
 const icons = {
 
-menu:"☰",
+menu:"≡",
 stopy:"👣",
 lupa:"🔍",
 mozek:"🧠",
