@@ -236,6 +236,7 @@ const Menu = {
         };
         Settings.updateThemeButtons();
         this.updateThemeButtons();
+        Settings.updateFontButtons();
 
         document.getElementById("fontDefault").onclick=()=>{
             Settings.setFont("default");
