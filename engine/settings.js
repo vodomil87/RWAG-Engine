@@ -11,6 +11,20 @@ const Settings = {
             "rwag_theme",
             theme
         );
+        
+        document
+            .querySelectorAll(".theme-preview")
+            .forEach(btn=>{
+                btn.classList.remove("active");
+            });
+        
+        document
+            .getElementById(
+                "theme" +
+                theme.charAt(0).toUpperCase() +
+                theme.slice(1)
+            )
+            ?.classList.add("active");
     },
 
     load(){
