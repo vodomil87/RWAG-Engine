@@ -26,6 +26,31 @@ body.theme-medieval{
     gap:10px;
 }
 
+.theme-preview{
+    width:48px;
+    height:48px;
+    border-radius:8px;
+    border:2px solid #555;
+    cursor:pointer;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.theme-preview.dark{
+    background:#111;
+    color:white;
+}
+
+.theme-preview.light{
+    background:white;
+    color:black;
+}
+
+.theme-preview.medieval{
+    background:#d98b2b;
+    color:black;
+}
+
 .theme-btn{
     width:56px;
     height:40px;
