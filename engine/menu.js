@@ -200,67 +200,29 @@ const Menu = {
             ${icons.zpet} Zpět
         </div>
         `;
-        document.getElementById("themeDark").onclick=()=>{
+        
+       document.getElementById("themeDark").onclick=()=>{
             Settings.setTheme("dark");
             this.updateThemeButtons();
-            document
-                .querySelectorAll(".theme-preview")
-                .forEach(btn=>{
-                    btn.classList.remove("active");
-            });
-            document
-                .getElementById(
-                    "theme" +
-                    theme.charAt(0).toUpperCase() +
-                    theme.slice(1)
-                )
-                ?.classList.add("active");
         };
+        
         document.getElementById("themeLight").onclick=()=>{
             Settings.setTheme("light");
             this.updateThemeButtons();
-            document
-                .querySelectorAll(".theme-preview")
-                .forEach(btn=>{
-                    btn.classList.remove("active");
-            });
-            document
-                .getElementById(
-                    "theme" +
-                    theme.charAt(0).toUpperCase() +
-                    theme.slice(1)
-                )
-                ?.classList.add("active");
         };
+        
         document.getElementById("themeMedieval").onclick=()=>{
             Settings.setTheme("medieval");
             this.updateThemeButtons();
-                document
-                .querySelectorAll(".theme-preview")
-                .forEach(btn=>{
-                    btn.classList.remove("active");
-            });
-            document
-                .getElementById(
-                    "theme" +
-                    theme.charAt(0).toUpperCase() +
-                    theme.slice(1)
-                )
-                ?.classList.add("active");
         };
+        
         document.getElementById("menuBack").onclick = (e) => {
             e.stopPropagation();
             this.showMain();
+            
         };
         Settings.updateThemeButtons();
-        const currentTheme =
-            localStorage.getItem("rwag_theme") || "dark";
-        document
-            .getElementById("theme" + 
-                currentTheme.charAt(0).toUpperCase() +
-                currentTheme.slice(1)
-            )
-            ?.classList.add("active");
+        this.updateThemeButtons();
     },
 
     updateThemeButtons(){
@@ -301,14 +263,6 @@ const Menu = {
             e.stopPropagation();
         this.showMain();
         };
-        const currentTheme =
-            localStorage.getItem("rwag_theme") || "dark";
-        document
-            .getElementById("theme" + 
-                currentTheme.charAt(0).toUpperCase() +
-                currentTheme.slice(1)
-            )
-            ?.classList.add("active");
     },
 
     renderRoles(){
