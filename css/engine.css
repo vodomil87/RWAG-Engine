@@ -106,6 +106,27 @@ body.theme-medieval{
     transform:scale(1.08);
 }
 
+.font-preview{
+    width:90px;
+    height:48px;
+    border-radius:8px;
+    border:2px solid var(--panel-border);
+    cursor:pointer;
+    font-size:18px;
+    font-weight:bold;
+    background:var(--panel-item-bg);
+    color:var(--text-color);
+}
+
+.font-preview:hover{
+    filter:brightness(1.1);
+}
+
+.font-preview.active{
+    outline:3px solid #4ea3ff;
+    transform:scale(1.08);
+}
+
 #status {
     display: flex;
     justify-content: space-between;
