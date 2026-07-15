@@ -17,6 +17,8 @@ textarea {
 :root{
     --bg-color:#111;
     --text-color:#eee;
+    --title-size:20px;
+    --subtitle-size:18px;
     --game-font-size:16px;
     --panel-color:#222;
     --border-color:#444;
@@ -26,6 +28,24 @@ textarea {
     --font-default: system-ui, sans-serif;
     --font-medieval: "MedievalSharp", serif;
     --font-typewriter: "Special Elite", monospace;
+}
+
+h1{
+    font-size:var(--title-size);
+    font-weight:700;
+    margin:0 0 20px;
+/*    
+    font-weight:bold;
+*/
+}
+
+h2{
+    font-size:var(--subtitle-size);
+    font-weight:700;
+    margin:0 0 16px;
+/*    
+    font-weight:bold;
+*/
 }
 
 body.theme-dark{
