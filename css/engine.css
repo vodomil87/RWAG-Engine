@@ -12,8 +12,8 @@ body {
     --panel-color:#222;
     --border-color:#444;
     --panel-bg:#222;
+    --panel-item-bg:#2a2a2a;
     --panel-border:#444;
-    --panel-item-bg:#222;
 }
 
 body.theme-dark{
@@ -22,8 +22,8 @@ body.theme-dark{
     --panel-color:#222;
     --border-color:#444;
     --panel-bg:#222;
-    --panel-border:#555;
-    --panel-item-bg:#222;
+    --panel-item-bg:#2a2a2a;
+    --panel-border:#444;
 }
 
 body.theme-light{
@@ -32,8 +32,8 @@ body.theme-light{
     --panel-color:#f0f0f0;
     --border-color:#ccc;
     --panel-bg:#f2f2f2;
-    --panel-border:#ccc;
     --panel-item-bg:#fff;
+    --panel-border:#ccc;
 }
 
 body.theme-medieval{
@@ -41,9 +41,9 @@ body.theme-medieval{
     --text-color:#111;
     --panel-color:#e6a04d;
     --border-color:#8b5a20;
-    --panel-bg:#e8a04b;
-    --panel-border:#8b5a20;
+    --panel-bg:#efb05d;
     --panel-item-bg:#d98b2b;
+    --panel-border:#8b5a20;
 }
 
 .theme-picker{
@@ -174,7 +174,7 @@ body.theme-medieval{
     left:-320px;
     width:300px;
     height:100vh;
-    background:var(--bg-color);
+    background:var(--panel-bg);
     color:var(--text-color);
     border-right:2px solid var(--panel-border);
     padding:20px;
@@ -197,11 +197,10 @@ body.theme-medieval{
 
 .menu-item{
     padding:12px 0;
-    cursor:pointer;
+    margin:6px 0;
     background:var(--panel-item-bg);
     border:1px solid var(--panel-border);
     border-radius:8px;
-
     cursor:pointer;
 }
 
