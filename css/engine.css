@@ -13,22 +13,6 @@ textarea {
     font-family: inherit;
 }
 
-button,
-#menuButton,
-[class^="icon"]{
-    font-family:system-ui;
-}
-
-button {
-    font-family:inherit;
-}
-
-.icon,
-#status,
-button {
-    font-family: system-ui, sans-serif;
-}
-
 :root{
     --bg-color:#111;
     --text-color:#eee;
@@ -37,6 +21,9 @@ button {
     --panel-bg:#222;
     --panel-item-bg:#222;
     --panel-border:#444;
+    --font-default: system-ui, sans-serif;
+    --font-medieval: "MedievalSharp", serif;
+    --font-typewriter: "Special Elite", monospace;
 }
 
 body.theme-dark{
@@ -70,51 +57,51 @@ body.theme-medieval{
 }
 
 body.font-default{
-    font-family: system-ui, sans-serif;
+    font-family:var(--font-default);
 }
 
 #fontDefault{
-    font-family: system-ui, sans-serif;
+    font-family:var(--font-default);
 }
 
 .font-default{
-    font-family:system-ui,sans-serif;
-}
-
-body.font-medieval{
-    font-family: "MedievalSharp", serif;
-}
-
-#fontMedieval{
-    font-family: "MedievalSharp", serif;
-}
-
-.font-medieval{
-    font-family:"MedievalSharp",serif;
-}
-
-body.font-typewriter{
-    font-family: "Special Elite", monospace;
-}
-
-#fontTypewriter{
-    font-family: "Special Elite", monospace;
-}
-
-.font-typewriter{
-    font-family:"Special Elite",monospace;
+    font-family:var(--font-default);
 }
 
 .font-preview.default{
-    font-family:system-ui,sans-serif;
+    font-family:var(--font-default);
+}
+
+body.font-medieval{
+    font-family:var(--font-medieval);
+}
+
+#fontMedieval{
+    font-family:var(--font-medieval);
+}
+
+.font-medieval{
+    font-family:var(--font-medieval);
 }
 
 .font-preview.medieval{
-    font-family:"MedievalSharp",serif;
+    font-family:var(--font-medieval);
+}
+
+body.font-typewriter{
+    font-family:var(--font-typewriter);
+}
+
+#fontTypewriter{
+    font-family:var(--font-typewriter);
+}
+
+.font-typewriter{
+    font-family:var(--font-typewriter);
 }
 
 .font-preview.typewriter{
-    font-family:"Special Elite",monospace;
+    font-family:var(--font-typewriter);
 }
 
 .theme-picker{
@@ -190,19 +177,6 @@ body.font-typewriter{
     transform:scale(1.08);
 }
 
-.font-preview{
-    width:90px;
-    height:48px;
-    border-radius:8px;
-    border:2px solid var(--panel-border);
-    border-color:var(--panel-border);
-    cursor:pointer;
-    font-size:18px;
-    font-weight:bold;
-    background:var(--panel-item-bg);
-    color:var(--text-color);
-}
-
 .font-preview:hover{
     filter:brightness(1.1);
 }
@@ -210,18 +184,6 @@ body.font-typewriter{
 .font-preview.active{
     outline:3px solid #4ea3ff;
     transform:scale(1.08);
-}
-
-.theme-preview.font-default{
-    font-family:system-ui,sans-serif;
-}
-
-.theme-preview.font-medieval{
-    font-family:"MedievalSharp",serif;
-}
-
-.theme-preview.font-typewriter{
-    font-family:"Special Elite",monospace;
 }
 
 #status {
