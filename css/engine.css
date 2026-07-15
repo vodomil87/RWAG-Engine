@@ -1,9 +1,15 @@
 body {
-    font-family: system-ui, sans-serif;
+    font-family:var(--game-font);
     background:var(--bg-color);
     color:var(--text-color);
     margin: 0;
     padding: 15px;
+}
+
+button,
+#menuButton,
+[class^="icon"]{
+    font-family:system-ui;
 }
 
 :root{
@@ -55,11 +61,11 @@ body.font-default{
 }
 
 body.font-medieval{
-    font-family: "Uncial Antiqua", serif;
+    font-family: "MedievalSharp", serif;
 }
 
 #fontMedieval{
-    font-family: "Uncial Antiqua", serif;
+    font-family: "MedievalSharp", serif;
 }
 
 body.font-typewriter{
@@ -135,6 +141,7 @@ body.font-typewriter{
     height:48px;
     border-radius:8px;
     border:2px solid var(--panel-border);
+    border-color:var(--panel-border);
     cursor:pointer;
     font-size:18px;
     font-weight:bold;
