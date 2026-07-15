@@ -323,7 +323,7 @@ const Menu = {
         ${icons.masky} Charakter
     </div>
     ${role.character.map(text=>`
-        <<div class="menu-description">
+        <div class="menu-description">
             ${text}
         </div>
     `).join("")}
