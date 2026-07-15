@@ -18,7 +18,7 @@ const Settings = {
             font
         );
         document
-        .querySelectorAll(".font-preview, .theme-preview")
+        .querySelectorAll(".font-preview")
         .forEach(btn=>{
             btn.classList.remove("active");
         });
@@ -29,10 +29,11 @@ const Settings = {
             font.slice(1)
         )
         ?.classList.add("active");
+        this.updateFontButtons();
     },
+   
 
     setFontSize(size){
-
         document.documentElement.style
             .setProperty(
                 "--game-font-size",
@@ -51,16 +52,13 @@ const Settings = {
             "theme-light",
             "theme-medieval"
         );
-
         document.body.classList.add(
             "theme-" + theme
         );
-
         localStorage.setItem(
             "rwag_theme",
             theme
         );
-
         this.updateThemeButtons();
     },
 
@@ -103,8 +101,15 @@ const Settings = {
             localStorage.getItem("rwag_theme")
             || "dark";
 
-        document.body.className =
-            "theme-" + theme;
+        document.body.classList.remove(
+            "theme-dark",
+            "theme-light",
+            "theme-medieval"
+        );
+
+        document.body.classList.add(
+            "theme-" + theme
+        );
 
         const font =
             localStorage.getItem("rwag_font")
