@@ -117,7 +117,7 @@ body.font-typewriter{
     border-radius:8px;
     border:2px solid #555;
     cursor:pointer;
-    font-size:20px;
+    font-size:var(--game-font-size);
     font-weight:bold;
 }
 
@@ -145,7 +145,7 @@ body.font-typewriter{
     background:var(--panel-item-bg);
     color:var(--text-color);
     cursor:pointer;
-    font-size:20px;
+    font-size:var(--game-font-size);
     font-weight:bold;
 }
 
@@ -154,7 +154,7 @@ body.font-typewriter{
     height:40px;
     border-radius:10px;
     border:2px solid #666;
-    font-size:22px;
+    font-size:var(--game-font-size);
     font-weight:bold;
     cursor:pointer;
 }
@@ -194,19 +194,19 @@ body.font-typewriter{
     align-items: center;
     margin-bottom: 15px;
     padding: 8px 0;
-    font-size: 22px;
+    font-size:var(--game-font-size);
 }
 
 #menuButton {
     background:none;
     border:none;
     color:var(--text-color);
-    font-size:26px;
+    font-size:calc(var(--game-font-size) + 4px);
     cursor:pointer;
 }
 
 .status-right {
-    font-size: 22px;
+    font-size:var(--game-font-size);
 }
 
 #game {
@@ -239,7 +239,7 @@ body.font-typewriter{
     border-radius:8px;
     cursor:pointer;
     text-align:left;
-    font-size:16px;
+    font-size:var(--game-font-size);
     font-family:inherit;
 }
 
@@ -273,7 +273,7 @@ body.font-typewriter{
 }
 
 .menu-title{
-    font-size:20px;
+    font-size:calc(var(--game-font-size) + 4px);
     font-weight:bold;
     margin-bottom:20px;
 }
