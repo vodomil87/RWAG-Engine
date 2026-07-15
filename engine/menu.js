@@ -192,14 +192,14 @@ const Menu = {
             </button>
         </div>
         <div class="menu-section">
-            Velikost písma
+            Velikost písma:
             <span id="fontSizeValue">16</span> px
         </div>
         <input
         id="fontSizeRange"
         type="range"
-        min="14"
-        max="28"
+        min="10"
+        max="24"
         value="16"
         style="width:100%;">
         <div class="menu-section">
