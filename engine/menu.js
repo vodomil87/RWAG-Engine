@@ -144,7 +144,7 @@ const Menu = {
         this.page="about";
         this.render();
     },
-
+    
     renderSettings(){
         document.getElementById("menuPanel").innerHTML=`
         <div class="menu-title">
@@ -153,11 +153,17 @@ const Menu = {
         <div class="menu-section">
             ${icons.den_noc} Barevné schéma
         </div>
-        <div class="menu-buttons">
-            <button>Černé</button>
-            <button>Bílé</button>
-            <button>Stylové</button>
-        </div>
+    <div class="theme-picker">
+        <button class="theme-btn dark">
+            Aa
+        </button>
+        <button class="theme-btn light">
+            Aa
+        </button>
+        <button class="theme-btn medieval">
+        Aa
+        </button>
+    </div>
         <div class="menu-section">
             ${icons.font} Font
         </div>
@@ -286,5 +292,9 @@ const Menu = {
         this.render();
     }
 };
+
+Settings.setTheme("dark");
+Settings.setTheme("light");
+Settings.setTheme("medieval");
 
 window.Menu=Menu;
