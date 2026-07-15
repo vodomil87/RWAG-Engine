@@ -36,19 +36,12 @@
 
   <!-- SAFE START -->
   <script>
-    window.addEventListener("load", () => {
-      console.log("PAGE READY");
-      Settings.load();
-      Launcher.init();
-      
-    if(typeof Launcher !== "undefined"){
-      Launcher.init();
-    }
-    else if(typeof Engine !== "undefined"){
-      document.getElementById("game").style.display="block";
-      Engine.start("nebakov");
-    }
-    });
+  window.addEventListener("load", () => {
+    console.log("PAGE READY");
+
+    Settings.load();
+    Launcher.init();
+  });
   </script>
 </body>
 </html>
