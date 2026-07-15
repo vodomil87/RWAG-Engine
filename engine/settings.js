@@ -8,7 +8,7 @@ const Settings = {
         document.body.classList.remove(
             "font-default",
             "font-medieval",
-            "font-typo"
+            "font-typewriter"
         );
         document.body.classList.add(
             "font-" + font
@@ -61,6 +61,24 @@ const Settings = {
             ?.classList.add("active");
     },
 
+    updateFontButtons(){
+        document
+            .querySelectorAll(".font-preview")
+            .forEach(btn=>{
+                btn.classList.remove("active");
+            });
+        const font =
+            localStorage.getItem("rwag_font")
+            || "default";
+        document
+            .getElementById(
+                "font" +
+                font.charAt(0).toUpperCase() +
+                font.slice(1)
+            )
+            ?.classList.add("active");
+    },
+    
     load(){
         const theme =
             localStorage.getItem("rwag_theme")
