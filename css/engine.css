@@ -199,6 +199,18 @@ body.font-typewriter{
     transform:scale(1.08);
 }
 
+.theme-preview.font-default{
+    font-family:system-ui,sans-serif;
+}
+
+.theme-preview.font-medieval{
+    font-family:"MedievalSharp",serif;
+}
+
+.theme-preview.font-typewriter{
+    font-family:"Special Elite",monospace;
+}
+
 #status {
     display: flex;
     justify-content: space-between;
