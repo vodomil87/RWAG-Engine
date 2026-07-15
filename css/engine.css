@@ -76,6 +76,30 @@ body.font-typewriter{
     font-family: "Special Elite", monospace;
 }
 
+.font-preview{
+    width:48px;
+    height:48px;
+    border-radius:8px;
+    border:2px solid var(--border-color);
+    cursor:pointer;
+    font-size:20px;
+    font-weight:bold;
+    background:var(--panel-item-bg);
+    color:var(--text-color);
+}
+
+.font-preview.default{
+    font-family:system-ui, sans-serif;
+}
+
+.font-preview.medieval{
+    font-family:"Uncial Antiqua", serif;
+}
+
+.font-preview.typewriter{
+    font-family:"Special Elite", monospace;
+}
+
 .theme-picker{
     display:flex;
     gap:10px;
