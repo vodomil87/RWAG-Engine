@@ -1,24 +1,29 @@
 body {
     font-family: Arial, sans-serif;
-    background: #111;
-    color: #eee;
+    background:var(--bg-color);
+    color:var(--text-color);
     margin: 0;
     padding: 15px;
 }
 
+:root{
+    --bg-color:#111;
+    --text-color:#eee;
+}
+
 body.theme-dark{
-    background:#111;
-    color:#eee;
+    --bg-color:#111;
+    --text-color:#eee;
 }
 
 body.theme-light{
-    background:#fff;
-    color:#111;
+    --bg-color:#fff;
+    --text-color:#111;
 }
 
 body.theme-medieval{
-    background:#d58b24;
-    color:#111;
+    --bg-color:#d88b32;
+    --text-color:#111;
 }
 
 .theme-picker{
@@ -91,11 +96,11 @@ body.theme-medieval{
 }
 
 #menuButton {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 26px;
-    cursor: pointer;
+    background:none;
+    border:none;
+    color:var(--text-color);
+    font-size:26px;
+    cursor:pointer;
 }
 
 #menuPanel{
