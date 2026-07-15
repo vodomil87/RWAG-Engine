@@ -202,6 +202,7 @@ const Menu = {
         `;
         document.getElementById("themeDark").onclick=()=>{
             Settings.setTheme("dark");
+            this.updateThemeButtons();
             document
                 .querySelectorAll(".theme-preview")
                 .forEach(btn=>{
@@ -217,6 +218,7 @@ const Menu = {
         };
         document.getElementById("themeLight").onclick=()=>{
             Settings.setTheme("light");
+            this.updateThemeButtons();
             document
                 .querySelectorAll(".theme-preview")
                 .forEach(btn=>{
@@ -232,6 +234,7 @@ const Menu = {
         };
         document.getElementById("themeMedieval").onclick=()=>{
             Settings.setTheme("medieval");
+            this.updateThemeButtons();
                 document
                 .querySelectorAll(".theme-preview")
                 .forEach(btn=>{
@@ -259,6 +262,25 @@ const Menu = {
             ?.classList.add("active");
     },
 
+    updateThemeButtons(){
+        const currentTheme =
+            localStorage.getItem("rwag_theme") || "dark";
+
+        document
+            .querySelectorAll(".theme-preview")
+            .forEach(btn=>{
+                btn.classList.remove("active");
+            });
+
+        document
+            .getElementById(
+                "theme" +
+                currentTheme.charAt(0).toUpperCase() +
+                currentTheme.slice(1)
+            )
+            ?.classList.add("active");
+    },
+    
     renderAbout(){
         document.getElementById("menuPanel").innerHTML=`
         <div class="menu-title">
