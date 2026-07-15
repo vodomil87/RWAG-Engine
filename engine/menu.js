@@ -173,9 +173,22 @@ const Menu = {
         <div class="menu-section">
             ${icons.font} Font
         </div>
-        <div class="menu-buttons">
-            <button>Výchozí</button>
-            <button>Stylový</button>
+        <div class="theme-picker">
+            <button
+                id="fontDefault"
+                class="font-preview">
+                Aa
+            </button>
+            <button
+                id="fontMedieval"
+                class="font-preview">
+                Aa
+            </button>
+            <button
+                id="fontTypewriter"
+                class="font-preview">
+                Aa
+            </button>
         </div>
         <div class="menu-section">
             Velikost písma
