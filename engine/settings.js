@@ -66,14 +66,13 @@ const Settings = {
 
     updateThemeButtons(){
         document
-            .querySelectorAll(".font-preview, .theme-preview")
+            .querySelectorAll(".theme-preview")
             .forEach(btn=>{
                 btn.classList.remove("active");
             });
-        const theme =
-            localStorage.getItem("rwag_theme")
-            || "dark";
-        document
+            const theme =
+            localStorage.getItem("rwag_theme") || "dark";
+            document
             .getElementById(
                 "theme" +
                 theme.charAt(0).toUpperCase() +
@@ -84,13 +83,12 @@ const Settings = {
 
     updateFontButtons(){
         document
-            .querySelectorAll(".font-preview, .theme-preview")
+            .querySelectorAll(".font-preview")
             .forEach(btn=>{
                 btn.classList.remove("active");
             });
         const font =
-            localStorage.getItem("rwag_font")
-            || "default";
+            localStorage.getItem("rwag_font") || "default";
         document
             .getElementById(
                 "font" +
