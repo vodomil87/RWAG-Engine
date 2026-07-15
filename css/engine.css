@@ -194,19 +194,19 @@ body.font-typewriter{
     align-items: center;
     margin-bottom: 15px;
     padding: 8px 0;
-    font-size:calc(var(--game-font-size) + 4px);
+    font-size:calc(var(--game-font-size) + 2px);
 }
 
 #menuButton {
     background:none;
     border:none;
     color:var(--text-color);
-    font-size:calc(var(--game-font-size) + 8px);
+    font-size:calc(var(--game-font-size) + 10px);
     cursor:pointer;
 }
 
 .status-right {
-    font-size:calc(var(--game-font-size) + 4px);
+    font-size:calc(var(--game-font-size) + 2px);
 }
 
 #game {
