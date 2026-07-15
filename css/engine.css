@@ -118,7 +118,9 @@ body.font-typewriter{
     border:2px solid #555;
     cursor:pointer;
     font-size:var(--game-font-size);
+/*    
     font-weight:bold;
+*/
 }
 
 .theme-preview.dark{
@@ -146,7 +148,9 @@ body.font-typewriter{
     color:var(--text-color);
     cursor:pointer;
     font-size:var(--game-font-size);
+/*    
     font-weight:bold;
+*/
 }
 
 .theme-btn{
@@ -155,7 +159,9 @@ body.font-typewriter{
     border-radius:10px;
     border:2px solid #666;
     font-size:var(--game-font-size);
+/*    
     font-weight:bold;
+*/
     cursor:pointer;
 }
 
