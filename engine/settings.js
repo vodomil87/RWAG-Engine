@@ -32,8 +32,15 @@ const Settings = {
     },
     
     setTheme(theme){
-        document.body.className =
-            "theme-" + theme;
+        document.body.classList.remove(
+            "theme-dark",
+            "theme-light",
+            "theme-medieval"
+        );
+
+        document.body.classList.add(
+            "theme-" + theme
+        );
 
         localStorage.setItem(
             "rwag_theme",
