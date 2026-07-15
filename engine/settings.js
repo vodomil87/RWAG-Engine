@@ -7,17 +7,27 @@ const Settings = {
     setTheme(theme){
         document.body.className =
             "theme-" + theme;
+
         localStorage.setItem(
             "rwag_theme",
             theme
         );
-        
+
+        this.updateThemeButtons();
+    },
+
+    updateThemeButtons(){
+
         document
             .querySelectorAll(".theme-preview")
             .forEach(btn=>{
                 btn.classList.remove("active");
             });
-        
+
+        const theme =
+            localStorage.getItem("rwag_theme")
+            || "dark";
+
         document
             .getElementById(
                 "theme" +
@@ -31,6 +41,7 @@ const Settings = {
         const theme =
             localStorage.getItem("rwag_theme")
             || "dark";
+
         document.body.className =
             "theme-" + theme;
     }
