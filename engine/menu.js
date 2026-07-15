@@ -176,17 +176,17 @@ const Menu = {
         <div class="theme-picker">
             <button
                 id="fontDefault"
-                class="font-preview default">
+                class="font-preview font-default">
                 Aa
             </button>
             <button
                 id="fontMedieval"
-                class="font-preview medieval">
+                class="font-preview font-medieval">
                 Aa
             </button>
             <button
                 id="fontTypewriter"
-                class="font-preview typewriter">
+                class="font-preview font-typewriter">
                 Aa
             </button>
         </div>
