@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: system-ui, sans-serif;
     background:var(--bg-color);
     color:var(--text-color);
     margin: 0;
@@ -47,27 +47,27 @@ body.theme-medieval{
 }
 
 body.font-default{
-    font-family: Arial, sans-serif;
+    font-family: system-ui, sans-serif;
 }
 
 #fontDefault{
-    font-family: Arial, sans-serif;
+    font-family: system-ui, sans-serif;
 }
 
 body.font-medieval{
-    font-family: "Alegreya", serif;
+    font-family: "Uncial Antiqua", serif;
 }
 
 #fontMedieval{
-    font-family: "Alegreya", serif;
+    font-family: "Uncial Antiqua", serif;
 }
 
 body.font-typewriter{
-    font-family: "Courier New", monospace;
+    font-family: "Special Elite", monospace;
 }
 
 #fontTypewriter{
-    font-family: "Courier New", monospace;
+    font-family: "Special Elite", monospace;
 }
 
 .theme-picker{
