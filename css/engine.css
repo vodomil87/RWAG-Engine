@@ -9,21 +9,29 @@ body {
 :root{
     --bg-color:#111;
     --text-color:#eee;
+    --panel-color:#222;
+    --border-color:#444;
 }
 
 body.theme-dark{
     --bg-color:#111;
     --text-color:#eee;
+    --panel-color:#222;
+    --border-color:#444;
 }
 
 body.theme-light{
     --bg-color:#fff;
     --text-color:#111;
+    --panel-color:#f0f0f0;
+    --border-color:#ccc;
 }
 
 body.theme-medieval{
     --bg-color:#d88b32;
     --text-color:#111;
+    --panel-color:#e6a04d;
+    --border-color:#8b5a20;
 }
 
 .theme-picker{
@@ -103,21 +111,6 @@ body.theme-medieval{
     cursor:pointer;
 }
 
-#menuPanel{
-    position:fixed;
-    top:0;
-    left:-320px;
-    width:300px;
-    height:100vh;
-    background:var(--bg-color);
-    color:var(--text-color);
-    padding:20px;
-    box-sizing:border-box;
-    transition:left .25s ease;
-    z-index:1000;
-    overflow-y:auto;
-}
-
 .status-right {
     font-size: 22px;
 }
@@ -146,9 +139,9 @@ body.theme-medieval{
     width: 100%;
     margin: 10px 0;
     padding: 12px;
-    background: #222;
-    border: 1px solid #444;
-    color: white;
+    background:var(--panel-color);
+    border:1px solid var(--border-color);
+    color:var(--text-color);
     border-radius: 8px;
     cursor: pointer;
     text-align: left;
@@ -156,7 +149,7 @@ body.theme-medieval{
 }
 
 .choice:hover {
-    background: #333;
+    filter:brightness(1.1);
 }
 
 .choice:disabled {
@@ -169,7 +162,8 @@ body.theme-medieval{
     left:-320px;
     width:300px;
     height:100vh;
-    background:#222;
+    background:var(--bg-color);
+    color:var(--text-color);
     padding:20px;
     box-sizing:border-box;
     transition:left .25s ease;
