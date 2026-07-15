@@ -18,7 +18,7 @@ const Settings = {
             font
         );
         document
-        .querySelectorAll(".font-preview")
+        .querySelectorAll(".font-preview, .theme-preview")
         .forEach(btn=>{
             btn.classList.remove("active");
         });
@@ -52,7 +52,7 @@ const Settings = {
 
     updateThemeButtons(){
         document
-            .querySelectorAll(".theme-preview")
+            .querySelectorAll(".font-preview, .theme-preview")
             .forEach(btn=>{
                 btn.classList.remove("active");
             });
@@ -70,7 +70,7 @@ const Settings = {
 
     updateFontButtons(){
         document
-            .querySelectorAll(".font-preview")
+            .querySelectorAll(".font-preview, .theme-preview")
             .forEach(btn=>{
                 btn.classList.remove("active");
             });
