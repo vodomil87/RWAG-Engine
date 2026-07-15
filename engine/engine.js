@@ -13,8 +13,8 @@ const Engine = {
             await this.loadGame(gameName);
             await this.loadRoles();
             UI.init();
-            this.gotoScene(this.game.startScene);
             Status.render();
+            this.gotoScene(this.game.startScene);
             Menu.init();
         }catch(e){
             console.error(e);
