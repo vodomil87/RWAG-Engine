@@ -1,13 +1,26 @@
 const Settings = {
-    theme: localStorage.getItem("theme") || "dark",
-    init(){
-        document.body.className = "theme-" + this.theme;
-    },
     setTheme(theme){
-        this.theme = theme;
         document.body.className = "theme-" + theme;
         localStorage.setItem(
-            "theme",
+            "rwag_theme",
+            theme
+        );
+        console.log(
+            "THEME SET:",
+            theme
+        );
+    },
+
+    load(){
+        const theme =
+            localStorage.getItem(
+                "rwag_theme"
+            )
+            || "dark";
+        document.body.className =
+            "theme-" + theme;
+        console.log(
+            "THEME LOADED:",
             theme
         );
     }
