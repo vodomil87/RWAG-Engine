@@ -36,14 +36,15 @@ const Menu = {
     toggle(){
         this.open=!this.open;
         const p=document.getElementById("menuPanel");
+        if(!p) return;
         p.classList.toggle(
             "menu-open",
             this.open
         );
+        
         if(this.open){
-        this.page="main";
-        this.render();
-        }
+            this.render();
+    }
     },
 
     close(){
@@ -176,17 +177,17 @@ const Menu = {
         <div class="theme-picker">
             <button
                 id="fontDefault"
-                class="theme-preview font-default">
+                class="theme-preview font-preview font-default">
                 Aa
             </button>
             <button
                 id="fontMedieval"
-                class="theme-preview font-medieval">
+                class="theme-preview font-preview font-medieval">
                 Aa
             </button>
             <button
                 id="fontTypewriter"
-                class="theme-preview font-typewriter">
+                class="theme-preview font-preview font-typewriter">
                 Aa
             </button>
         </div>
@@ -216,17 +217,14 @@ const Menu = {
         
        document.getElementById("themeDark").onclick=()=>{
             Settings.setTheme("dark");
-            this.updateThemeButtons();
         };
         
         document.getElementById("themeLight").onclick=()=>{
             Settings.setTheme("light");
-            this.updateThemeButtons();
         };
         
         document.getElementById("themeMedieval").onclick=()=>{
             Settings.setTheme("medieval");
-            this.updateThemeButtons();
         };
         
         document.getElementById("menuBack").onclick = (e) => {
@@ -235,32 +233,50 @@ const Menu = {
             
         };
         Settings.updateThemeButtons();
-        this.updateThemeButtons();
         Settings.updateFontButtons();
 
         document.getElementById("fontDefault").onclick=()=>{
             Settings.setFont("default");
+            Settings.updateFontButtons();
         };
 
         document.getElementById("fontMedieval").onclick=()=>{
             Settings.setFont("medieval");
+            Settings.updateFontButtons();
         };
 
         document.getElementById("fontTypewriter").onclick=()=>{
             Settings.setFont("typewriter");
+            Settings.updateFontButtons();
         };
     },
 
-    updateThemeButtons(){
-        const currentTheme =
-            localStorage.getItem("rwag_theme") || "dark";
-
+    updateFontButtons(){
         document
-            .querySelectorAll(".theme-preview")
+            .querySelectorAll(".font-preview")
             .forEach(btn=>{
                 btn.classList.remove("active");
             });
-
+        const font =
+            localStorage.getItem("rwag_font")
+            || "default";
+        document
+            .getElementById(
+                "font" +
+                font.charAt(0).toUpperCase() +
+                font.slice(1)
+            )
+            ?.classList.add("active");
+    },
+    
+    updateThemeButtons(){
+        const currentTheme =
+            localStorage.getItem("rwag_theme") || "dark";
+        document
+            .querySelectorAll(".theme-preview")
+            .forEach(btn=>{
+                 btn.classList.remove("active");
+            });
         document
             .getElementById(
                 "theme" +
@@ -268,7 +284,7 @@ const Menu = {
                 currentTheme.slice(1)
             )
             ?.classList.add("active");
-    },
+     },
     
     renderAbout(){
         document.getElementById("menuPanel").innerHTML=`
