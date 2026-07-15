@@ -3,6 +3,33 @@ const Settings = {
     init(){
         this.load();
     },
+
+    setFont(font){
+        document.body.classList.remove(
+            "font-default",
+            "font-medieval",
+            "font-typewriter"
+        );
+        document.body.classList.add(
+            "font-" + font
+        );
+        localStorage.setItem(
+            "rwag_font",
+            font
+        );
+        document
+        .querySelectorAll(".font-preview")
+        .forEach(btn=>{
+            btn.classList.remove("active");
+        });
+        document
+        .getElementById(
+            "font" +
+            font.charAt(0).toUpperCase() +
+            font.slice(1)
+        )
+        ?.classList.add("active");
+    },
     
     setTheme(theme){
         document.body.className =
@@ -17,17 +44,14 @@ const Settings = {
     },
 
     updateThemeButtons(){
-
         document
             .querySelectorAll(".theme-preview")
             .forEach(btn=>{
                 btn.classList.remove("active");
             });
-
         const theme =
             localStorage.getItem("rwag_theme")
             || "dark";
-
         document
             .getElementById(
                 "theme" +
@@ -44,6 +68,14 @@ const Settings = {
 
         document.body.className =
             "theme-" + theme;
+
+        const font =
+            localStorage.getItem("rwag_font")
+            || "default";
+
+        document.body.classList.add(
+            "font-" + font
+        );
     }
 };
 
