@@ -236,6 +236,18 @@ const Menu = {
         };
         Settings.updateThemeButtons();
         this.updateThemeButtons();
+
+        document.getElementById("fontDefault").onclick=()=>{
+            Settings.setFont("default");
+        };
+
+        document.getElementById("fontMedieval").onclick=()=>{
+            Settings.setFont("medieval");
+        };
+
+        document.getElementById("fontTypewriter").onclick=()=>{
+            Settings.setFont("typewriter");
+        };
     },
 
     updateThemeButtons(){
