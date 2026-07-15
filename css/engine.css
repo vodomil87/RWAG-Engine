@@ -77,6 +77,10 @@ body.font-default{
     font-family: system-ui, sans-serif;
 }
 
+.font-default{
+    font-family:system-ui,sans-serif;
+}
+
 body.font-medieval{
     font-family: "MedievalSharp", serif;
 }
@@ -85,12 +89,20 @@ body.font-medieval{
     font-family: "MedievalSharp", serif;
 }
 
+.font-medieval{
+    font-family:"MedievalSharp",serif;
+}
+
 body.font-typewriter{
     font-family: "Special Elite", monospace;
 }
 
 #fontTypewriter{
     font-family: "Special Elite", monospace;
+}
+
+.font-typewriter{
+    font-family:"Special Elite",monospace;
 }
 
 .font-preview.default{
