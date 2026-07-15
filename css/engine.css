@@ -7,6 +7,13 @@ body {
 }
 
 button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+button,
 #menuButton,
 [class^="icon"]{
     font-family:system-ui;
@@ -14,6 +21,12 @@ button,
 
 button {
     font-family:inherit;
+}
+
+.icon,
+#status,
+button {
+    font-family: system-ui, sans-serif;
 }
 
 :root{
