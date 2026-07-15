@@ -12,6 +12,10 @@ button,
     font-family:system-ui;
 }
 
+button {
+    font-family:inherit;
+}
+
 :root{
     --bg-color:#111;
     --text-color:#eee;
@@ -223,17 +227,18 @@ body.font-typewriter{
 }
 
 .choice {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-    padding: 12px;
+    display:block;
+    width:100%;
+    margin:10px 0;
+    padding:12px;
     background:var(--panel-color);
     border:1px solid var(--border-color);
     color:var(--text-color);
-    border-radius: 8px;
-    cursor: pointer;
-    text-align: left;
-    font-size: 16px;
+    border-radius:8px;
+    cursor:pointer;
+    text-align:left;
+    font-size:16px;
+    font-family:inherit;
 }
 
 .choice:hover {
