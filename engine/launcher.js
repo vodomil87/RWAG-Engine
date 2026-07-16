@@ -94,20 +94,7 @@ const Launcher = {
         document.getElementById(
             "game"
         ).style.display = "block";
-    
-        document.getElementById(
-            "appTitle"
-        ).style.display="none";
-
-        const title = document.getElementById("appTitle");
-
-        console.log("TITLE:", title);
-        console.log("DISPLAY BEFORE:", title.style.display);
-
-        title.style.display = "none";
-
-        console.log("DISPLAY AFTER:", title.style.display);
-        
+           
         Engine.start(id);
     }
 };
