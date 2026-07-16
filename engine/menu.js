@@ -195,13 +195,14 @@ const Menu = {
             ${icons.up_down} Velikost písma:
             <span id="fontSizeValue">16</span> px
         </div>
-        <input
-        id="fontSizeRange"
-        type="range"
-        min="10"
-        max="24"
-        value="16"
-        style="width:100%;">
+        <div class="slider-wrapper">
+            <input
+            id="fontSizeRange"
+            type="range"
+            min="10"
+            max="24"
+            value="16">
+        </div>
         <div class="menu-section">
            ${icons.zvonek} Oznámení
         </div>
