@@ -144,8 +144,8 @@ body.font-typewriter{
 
 .theme-picker{
     display:flex;
-    gap:5px;
-    padding-left:10px;
+    gap:10px;
+    padding-left:15px;
     margin-bottom:15px;
 }
 
@@ -369,7 +369,7 @@ body.font-typewriter{
 }
 
 .settings-section {
-    padding-left:10px;
+    padding-left:15px;
 }
 
 .toggle-button{
@@ -380,8 +380,8 @@ body.font-typewriter{
     background:#777;
     color:white;
     cursor:pointer;
-    font-size:12px;
-    font-weight:bold;
+    font-size:var(--game-font-size);
+/*    font-weight:bold; */
 }
 
 .toggle-button.on{
