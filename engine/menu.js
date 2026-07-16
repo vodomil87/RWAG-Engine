@@ -205,11 +205,23 @@ const Menu = {
         <div class="menu-section">
            ${icons.zvonek} Oznámení
         </div>
-        <div class="menu-item">
-            Zvuky
+        <div class="setting-row">
+            <span>${icons.repro_nic} Zvuky</span>
+            <label class="switch">
+                <input
+                    id="soundToggle"
+                    type="checkbox">
+                <span class="slider"></span>
+            </label>
         </div>
-        <div class="menu-item">
-            Vibrace
+        <div class="setting-row">
+            <span>${icons.vibrace} Vibrace</span>
+            <label class="switch">
+                <input
+                    id="vibrationToggle"
+                    type="checkbox">
+                <span class="slider"></span>
+            </label>
         </div>
         <hr>
         <div class="menu-item" id="menuBack">
@@ -270,6 +282,21 @@ const Menu = {
             Settings.setFontSize(e.target.value);
             value.innerText=e.target.value;
         };
+
+        document.getElementById("soundToggle").checked =
+            Settings.getSound();
+
+        document.getElementById("vibrationToggle").checked =
+            Settings.getVibration();
+
+        document.getElementById("soundToggle").onchange=e=>{
+            Settings.setSound(e.target.checked);
+        };
+
+        document.getElementById("vibrationToggle").onchange=e=>{
+            Settings.setVibration(e.target.checked);
+        };
+        
     },
 
     updateFontButtons(){
