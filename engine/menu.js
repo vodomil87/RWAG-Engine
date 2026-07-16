@@ -192,7 +192,7 @@ const Menu = {
             </button>
         </div>
         <div class="menu-section">
-            Velikost písma:
+            ${icons.up_down} Velikost písma:
             <span id="fontSizeValue">16</span> px
         </div>
         <input
