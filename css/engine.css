@@ -379,3 +379,53 @@ body.font-typewriter{
 .toggle-button.on{
     background:#3a9d5d;
 }
+
+.scenario-list{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.scenario-card{
+    display:flex;
+    background:var(--panel-color);
+    border:1px solid var(--border-color);
+    border-radius:12px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.scenario-card:hover{
+    transform:scale(1.02);
+    filter:brightness(1.1);
+}
+
+.scenario-image{
+    width:120px;
+    flex-shrink:0;
+}
+
+.scenario-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.scenario-info{
+    padding:12px;
+}
+
+.scenario-title{
+    font-size:calc(var(--game-font-size) + 4px);
+    margin-bottom:8px;
+}
+
+.scenario-description{
+    margin-bottom:10px;
+    opacity:.8;
+}
+
+.scenario-detail{
+    margin-top:4px;
+}
