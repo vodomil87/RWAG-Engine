@@ -56,6 +56,7 @@ const Menu = {
     },
 
     render(){
+        console.log("PAGE =", this.page);
         switch(this.page){
             case "settings":
                 this.renderSettings();
@@ -66,11 +67,11 @@ const Menu = {
             case "roles":
                 this.renderRoles();
                 break;
-            default:
-                this.renderMain();
             case "confirm":
                 this.renderConfirm();
                 break;
+            default:
+                this.renderMain();
         }
     },
 
@@ -464,6 +465,7 @@ const Menu = {
     },
 
     confirm(text, yesCallback){
+        console.log("CONFIRM:", text);
         this.page = "confirm";
         this.confirmText = text;
         this.confirmYes = yesCallback;
@@ -471,6 +473,7 @@ const Menu = {
     },
 
     renderConfirm(){
+        console.log("RENDER CONFIRM:", this.confirmText);
         document.getElementById("menuPanel").innerHTML=`
             <div class="menu-title">
                 ${icons.otaznik} Potvrzení
