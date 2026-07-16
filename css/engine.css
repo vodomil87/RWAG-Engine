@@ -11,7 +11,7 @@ button,
 input,
 select,
 textarea {
-    font-family: inherit;
+    font-family:inherit;
     box-sizing:border-box;
 }
 
@@ -119,14 +119,17 @@ body.font-medieval{
 
 #fontMedieval{
     font-family:var(--font-medieval);
+    font-weight:bold;    
 }
 
 .font-medieval{
     font-family:var(--font-medieval);
+    font-weight:bold;
 }
 
 .font-preview.medieval{
     font-family:var(--font-medieval);
+    font-weight:bold;
 }
 
 body.font-typewriter{
