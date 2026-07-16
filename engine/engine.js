@@ -66,6 +66,16 @@ const Engine = {
             if(window.Effects) Effects.apply(scene.effects);
         }
         UI.renderScene(scene);
+    },
+
+    exitScenario(){
+        this.game = null;
+        this.state = {};
+        document.getElementById("game").style.display="none";
+        document.getElementById("launcher").style.display="block";
+        Menu.page="main";
+        Menu.close();
+        Launcher.render();
     }
 };
 
