@@ -1,5 +1,5 @@
 // délka vibrací v ms
-const SETTINGS_VIBRATION_TIME = 500;
+const SETTINGS_VIBRATION_TIME = 150;
 
 const Settings = {
 
