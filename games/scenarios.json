@@ -8,8 +8,8 @@
         "time":"cca 8 hodin",
         "distance":"9 - 13 km",
         "players":"3 - 8",
-        "status":"available",
-        "file": "nebakov.json"
+        "status":"K dispozici",
+        "file": "nebakov.json",
         "author":"RWAG Studio",
         "version":"1.0"
     },
@@ -17,13 +17,13 @@
         "id": "ukazka",
         "name": "Ukázkový scénář",
         "image":"images/ukazka_nahled.jpg",
-        "description":"Ukázková scénář pro předvedení herního enginu RWAG.",
-        "location":"kdekoliv",
+        "description":"Ukázkový scénář pro předvedení herního enginu RWAG.",
+        "location":"Kdekoliv",
         "time":"30 minut",
         "distance":"1 km",
         "players":"1+",
-        "status":"coming",
-        "file": "ukazka.json"
+        "status":"Připravujeme...",
+        "file": "ukazka.json",
         "author":"RWAG Studio",
         "version":"1.0"
     }
