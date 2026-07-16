@@ -231,6 +231,7 @@ body.font-typewriter{
 #fontSizeRange{
     width:calc(100% - var(--settings-indent));
     margin-left:var(--settings-indent);
+    margin-right:var(--settings-indent);
     accent-color:var(--border-color);
     cursor:pointer;
 }
