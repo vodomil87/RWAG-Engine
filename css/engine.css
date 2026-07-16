@@ -229,7 +229,8 @@ body.font-typewriter{
 }
 
 .slider-wrapper{
-    padding:0 var(--settings-indent);
+    padding-left:var(--settings-indent);
+    padding-right:var(--settings-indent);
 }
 
 #fontSizeRange{
@@ -372,10 +373,13 @@ body.font-typewriter{
     justify-content:space-between;
     align-items:center;
     margin:10px 0;
+    padding-left:var(--settings-indent);
+    padding-right:var(--settings-indent);
 }
 
 .settings-section {
-    padding-left:15px;
+    padding-left:var(--settings-indent);
+    padding-right:var(--settings-indent);
 }
 
 .toggle-button{
