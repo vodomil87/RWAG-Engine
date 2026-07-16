@@ -4,6 +4,23 @@ const Settings = {
         this.load();
     },
 
+    set(key, value){
+        localStorage.setItem(
+            "rwag_" + key,
+            value
+        );
+    },
+
+    get(key, defaultValue){
+        const value =
+            localStorage.getItem(
+                "rwag_" + key
+            );
+        return value === null
+            ? defaultValue
+            : value;
+    },
+    
     setFont(font){
         document.body.classList.remove(
             "font-default",
@@ -13,37 +30,17 @@ const Settings = {
         document.body.classList.add(
             "font-" + font
         );
-        localStorage.setItem(
-            "rwag_font",
-            font
-        );
-        document
-        .querySelectorAll(".font-preview")
-        .forEach(btn=>{
-            btn.classList.remove("active");
-        });
-        document
-        .getElementById(
-            "font" +
-            font.charAt(0).toUpperCase() +
-            font.slice(1)
-        )
-        ?.classList.add("active");
+        this.set("font", font);
         this.updateFontButtons();
     },
    
-
     setFontSize(size){
         document.documentElement.style
             .setProperty(
                 "--game-font-size",
                 size + "px"
             );
-
-        localStorage.setItem(
-            "rwag_font_size",
-            size
-        );
+        this.set("font_size", size);
     },
     
     setTheme(theme){
@@ -55,10 +52,7 @@ const Settings = {
         document.body.classList.add(
             "theme-" + theme
         );
-        localStorage.setItem(
-            "rwag_theme",
-            theme
-        );
+        this.set("theme", theme);
         this.updateThemeButtons();
     },
 
@@ -69,7 +63,10 @@ const Settings = {
                 btn.classList.remove("active");
             });
             const theme =
-            localStorage.getItem("rwag_theme") || "dark";
+            this.get(
+                "theme",
+                "dark"
+            );
             document
             .getElementById(
                 "theme" +
@@ -85,8 +82,11 @@ const Settings = {
             .forEach(btn=>{
                 btn.classList.remove("active");
             });
-        const font =
-            localStorage.getItem("rwag_font") || "default";
+       const font =
+            this.get(
+                "font",
+                "default"
+            );
         document
             .getElementById(
                 "font" +
@@ -95,11 +95,38 @@ const Settings = {
             )
             ?.classList.add("active");
     },
+
+    setSound(value){
+        this.set("sound", value);
+    },
+
+    getSound(){
+        return this.get(
+            "sound",
+            true
+        ) !== "false";
+    },
+
+    setVibration(value){
+        this.set(
+            "vibration",
+            value
+        );
+    },
+
+    getVibration(){
+        return this.get(
+            "vibration",
+            true
+        ) !== "false";
+    },
     
     load(){
         const theme =
-            localStorage.getItem("rwag_theme")
-            || "dark";
+            this.get(
+                "theme",
+                "dark"
+            );
 
         document.body.classList.remove(
             "theme-dark",
@@ -107,21 +134,31 @@ const Settings = {
             "theme-medieval"
         );
 
+        document.body.classList.remove(
+            "font-default",
+            "font-medieval",
+            "font-typewriter"
+        );
+        
         document.body.classList.add(
             "theme-" + theme
         );
 
         const font =
-            localStorage.getItem("rwag_font")
-            || "default";
+            this.get(
+                "font",
+                "default"
+            );
 
         document.body.classList.add(
             "font-" + font
         );
 
         const size =
-            localStorage.getItem("rwag_font_size")
-            || 16;
+            this.get(
+                "font_size",
+                16
+            );
 
         document.documentElement.style
             .setProperty(
