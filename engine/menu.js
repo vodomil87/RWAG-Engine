@@ -68,6 +68,9 @@ const Menu = {
                 break;
             default:
                 this.renderMain();
+            case "confirm":
+                this.renderConfirm();
+                break;
         }
     },
 
@@ -89,7 +92,9 @@ const Menu = {
         <div class="menu-item">${icons.knihy} Přehled pravidel</div>
         <div class="menu-item">${icons.graf} Statistiky</div>
         <div class="menu-item">${icons.disketa} Uložit / Načíst pozici</div>
-        <div class="menu-item">${icons.dvere} Ukončit scénář</div>
+        <div class="menu-item" id="menuExit">
+            ${icons.dvere} Ukončit scénář
+        </div>
         <hr>
         <div class="menu-item" id="menuSettings">
             ${icons.nastaveni} Nastavení ${icons.vpred}
@@ -110,6 +115,15 @@ const Menu = {
         document.getElementById("menuRoles").onclick=(e)=>{
             e.stopPropagation();
             this.showRoles();
+        };
+        document.getElementById("menuExit").onclick=(e)=>{
+            e.stopPropagation();
+            this.confirm(
+                "Opravdu chceš ukončit scénář?",
+                ()=>{
+                    Engine.exitScenario();
+                }
+            );
         };
     },
 
@@ -447,6 +461,41 @@ const Menu = {
     showRoles(){
         this.page="roles";
         this.render();
+    },
+
+    confirm(text, yesCallback){
+        this.page = "confirm";
+        this.confirmText = text;
+        this.confirmYes = yesCallback;
+        this.render();
+    },
+
+    renderConfirm(){
+        document.getElementById("menuPanel").innerHTML=`
+            <div class="menu-title">
+                ${icons.otaznik} Potvrzení
+            </div>
+            <div class="menu-description">
+                ${this.confirmText}
+            </div>
+            <hr>
+            <div class="menu-item" id="confirmYes">
+                ${icons.fajfka} Ano
+            </div>
+            <div class="menu-item" id="confirmNo">
+                ${icons.krizek} Ne
+            </div>
+        `;
+        document.getElementById("confirmYes").onclick=(e)=>{
+            e.stopPropagation();
+            if(this.confirmYes){
+                this.confirmYes();
+            }
+        };
+        document.getElementById("confirmNo").onclick=(e)=>{
+            e.stopPropagation();
+            this.showMain();
+        };
     }
 };
 
