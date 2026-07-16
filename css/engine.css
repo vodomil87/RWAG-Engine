@@ -228,10 +228,12 @@ body.font-typewriter{
     transform:scale(1.08);
 }
 
+.slider-wrapper{
+    padding:0 var(--settings-indent);
+}
+
 #fontSizeRange{
-    width:calc(100% - var(--settings-indent));
-    margin-left:var(--settings-indent);
-    margin-right:var(--settings-indent);
+    width:100%;
     accent-color:var(--border-color);
     cursor:pointer;
 }
