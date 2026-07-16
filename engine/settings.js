@@ -131,7 +131,7 @@ const Settings = {
         document.body.classList.remove(
             "theme-dark",
             "theme-light",
-            "theme-medieval"
+            "theme-medieval",
             "font-default",
             "font-medieval",
             "font-typewriter"
