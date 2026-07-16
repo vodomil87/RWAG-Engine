@@ -446,5 +446,13 @@ body.font-typewriter{
 }
 
 .scenario-detail{
-    margin-top:4px;
+    display:flex;
+    align-items:center;
+    margin:4px 0;
+}
+
+.scenario-icon{
+    width:2em;
+    text-align:center;
+    flex-shrink:0;
 }
