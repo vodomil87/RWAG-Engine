@@ -6,10 +6,12 @@
         "description":"Odhalte tajemství záhadného cizince, který se objevil na hradě Nebákov.",
         "location":"Troskovice a okolí",
         "time":"cca 8 hodin",
-        "longitude":"9 - 13 km",
+        "distance":"9 - 13 km",
         "players":"3 - 8",
         "status":"available",
         "file": "nebakov.json"
+        "author":"RWAG Studio",
+        "version":"1.0"
     },
     {
         "id": "ukazka",
@@ -18,9 +20,11 @@
         "description":"Ukázková scénář pro předvedení herního enginu RWAG.",
         "location":"kdekoliv",
         "time":"30 minut",
-        "longitude":"1 km",
+        "distance":"1 km",
         "players":"1+",
         "status":"coming",
         "file": "ukazka.json"
+        "author":"RWAG Studio",
+        "version":"1.0"
     }
 ]
