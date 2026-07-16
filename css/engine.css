@@ -144,7 +144,9 @@ body.font-typewriter{
 
 .theme-picker{
     display:flex;
-    gap:10px;
+    gap:5px;
+    padding-left:10px;
+    margin-bottom:15px;
 }
 
 .theme-preview{
@@ -364,6 +366,10 @@ body.font-typewriter{
     justify-content:space-between;
     align-items:center;
     margin:10px 0;
+}
+
+.settings-section {
+    padding-left:10px;
 }
 
 .toggle-button{
