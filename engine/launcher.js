@@ -52,38 +52,40 @@ const Launcher = {
                     <div class="scenario-description">
                         ${scenario.description}
                     </div>
-                </div>                    
-                <div class="scenario-detail">
-                    <span class="scenario-icon">
-                        ${icons.pin}
-                    </span>
-                    <span>
-                         ${scenario.location}
-                    </span>
                 </div>
-                <div class="scenario-detail">
-                    <span class="scenario-icon">
-                        ${icons.stopky}
-                    </span>
-                    <span>
-                        ${scenario.time}
-                    </span>
-                </div>
-                <div class="scenario-detail">
-                    <span class="scenario-icon">
-                        ${icons.hraci}
-                    </span>
-                    <span>
-                        ${scenario.players}
-                    </span>
-                </div>
-                <div class="scenario-detail">
-                    <span class="scenario-icon">
-                        ${icons.semafor}
-                    </span>
-                    <span>
-                        ${scenario.status}
-                    </span>
+                <div class="scenario-details">
+                    <div class="scenario-detail">
+                        <span class="scenario-icon">
+                            ${icons.pin}
+                        </span>
+                        <span>
+                             ${scenario.location}
+                        </span>
+                    </div>
+                    <div class="scenario-detail">
+                        <span class="scenario-icon">
+                            ${icons.stopky}
+                        </span>
+                        <span>
+                            ${scenario.time}
+                        </span>
+                    </div>
+                    <div class="scenario-detail">
+                        <span class="scenario-icon">
+                            ${icons.hraci}
+                        </span>
+                        <span>
+                            ${scenario.players}
+                        </span>
+                    </div>
+                    <div class="scenario-detail">
+                        <span class="scenario-icon">
+                            ${icons.semafor}
+                        </span>
+                        <span>
+                            ${scenario.status}
+                        </span>
+                    </div>
                 </div>
                 `;
                 card.onclick=()=>{
