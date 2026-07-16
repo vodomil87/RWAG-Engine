@@ -71,7 +71,7 @@ body.theme-light{
 
 body.theme-medieval{
     --bg-color:#d88b32;
-    --text-color:#111;
+    --text-color:#783f04;
     --panel-color:#e6a04d;
     --border-color:#8b5a20;
     --panel-bg:#efb05d;
@@ -81,17 +81,17 @@ body.theme-medieval{
 
 body.font-default{
     --font-active-color:#666;
-    /* šedá */
+    /* šedá #666 */
 }
 
 body.font-medieval{
-    --font-active-color:#8b5a20;
-    /* hnědá */
+    --font-active-color:#666;
+    /* hnědá #783f04 */
 }
 
 body.font-typewriter{
-    --font-active-color:#3d85c6;
-     /* modrá default #4ea3ff */
+    --font-active-color:#666;
+     /* modrá - default #4ea3ff, tmavší #3d85c6 */
 }
 
 body.font-default{
