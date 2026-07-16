@@ -132,14 +132,11 @@ const Settings = {
             "theme-dark",
             "theme-light",
             "theme-medieval"
-        );
-
-        document.body.classList.remove(
             "font-default",
             "font-medieval",
             "font-typewriter"
         );
-        
+       
         document.body.classList.add(
             "theme-" + theme
         );
@@ -165,6 +162,14 @@ const Settings = {
                 "--game-font-size",
                 size + "px"
             );
+        
+        if(this.get("sound", null) === null){
+            this.set("sound", true);
+        }
+
+        if(this.get("vibration", null) === null){
+            this.set("vibration", true);
+        }
     }
 };
 
