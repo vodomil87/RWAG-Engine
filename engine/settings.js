@@ -1,3 +1,6 @@
+// délka vibrací v ms
+const SETTINGS_VIBRATION_TIME = 100;
+
 const Settings = {
 
     init(){
@@ -112,6 +115,12 @@ const Settings = {
             "vibration",
             value
         );
+        if(
+            value &&
+            navigator.vibrate
+        ){
+            navigator.vibrate(SETTINGS_VIBRATION_TIME);
+        }
     },
 
     getVibration(){
