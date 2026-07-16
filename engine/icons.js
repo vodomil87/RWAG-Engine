@@ -40,6 +40,9 @@ masky: "🎭",
 pin: "📍",
 stopky: "⏱",
 hraci: "👥",
-semafor: "🚦"
+semafor: "🚦",
+fajfka: "✅",
+krizek: "❌",
+otaznik: "❓"
    
 };
