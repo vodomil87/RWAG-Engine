@@ -74,7 +74,7 @@ body.theme-light{
 
 body.theme-medieval{
     --bg-color:#d88b32;
-    --text-color:#783f04;
+    --text-color:#57320c;
     --panel-color:#e6a04d;
     --border-color:#8b5a20;
     --panel-bg:#efb05d;
@@ -89,7 +89,7 @@ body.font-default{
 
 body.font-medieval{
     --font-active-color:#666;
-    /* hnědá #783f04 */
+    /* hnědá #783f04, tmavší hnědá #57320c */
 }
 
 body.font-typewriter{
@@ -119,17 +119,17 @@ body.font-medieval{
 
 #fontMedieval{
     font-family:var(--font-medieval);
-    font-weight:bold;    
+/*    font-weight:bold;*/
 }
 
 .font-medieval{
     font-family:var(--font-medieval);
-    font-weight:bold;
+/*    font-weight:bold;*/
 }
 
 .font-preview.medieval{
     font-family:var(--font-medieval);
-    font-weight:bold;
+/*    font-weight:bold;*/
 }
 
 body.font-typewriter{
