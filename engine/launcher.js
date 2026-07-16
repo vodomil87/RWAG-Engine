@@ -52,22 +52,38 @@ const Launcher = {
                     <div class="scenario-description">
                         ${scenario.description}
                     </div>
-                    <div class="scenario-detail">
+                </div>                    
+                <div class="scenario-detail">
+                    <span class="scenario-icon">
                         ${icons.pin}
-                        ${scenario.location}
-                    </div>
-                    <div class="scenario-detail">
+                    </span>
+                    <span>
+                         ${scenario.location}
+                    </span>
+                </div>
+                <div class="scenario-detail">
+                    <span class="scenario-icon">
                         ${icons.stopky}
+                    </span>
+                    <span>
                         ${scenario.time}
-                    </div>
-                    <div class="scenario-detail">
+                    </span>
+                </div>
+                <div class="scenario-detail">
+                    <span class="scenario-icon">
                         ${icons.hraci}
+                    </span>
+                    <span>
                         ${scenario.players}
-                    </div>
-                    <div class="scenario-detail">
+                    </span>
+                </div>
+                <div class="scenario-detail">
+                    <span class="scenario-icon">
                         ${icons.semafor}
+                    </span>
+                    <span>
                         ${scenario.status}
-                    </div>
+                    </span>
                 </div>
                 `;
                 card.onclick=()=>{
