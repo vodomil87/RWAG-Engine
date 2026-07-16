@@ -42,8 +42,8 @@ const Menu = {
             this.open
         );
         
-        if(this.open){
-            this.render();
+    if(this.open){
+        this.render();
     }
     },
 
@@ -207,21 +207,17 @@ const Menu = {
         </div>
         <div class="setting-row">
             <span>${icons.repro_nic} Zvuky</span>
-            <label class="switch">
-                <input
-                    id="soundToggle"
-                    type="checkbox">
-                <span class="slider"></span>
-            </label>
+            <button 
+                id="soundToggle"
+                class="toggle-button">
+            </button>
         </div>
         <div class="setting-row">
             <span>${icons.vibrace} Vibrace</span>
-            <label class="switch">
-                <input
-                    id="vibrationToggle"
-                    type="checkbox">
-                <span class="slider"></span>
-            </label>
+            <button 
+                id="vibrationToggle"
+                class="toggle-button">
+            </button>
         </div>
         <hr>
         <div class="menu-item" id="menuBack">
@@ -251,30 +247,21 @@ const Menu = {
 
         document.getElementById("fontDefault").onclick=()=>{
             Settings.setFont("default");
-            Settings.updateFontButtons();
         };
 
         document.getElementById("fontMedieval").onclick=()=>{
             Settings.setFont("medieval");
-            Settings.updateFontButtons();
         };
 
         document.getElementById("fontTypewriter").onclick=()=>{
             Settings.setFont("typewriter");
-            Settings.updateFontButtons();
-        };
-
-        document.getElementById("fontSizeRange").oninput=(e)=>{
-            Settings.setFontSize(
-            e.target.value
-            );
         };
 
         const slider=document.getElementById("fontSizeRange");
         const value=document.getElementById("fontSizeValue");
 
         slider.value =
-            localStorage.getItem("rwag_font_size") || 16;
+            Settings.get("font_size",16);
 
         value.innerText=slider.value;
 
@@ -283,22 +270,57 @@ const Menu = {
             value.innerText=e.target.value;
         };
 
-        document.getElementById("soundToggle").checked =
-            Settings.getSound();
+        const updateToggles = ()=>{
+            const sound =
+                Settings.getSound();
+            const vibration =
+                Settings.getVibration();
+    
+            document
+                .getElementById("soundToggle")
+                .classList.toggle(
+                    "on",
+                    sound
+                );
 
-        document.getElementById("vibrationToggle").checked =
-            Settings.getVibration();
+            document
+                .getElementById("soundToggle")
+                .innerHTML = sound ? "ON" : "OFF";
 
-        document.getElementById("soundToggle").onchange=e=>{
-            Settings.setSound(e.target.checked);
+            document
+                .getElementById("vibrationToggle")
+                .classList.toggle(
+                    "on",
+                    vibration
+                );
+
+            document
+                .getElementById("vibrationToggle")
+                .innerHTML = vibration ? "ON" : "OFF";
         };
 
-        document.getElementById("vibrationToggle").onchange=e=>{
-            Settings.setVibration(e.target.checked);
+        document
+        .getElementById("soundToggle")
+        .onclick=()=>{
+            Settings.setSound(
+                !Settings.getSound()
+            );
+            updateToggles();
         };
-        
+
+        document
+        .getElementById("vibrationToggle")
+        .onclick=()=>{
+            Settings.setVibration(
+                !Settings.getVibration()
+            );
+            updateToggles();
+        };
+
+        updateToggles();
+
     },
-
+ 
     updateFontButtons(){
         document
             .querySelectorAll(".font-preview")
@@ -351,7 +373,7 @@ const Menu = {
         `;
         document.getElementById("menuBack").onclick = (e) => {
             e.stopPropagation();
-        this.showMain();
+            this.showMain();
         };
     },
 
