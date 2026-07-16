@@ -150,9 +150,9 @@ body.font-typewriter{
 }
 
 .theme-preview{
-    width:48px;
-    height:48px;
-    border-radius:8px;
+    width:calc(var(--game-font-size) * 2);
+    height:calc(var(--game-font-size) * 2);
+    border-radius:alc(var(--game-font-size) / 4);
     border:2px solid #555;
     cursor:pointer;
     font-size:var(--game-font-size);
@@ -178,9 +178,9 @@ body.font-typewriter{
 
 .theme-preview,
 .font-preview{
-    width:48px;
-    height:48px;
-    border-radius:8px;
+    width:calc(var(--game-font-size) * 2);
+    height:calc(var(--game-font-size) * 2);
+    border-radius:alc(var(--game-font-size) / 4);
     border:2px solid var(--border-color);
     background:var(--panel-item-bg);
     color:var(--text-color);
@@ -192,9 +192,9 @@ body.font-typewriter{
 }
 
 .theme-btn{
-    width:56px;
-    height:40px;
-    border-radius:10px;
+    width:calc(var(--game-font-size) * 2);
+    height:calc(var(--game-font-size) * 2);
+    border-radius:calc(var(--game-font-size) / 4);
     border:2px solid #666;
     font-size:var(--game-font-size);
 /*    
@@ -280,7 +280,7 @@ body.font-typewriter{
     background:var(--panel-color);
     border:1px solid var(--border-color);
     color:var(--text-color);
-    border-radius:8px;
+    border-radius:var(--game-font-size);
     cursor:pointer;
     text-align:left;
     font-size:var(--game-font-size);
@@ -373,15 +373,16 @@ body.font-typewriter{
 }
 
 .toggle-button{
-    width:60px;
-    height:30px;
-    border-radius:15px;
+    width:calc(var(--game-font-size) * 4);
+    height:calc(var(--game-font-size) * 2);
+    border-radius:var(--game-font-size);
     border:1px solid var(--border-color);
     background:#777;
     color:white;
     cursor:pointer;
     font-size:var(--game-font-size);
 /*    font-weight:bold; */
+    transition:.2s;
 }
 
 .toggle-button.on{
