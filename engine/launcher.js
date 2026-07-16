@@ -24,48 +24,61 @@ const Launcher = {
         const root = document.getElementById(
             "launcher"
         );
-        if (!root) return;
-
-        root.innerHTML = "";
-
-        const title = document.createElement("h2");
-        title.innerText =
-            "Vyber scénář";
+        if(!root) return;
+        root.innerHTML="";
+        const title=document.createElement("h2");
+        title.innerText="Vyber scénář";
+        
         root.appendChild(title);
 
-        const select =
-            document.createElement("select");
-
+        const container=document.createElement(
+        "div"
+        );
+        container.className="scenario-list";
         this.scenarios.forEach(
-            scenario => {
-                const option =
-                    document.createElement(
-                        "option"
+            scenario=>{
+                const card=document.createElement(
+                    "div"
+                );
+                card.className="scenario-card";
+                card.innerHTML=`
+                <div class="scenario-image">
+                    <img src="${scenario.image}">
+                </div>
+                <div class="scenario-info">
+                    <div class="scenario-title">
+                        ${scenario.name}
+                    </div>
+                    <div class="scenario-description">
+                        ${scenario.description}
+                    </div>
+                    <div class="scenario-detail">
+                        ${icons.pin}
+                        ${scenario.location}
+                    </div>
+                    <div class="scenario-detail">
+                        ${icons.stopky}
+                        ${scenario.time}
+                    </div>
+                    <div class="scenario-detail">
+                        ${icons.hraci}
+                        ${scenario.players}
+                    </div>
+                    <div class="scenario-detail">
+                        ${icons.semafor}
+                        ${scenario.status}
+                    </div>
+                </div>
+                `;
+                card.onclick=()=>{
+                    this.startScenario(
+                        scenario.id
                     );
-                option.value =
-                    scenario.id;
-                option.innerText =
-                    scenario.name;
-                select.appendChild(option);
+                };
+                container.appendChild(card);
             }
         );
-
-        root.appendChild(select);
-
-        const button =
-            document.createElement(
-                "button"
-            );
-        button.innerText =
-            "▶ Spustit";
-
-        button.onclick = () => {
-            const id =
-                select.value;
-            this.startScenario(id);
-        };
-
-        root.appendChild(button);
+        root.appendChild(container);
     },
 
     startScenario(id) {
