@@ -205,14 +205,14 @@ const Menu = {
         <div class="menu-section">
            ${icons.zvonek} Oznámení
         </div>
-        <div class="setting-row">
+        <div class="setting-row settings-section">
             <span>${icons.repro_nic} Zvuky</span>
             <button 
                 id="soundToggle"
                 class="toggle-button">
             </button>
         </div>
-        <div class="setting-row">
+        <div class="setting-row settings-section">
             <span>${icons.vibrace} Vibrace</span>
             <button 
                 id="vibrationToggle"
