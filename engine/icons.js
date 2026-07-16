@@ -36,6 +36,10 @@ zpet: "◀",
 vpred: "▶",
 plus: "➕",
 minus: "➖",
-masky: "🎭"
+masky: "🎭",
+pin: "📍",
+stopky: "⏱",
+hraci: "👥",
+semafor: "🚦"
    
 };
