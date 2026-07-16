@@ -149,18 +149,6 @@ body.font-typewriter{
     margin-bottom:15px;
 }
 
-.theme-preview{
-    width:calc(var(--game-font-size) * 2);
-    height:calc(var(--game-font-size) * 2);
-    border-radius:calc(var(--game-font-size) / 4);
-    border:2px solid #555;
-    cursor:pointer;
-    font-size:var(--game-font-size);
-/*    
-    font-weight:bold;
-*/
-}
-
 .theme-preview.dark{
     background:#111;
     color:white;
@@ -179,7 +167,7 @@ body.font-typewriter{
 .theme-preview,
 .font-preview{
     width:calc(var(--game-font-size) * 2,5);
-    height:calc(var(--game-font-size) * 2,5);
+    height:calc(var(--game-font-size) * 2.5);
     border-radius:calc(var(--game-font-size) / 4);
     border:2px solid var(--border-color);
     background:var(--panel-item-bg);
@@ -192,8 +180,8 @@ body.font-typewriter{
 }
 
 .theme-btn{
-    width:calc(var(--game-font-size) * 2,5);
-    height:calc(var(--game-font-size) * 2,5);
+    width:calc(var(--game-font-size) * 2.5);
+    height:calc(var(--game-font-size) * 2.5);
     border-radius:calc(var(--game-font-size) / 4);
     border:2px solid #666;
     font-size:var(--game-font-size);
