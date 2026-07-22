@@ -10,7 +10,7 @@ const Engine = {
 
     async start(scenarioId){
         try{
-            await this.loadGame(gameName);
+            await this.loadGame(scenarioId);
             await this.loadRoles();
             UI.init();
             Status.render();
