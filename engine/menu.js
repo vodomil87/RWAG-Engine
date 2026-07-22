@@ -585,62 +585,71 @@ const Menu = {
         
         const max =
             Engine.game.players_max || 8;
-    
-            if(players.length + Engine.state.pendingPlayers.length < max){
-                const add=document.createElement("div");
-                add.className="player-row";
-                add.innerHTML=`
-                    <div>
-                        <button id="addPlayer">
-                            ${icons.plus}
-                        </button>
-                    </div>
-                    <div>
-                        -
-                    </div>
-                `;
-                list.appendChild(add);
-                document.getElementById("addPlayer").onclick=()=>{
-                    this.addPlayerForm();
-                };
-            }
-        
+                
+        // tlačítko + nebo nové pole
+        if(
+            players.length + Engine.state.pendingPlayers.length < max
+        ){
+            const add=document.createElement("div");
             add.className="player-row";
-        
-            if(!this.addingPlayer){
-                add.innerHTML=`
-                    <div>
-                        <button id="addPlayer">
-                            ${icons.plus}
-                        </button>
-                    </div>
-                    <div>-</div>
-                `;
-            }else{
-                add.innerHTML=`
-                    <div>
-                        <input
-                            id="playerName"
-                            placeholder="Jméno hráče">
-                    </div>
-                    <div>
-                        <button id="assignRole">
-                            ${icons.kostka}
-                        </button>
-                    </div>
-                `;
-            }
+            add.innerHTML=`
+                <div>
+                    <button id="addPlayer">
+                        ${icons.plus}
+                    </button>
+                </div>
+                <div>
+                    -
+                </div>
+            `;
             list.appendChild(add);
-            if(!this.addingPlayer){
-                document.getElementById("addPlayer").onclick=()=>{
-                    this.addPlayerForm();
-                };
-            }else{
-                document.getElementById("assignRole").onclick=()=>{
-                    this.createPlayer();
-                };
-            }
+            document.getElementById("addPlayer").onclick=()=>{
+                this.addPlayerForm();
+            };
         }
+                
+        // čekající hráči (textová pole)
+        Engine.state.pendingPlayers.forEach((player,index)=>{
+            const row=document.createElement("div");
+            row.className="player-row";
+            row.innerHTML=`
+                <div>
+                    <input
+                        class="playerName"
+                        data-index="${index}"
+                        placeholder="Jméno hráče"
+                        value="${player.name}">
+                </div>
+                <div>
+                    <button class="assignRole"
+                        data-index="${index}">
+                        ${icons.kostka}
+                    </button>
+                </div>
+            `;
+            list.appendChild(row);
+        });
+        
+        // tlačítka kostky
+        document.querySelectorAll(".assignRole")
+        .forEach(btn=>{
+            btn.onclick=()=>{
+                const index =
+                    btn.dataset.index;
+                const input =
+                    document.querySelector(
+                        `.playerName[data-index="${index}"]`
+                    );
+                Engine.state.pendingPlayers[index].name =
+                    input.value.trim();
+                if(
+                    Engine.state.pendingPlayers[index].name
+                ){
+                    Engine.assignRoleToPlayer(index);
+                    this.renderRoles();
+                }
+            };
+        });
     },
     
     addPlayerForm(){
