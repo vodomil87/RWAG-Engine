@@ -541,48 +541,7 @@ const Menu = {
     
             list.appendChild(row);
         });
-
-        Engine.state.pendingPlayers.forEach((player,index)=>{
-            const row=document.createElement("div");
-            row.className="player-row";
-            row.innerHTML=`
-                <div>
-                    <input
-                    id="pendingPlayer${index}"
-                    placeholder="Jméno hráče"
-                    value="${player.name}">
-                </div>
-                <div>
-                    <button id="rollRole${index}">
-                        ${icons.kostka}
-                    </button>
-                </div>
-            `;
-            list.appendChild(row);
-            document.getElementById(
-                "pendingPlayer"+index
-            ).oninput=(e)=>{
-                player.name=e.target.value;
-            };
-            document.getElementById(
-                "rollRole"+index
-            ).onclick=()=>{
-        
-                if(!player.name){
-                    alert("Zadej jméno hráče");
-                    return;
-                }
-                Engine.addPlayer(
-                    player.name
-                );
-                Engine.state.pendingPlayers.splice(
-                    index,
-                    1
-                );
-                this.renderRoles();
-            };
-        });
-        
+       
         const max =
             Engine.game.players_max || 8;
         
