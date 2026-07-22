@@ -5,8 +5,8 @@
   "legend": "legend.json",
   "events": "events.json",
   "roleSet": "roles.json",
-  "players_min":"3",
-  "players_max":"8",
+  "players_min":3,
+  "players_max":8,
   "startScene": "scene_211",
   "scenes": [
     {
