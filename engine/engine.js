@@ -26,7 +26,7 @@ const Engine = {
 
         console.log(
             "LOAD GAME ID:",
-            gameName
+            scenarioId
         );
     
         console.log(
