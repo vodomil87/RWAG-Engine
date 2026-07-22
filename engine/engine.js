@@ -22,16 +22,37 @@ const Engine = {
         }
     },
 
-    async loadGame(scenario){
-        const response = await fetch(
-            scenario.file
-        );
+    async loadGame(gameName){
+            const scenario =
+            Launcher.scenarios.find(
+                s=>s.id===gameName
+            );
+        if(!scenario){
+            throw new Error(
+                "Scénář nenalezen"
+            );
+        }
+        const response =
+            await fetch(
+                scenario.file
+            );
         if(!response.ok){
             throw new Error(
                 "Nelze načíst scénář"
             );
         }
-        this.game = await response.json();
+        this.game =
+            await response.json();
+        // základní cesta ke scénáři
+        this.basePath =
+            scenario.file.substring(
+                0,
+                scenario.file.lastIndexOf("/")
+            ) + "/";
+        console.log(
+            "BASE PATH:",
+            this.basePath
+        );
     },
     
     async loadRoles(){
@@ -44,7 +65,7 @@ const Engine = {
 
         const roles =
             await Roles.load(
-                this.game.roleSet
+                this.basePath + this.game.roleSet
             );
 
         this.state.roles =
