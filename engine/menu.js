@@ -512,7 +512,7 @@ const Menu = {
             e.stopPropagation();
             this.showMain();
         };
-    }
+    },
 
     renderPlayers(){
         const list=document.getElementById(
@@ -564,47 +564,8 @@ const Menu = {
                 this.addPlayerForm();
             };
         }
-    }
-    
-    document.getElementById("menuPanel").innerHTML=`
-    <div class="menu-title">
-        ${icons.role} ${role.name}
-    </div>
-    <div class="menu-description">
-        ${role.description}
-    </div>
-    <div class="menu-section">
-        ${icons.masky} Charakter
-    </div>
-    ${role.character.map(text=>`
-        <div class="menu-description">
-            ${text}
-        </div>
-    `).join("")}
-    <div class="menu-section">
-        ${icons.plus} Výhoda
-    </div>
-    <div>
-        ${role.advantages[0].text}
-    </div>
-    <div class="menu-section">
-        ${icons.minus} Nevýhoda
-    </div>
-    <div>
-        ${role.disadvantages[0].text}
-    </div>
-    <hr>
-    <div class="menu-item" id="menuBack">
-        ${icons.zpet} Zpět
-    </div>
-    `;
-
-    document.getElementById("menuBack").onclick=(e)=>{
-        e.stopPropagation();
-        this.showMain();
-        };
     },
-
+    
     addPlayerForm(){
         console.log(
             "ADD PLAYER"
