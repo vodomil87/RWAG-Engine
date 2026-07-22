@@ -15,8 +15,8 @@ const Launcher = {
             );
         }
         this.scenarios = await response.json();
-        Status.render();
         Menu.init();
+        Status.render();
         this.render();
     },
 
