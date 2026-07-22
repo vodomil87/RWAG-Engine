@@ -483,27 +483,89 @@ const Menu = {
     },
 
     renderRoles(){
-    const role = Engine.state.roles?.[0];
-    if(!role){
-        document.getElementById("menuPanel").innerHTML=`
+        const panel=document.getElementById("menuPanel");
+        const players =
+            Engine.state.players || [];
+        panel.innerHTML=`
         <div class="menu-title">
-            ${icons.role} Role
+            ${icons.role}
+            Správa hráčů a jejich rolí
         </div>
-        <p>
-            Žádná role není přidělena.
-        </p>
+        <div class="players-table">
+            <div class="players-header">
+                <div>Jméno</div>
+                <div>Role</div>
+            </div>
+            <div id="playersList">
+            </div>
+        </div>
         <hr>
         <div class="menu-item" id="menuBack">
             ${icons.zpet} Zpět
         </div>
+    
         `;
+    
+        this.renderPlayers();
+    
         document.getElementById("menuBack").onclick=(e)=>{
             e.stopPropagation();
             this.showMain();
         };
-        return;
     }
 
+    renderPlayers(){
+        const list=document.getElementById(
+            "playersList"
+        );
+        const players =
+            Engine.state.players || [];
+    
+        players.forEach(player=>{
+            const row=document.createElement(
+                "div"
+            );
+            row.className="player-row";
+            row.innerHTML=`
+                <div>
+                    ${player.name}
+                </div>
+                <div>
+                    ${player.role || "🎲"}
+                </div>
+            `;
+    
+            list.appendChild(row);
+        });
+    
+        const max =
+            Engine.game.players_max || 8;
+    
+        if(players.length < max){
+            const add=document.createElement(
+                "div"
+            );
+            add.className="player-row";
+            add.innerHTML=`
+            <div>
+                <button id="addPlayer">
+                    ${icons.plus}
+                </button>
+            </div>
+            <div>
+                -
+            </div>
+            `;
+    
+            list.appendChild(add);
+            document.getElementById(
+                "addPlayer"
+            ).onclick=()=>{
+                this.addPlayerForm();
+            };
+        }
+    }
+    
     document.getElementById("menuPanel").innerHTML=`
     <div class="menu-title">
         ${icons.role} ${role.name}
@@ -542,7 +604,13 @@ const Menu = {
         this.showMain();
         };
     },
-    
+
+    addPlayerForm(){
+        console.log(
+            "ADD PLAYER"
+        );
+    },
+
     showMain(){
         this.page="main";
         this.render();
