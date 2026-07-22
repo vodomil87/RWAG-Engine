@@ -2,28 +2,28 @@
     {
         "id": "nebakov",
         "name": "Tajemství Nebákova",
-        "image":"images/nebakov_nahled.jpg",
+        "file":"games/nebakov/scenario.json",
+        "image":"games/nebakov/images/nahled.jpg",
         "description":"Odhalte tajemství záhadného cizince, který se objevil na hradě Nebákov.",
         "location":"Troskovice a okolí",
         "time":"cca 8 hodin",
         "distance":"9 - 13 km",
         "players":"3 - 8",
         "status":"available",
-        "file": "nebakov.json",
         "author":"RWAG Studio",
         "version":"1.0"
     },
     {
         "id": "ukazka",
         "name": "Ukázkový scénář",
-        "image":"images/ukazka_nahled.jpg",
+        "file":"games/ukazka/scenario.json",
+        "image":"games/ukazka/images/nahled.jpg",
         "description":"Ukázkový scénář pro předvedení herního enginu RWAG.",
         "location":"Kdekoliv",
         "time":"30 minut",
         "distance":"1 km",
         "players":"1+",
         "status":"preparing",
-        "file": "ukazka.json",
         "author":"RWAG Studio",
         "version":"1.0"
     }
