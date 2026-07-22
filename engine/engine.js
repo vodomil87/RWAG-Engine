@@ -12,6 +12,7 @@ const Engine = {
         try{
             await this.loadGame(scenarioId);
             await this.loadRoles();
+            await this.loadLegend();
             UI.init();
             Status.render();
             this.gotoScene(this.game.startScene);
@@ -89,6 +90,35 @@ const Engine = {
         console.log(
             "PLAYER ROLES:",
             this.state.roles
+        );
+    },
+
+    async loadLegend(){
+    
+        if(!this.game.legend){
+            console.log(
+                "Scénář nemá legendu"
+            );
+            return;
+        }
+    
+        const response =
+            await fetch(
+                this.basePath + this.game.legend
+            );
+    
+        if(!response.ok){
+            throw new Error(
+                "Nelze načíst legendu"
+            );
+        }
+    
+        this.legend =
+            await response.json();
+    
+        console.log(
+            "LEGEND LOADED:",
+            this.legend
         );
     },
     
