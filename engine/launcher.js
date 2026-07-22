@@ -37,6 +37,16 @@ const Launcher = {
         container.className="scenario-list";
         this.scenarios.forEach(
             scenario=>{
+                const status =
+                    Statuses[scenario.status] ||
+                    {
+                        icon:"",
+                        text:scenario.status
+                    };
+                const status =
+                    ScenarioStatus.get(
+                        scenario.status
+                    );
                 const card=document.createElement(
                     "div"
                 );
@@ -80,10 +90,10 @@ const Launcher = {
                     </div>
                     <div class="scenario-detail">
                         <span class="scenario-icon">
-                            ${icons.semafor}
+                            ${status.icon}
                         </span>
                         <span>
-                            ${scenario.status}
+                            ${status.text}
                         </span>
                     </div>
                 </div>
