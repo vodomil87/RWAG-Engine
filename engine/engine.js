@@ -8,7 +8,7 @@ const Engine = {
         flags:{}
     },
 
-    async start(scenario){
+    async start(gameName){
         try{
             await this.loadGame(gameName);
             await this.loadRoles();
