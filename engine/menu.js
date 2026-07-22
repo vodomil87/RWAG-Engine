@@ -532,7 +532,7 @@ const Menu = {
                     ${player.name}
                 </div>
                 <div>
-                    ${player.role || "🎲"}
+                    ${player.role?.name || "🎲"}}
                 </div>
             `;
     
@@ -594,23 +594,12 @@ const Menu = {
         if(!name){
             return;
         }
-        const roles = Engine.state.roles;
-        const role =
-            roles[
-                Math.floor(
-                    Math.random()*roles.length
-                )
-            ];
-        Engine.state.players.push({
-            name:name,
-            role:role.name
-        });
-        console.log(
-            "PLAYER CREATED:",
-            Engine.state.players
-        );
-        this.addingPlayer=false;
-        this.renderRoles();
+        if(
+            Engine.addPlayer(name)
+        ){
+            this.addingPlayer=false;
+            this.renderRoles();
+        }
     },
     
     showMain(){
