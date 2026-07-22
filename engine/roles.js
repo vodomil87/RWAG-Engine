@@ -25,25 +25,6 @@ const Roles = {
         );
 
         return data.roles;
-    },
-
-    assign(roles, count=1){
-
-        console.log(
-            "ASSIGN ROLES",
-            count
-        );
-
-        const shuffled =
-            [...roles]
-            .sort(
-                ()=>Math.random()-0.5
-            );
-
-        return shuffled.slice(
-            0,
-            count
-        );
     }
 };
 
