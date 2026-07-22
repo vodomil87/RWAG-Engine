@@ -58,11 +58,11 @@
             },
             {
                 "icon":"zamceno",
-                "text":"zamčená akce"
+                "text":"zamčená akce (z důvodu nesplnění uvedené podmínky)"
             },
             {
                 "icon":"odemceno",
-                "text":"odemčená akce"
+                "text":"odemčená akce (s uvedenou splněnou podmínkou)"
             }
         ]
     }
