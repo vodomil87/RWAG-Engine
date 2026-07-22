@@ -1,0 +1,69 @@
+[
+    {
+        "title":"Přehled symbolů použitých ve hře"
+    },
+
+    {
+        "subtitle":"Obecná označení charakteru akcí:",
+        "items":[
+            {
+                "icon":"stopy",
+                "text":"cestování, postup"
+            },
+            {
+                "icon":"lupa",
+                "text":"průzkum, zvídavost"
+            },
+            {
+                "icon":"koruna",
+                "text":"šlechetnost, odvaha"
+            },
+            {
+                "icon":"mozek",
+                "text":"znalosti, zkušenosti"
+            },
+            {
+                "icon":"nuz",
+                "text":"nátlak, násilí"
+            },
+            {
+                "icon":"priroda",
+                "text":"příroda"
+            }
+        ]
+    },
+
+    {
+        "subtitle":"Další symboly:",
+        "items":[
+            {
+                "icon":"rep_pos",
+                "text":"zvýšení reputace"
+            },
+            {
+                "icon":"rep_neg",
+                "text":"pokles reputace"
+            },
+            {
+                "icon":"batoh",
+                "text":"předmět do inventáře"
+            },
+            {
+                "icon":"hodiny",
+                "text":"událost, náhodné setkání"
+            },
+            {
+                "icon":"lebka",
+                "text":"prokletí"
+            },
+            {
+                "icon":"zamceno",
+                "text":"zamčená akce"
+            },
+            {
+                "icon":"odemceno",
+                "text":"odemčená akce"
+            }
+        ]
+    }
+]
