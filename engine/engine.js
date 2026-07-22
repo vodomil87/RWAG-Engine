@@ -1,15 +1,10 @@
 const Engine = {
     game:null,
     currentScene:null,
-    state:{
-        reputation:0,
-        inventory:[],
-        roles:[],
-        players:[],
-        flags:{}
-    },
+    state:null,
 
     async start(scenarioId){
+        this.state = this.defaultState();
         try{
             await this.loadGame(scenarioId);
             await this.loadRoles();
@@ -70,26 +65,15 @@ const Engine = {
     },
     
     async loadRoles(){
-        if(!this.game.roleSet){
-            console.log(
-                "Scénář nemá role"
-            );
-            return;
-        }
-
         const roles =
             await Roles.load(
                 this.basePath + this.game.roleSet
             );
-
-        this.state.roles =
-            Roles.assign(
-                roles,
-                1
-            );
     
+        this.state.roles = [...roles];
+        
         console.log(
-            "PLAYER ROLES:",
+            "AVAILABLE ROLES:",
             this.state.roles
         );
     },
@@ -140,13 +124,27 @@ const Engine = {
 
     exitScenario(){
         this.game = null;
-        this.state = {};
+        this.legend = null;
+        this.state = this.defaultState();
+    
         document.getElementById("game").style.display="none";
         document.getElementById("launcher").style.display="block";
+    
         Menu.page="main";
         Menu.close();
         Launcher.render();
-    }
+    },
+
+    defaultState(){
+        return {
+            reputation:0,
+            inventory:[],
+            roles:[],          // dostupné nerozdané role
+            players:[],
+            flags:{}
+        };
+    },
+    
 };
 
 window.Engine=Engine;
