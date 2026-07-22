@@ -575,9 +575,7 @@ const Menu = {
                 };
             }else{
                 document.getElementById("assignRole").onclick=()=>{
-                    console.log(
-                        document.getElementById("playerName").value
-                    );
+                    this.createPlayer();
                 };
             }
         }
@@ -588,6 +586,33 @@ const Menu = {
         this.renderPlayers();
     },
 
+    createPlayer(){
+        const name =
+            document.getElementById(
+                "playerName"
+            ).value.trim();
+        if(!name){
+            return;
+        }
+        const roles = Engine.state.roles;
+        const role =
+            roles[
+                Math.floor(
+                    Math.random()*roles.length
+                )
+            ];
+        Engine.state.players.push({
+            name:name,
+            role:role.name
+        });
+        console.log(
+            "PLAYER CREATED:",
+            Engine.state.players
+        );
+        this.addingPlayer=false;
+        this.renderRoles();
+    },
+    
     showMain(){
         this.page="main";
         this.render();
