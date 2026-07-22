@@ -2,7 +2,10 @@
   "gameId": "ukazka",
   "scenarioName": "Ukázkový scénář",
   "description": "Ukázkový scénář k předvedení RWAG Engine.",
-  
+  "legend":"games/ukazka/legend.json",
+  "roles":"games/ukazka/roles.json",
+  "events":"games/ukazka/events.json"
+  "roleSet":"stredovek",
   "startScene": "scene_211",
   
   "scenes": [
