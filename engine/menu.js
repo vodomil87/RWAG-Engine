@@ -516,12 +516,15 @@ const Menu = {
     },
 
     renderPlayers(){
-        const list=document.getElementById(
-            "playersList"
-        );
+        const list =
+            document.getElementById(
+                "playersList"
+            );
+        list.innerHTML = "";
+        
         const players =
             Engine.state.players || [];
-    
+        
         players.forEach(player=>{
             const row=document.createElement(
                 "div"
