@@ -585,10 +585,33 @@ const Menu = {
         
         const max =
             Engine.game.players_max || 8;
-                
-        // tlačítko + nebo nové pole
+        
+        // čekající hráči
+        Engine.state.pendingPlayers.forEach((player,index)=>{
+            const row=document.createElement("div");
+            row.className="player-row";
+            row.innerHTML=`
+                <div>
+                    <input
+                        class="playerNameInput"
+                        data-index="${index}"
+                        placeholder="Jméno hráče"
+                        value="${player.name}">
+                </div>
+                <div>
+                    <button class="assignRole" data-index="${index}">
+                        ${icons.kostka}
+                    </button>
+                </div>
+            `;
+            list.appendChild(row);
+        });
+        
+        // tlačítko +
         if(
-            players.length + Engine.state.pendingPlayers.length < max
+            Engine.state.players.length +
+            Engine.state.pendingPlayers.length
+            < max
         ){
             const add=document.createElement("div");
             add.className="player-row";
@@ -603,51 +626,30 @@ const Menu = {
                 </div>
             `;
             list.appendChild(add);
+        
             document.getElementById("addPlayer").onclick=()=>{
                 this.addPlayerForm();
             };
         }
-                
-        // čekající hráči (textová pole)
-        Engine.state.pendingPlayers.forEach((player,index)=>{
-            const row=document.createElement("div");
-            row.className="player-row";
-            row.innerHTML=`
-                <div>
-                    <input
-                        class="playerName"
-                        data-index="${index}"
-                        placeholder="Jméno hráče"
-                        value="${player.name}">
-                </div>
-                <div>
-                    <button class="assignRole"
-                        data-index="${index}">
-                        ${icons.kostka}
-                    </button>
-                </div>
-            `;
-            list.appendChild(row);
-        });
         
-        // tlačítka kostky
+        // aktivace kostek
         document.querySelectorAll(".assignRole")
-        .forEach(btn=>{
-            btn.onclick=()=>{
+        .forEach(button=>{
+            button.onclick=()=>{
                 const index =
-                    btn.dataset.index;
+                    button.dataset.index;
                 const input =
                     document.querySelector(
-                        `.playerName[data-index="${index}"]`
+                        `.playerNameInput[data-index="${index}"]`
                     );
-                Engine.state.pendingPlayers[index].name =
-                    input.value.trim();
-                if(
-                    Engine.state.pendingPlayers[index].name
-                ){
-                    Engine.assignRoleToPlayer(index);
-                    this.renderRoles();
-                }
+                Engine.addPlayer(
+                    input.value
+                );
+                Engine.state.pendingPlayers.splice(
+                    index,
+                    1
+                );
+                this.renderRoles();
             };
         });
     },
