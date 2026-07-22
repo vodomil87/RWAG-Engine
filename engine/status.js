@@ -31,15 +31,15 @@ window.Status=Status;
 const ScenarioStatus = {
     available:{
         icon:icons.puntik_zeleny,
-        text:"K dispozici"
+        text:"K dispozici!"
     },
     preparing:{
         icon:icons.puntik_cerveny,
-        text:"Připravujeme"
+        text:"Připravujeme..."
     },
     beta:{
         icon:icons.puntik_zluty,
-        text:"Beta verze"
+        text:"Probíhá testování."
     },
     get(status){
         return this[status] || {
