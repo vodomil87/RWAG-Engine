@@ -67,6 +67,9 @@ const Menu = {
             case "roles":
                 this.renderRoles();
                 break;
+            case "legend":
+                this.renderLegend();
+                break;
             case "confirm":
                 this.renderConfirm();
                 break;
@@ -82,29 +85,44 @@ const Menu = {
         }
         
         document.getElementById("menuPanel").innerHTML=`
+        
         <div class="menu-title">
             ${icons.svitek} ${Engine.game?.scenarioName || "Scénář"}
         </div>
+        
         <div class="menu-item" id="menuRoles">
             ${icons.role} Role ${icons.vpred}
         </div>
+        
         <div class="menu-item">${icons.svitek} Úkoly</div>
+        
         <div class="menu-item">${icons.batoh} Inventář</div>
-        <div class="menu-item">${icons.knihy} Přehled pravidel</div>
+        
+        <div class="menu-item" id="menuLegend">
+            ${icons.knihy} Přehled pravidel ${icons.vpred}
+        </div>
+        
         <div class="menu-item">${icons.graf} Statistiky</div>
+        
         <div class="menu-item">${icons.disketa} Uložit / Načíst pozici</div>
+        
         <div class="menu-item" id="menuExit">
             ${icons.dvere} Ukončit scénář
         </div>
+        
         <hr>
+        
         <div class="menu-item" id="menuSettings">
             ${icons.nastaveni} Nastavení ${icons.vpred}
         </div>
+        
         <hr>
+        
         <div class="menu-item" id="menuAbout">
             ${icons.info} O aplikaci ${icons.vpred}
         </div>
         `;
+        
         document.getElementById("menuSettings").onclick = (e) => {
             e.stopPropagation();
             this.showSettings();
@@ -116,6 +134,10 @@ const Menu = {
         document.getElementById("menuRoles").onclick=(e)=>{
             e.stopPropagation();
             this.showRoles();
+        };
+        document.getElementById("menuLegend").onclick=(e)=>{
+            e.stopPropagation();
+            this.showLegend();
         };
         document.getElementById("menuExit").onclick=(e)=>{
             e.stopPropagation();
@@ -149,6 +171,11 @@ const Menu = {
             e.stopPropagation();
             this.showAbout();
         };
+    },
+
+    showLegend(){
+        this.page="legend";
+        this.render();
     },
     
     showSettings(){
@@ -371,6 +398,68 @@ const Menu = {
             )
             ?.classList.add("active");
      },
+
+    renderLegend(){
+        const legend = Engine.legend;
+        if(!legend){
+            document.getElementById("menuPanel").innerHTML=`
+                <div class="menu-title">
+                    ${icons.knihy} Přehled pravidel
+                </div>
+                <p>
+                Legenda není dostupná.
+                </p>
+                <hr>
+                <div class="menu-item" id="menuBack">
+                    ${icons.zpet} Zpět
+                </div>
+            `;
+            document.getElementById("menuBack").onclick=()=>{
+                this.showMain();
+            };
+            return;
+        }
+    
+        let html=`
+            <div class="menu-title">
+                ${icons.knihy} ${legend[0].title}
+            </div>
+        `;
+        legend.slice(1).forEach(section=>{
+            html+=`
+            <div class="menu-section">
+                ${section.subtitle}
+            </div>
+            `;
+            section.items.forEach(item=>{
+                html+=`
+                <div class="legend-row">
+                    <span class="scenario-icon">
+                        ${icons[item.icon]}
+                    </span>
+    
+                    <span>
+                        ${item.text}
+                    </span>
+                </div>
+                `;
+            });
+        });
+    
+        html+=`
+            <hr>
+            <div class="menu-item" id="menuBack">
+                ${icons.zpet} Zpět
+            </div>
+        `;
+    
+        document.getElementById("menuPanel").innerHTML=html;
+    
+        document.getElementById("menuBack").onclick=(e)=>{
+            e.stopPropagation();
+            this.showMain();
+        };
+    },
     
     renderAbout(){
         document.getElementById("menuPanel").innerHTML=`
