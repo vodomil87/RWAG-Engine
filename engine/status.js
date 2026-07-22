@@ -28,18 +28,25 @@ if(window.Menu){
 window.Status=Status;
 
 
-const Statuses = {
+const ScenarioStatus = {
     available:{
         icon:icons.puntik_zeleny,
         text:"K dispozici"
     },
     preparing:{
         icon:icons.puntik_cerveny,
-        text:"Připravujeme..."
+        text:"Připravujeme"
     },
     beta:{
         icon:icons.puntik_zluty,
         text:"Beta verze"
+    },
+    get(status){
+        return this[status] || {
+            icon:"",
+            text:status
+        };
     }
 };
-window.Statuses = Statuses;
+
+window.ScenarioStatus = ScenarioStatus;
