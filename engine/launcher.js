@@ -94,7 +94,7 @@ const Launcher = {
                 `;
                 card.onclick=()=>{
                     this.startScenario(
-                        scenario.id
+                        scenario
                     );
                 };
                 container.appendChild(card);
@@ -103,10 +103,10 @@ const Launcher = {
         root.appendChild(container);
     },
 
-    startScenario(id) {
+    startScenario(scenario) {
         console.log(
             "START SCENARIO:",
-            id
+            scenario.id
         );
     
         document.getElementById(
@@ -117,6 +117,6 @@ const Launcher = {
             "game"
         ).style.display = "block";
            
-        Engine.start(id);
+        Engine.start(scenario);
     }
 };
