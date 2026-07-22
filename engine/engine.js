@@ -8,7 +8,7 @@ const Engine = {
         flags:{}
     },
 
-    async start(gameName){
+    async start(scenario){
         try{
             await this.loadGame(gameName);
             await this.loadRoles();
@@ -22,10 +22,16 @@ const Engine = {
         }
     },
 
-    async loadGame(gameName){
-        const response=await fetch(`games/${gameName}.json`);
-        if(!response.ok) throw new Error("Nelze načíst scénář");
-        this.game=await response.json();
+    async loadGame(scenario){
+        const response = await fetch(
+            scenario.file
+        );
+        if(!response.ok){
+            throw new Error(
+                "Nelze načíst scénář"
+            );
+        }
+        this.game = await response.json();
     },
     
     async loadRoles(){
