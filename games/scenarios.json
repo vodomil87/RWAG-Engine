@@ -8,7 +8,7 @@
         "time":"cca 8 hodin",
         "distance":"9 - 13 km",
         "players":"3 - 8",
-        "status":"K dispozici",
+        "status":"available",
         "file": "nebakov.json",
         "author":"RWAG Studio",
         "version":"1.0"
@@ -22,7 +22,7 @@
         "time":"30 minut",
         "distance":"1 km",
         "players":"1+",
-        "status":"Připravujeme...",
+        "status":"preparing",
         "file": "ukazka.json",
         "author":"RWAG Studio",
         "version":"1.0"
