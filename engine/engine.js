@@ -8,7 +8,7 @@ const Engine = {
         flags:{}
     },
 
-    async start(gameName){
+    async start(scenarioId){
         try{
             await this.loadGame(gameName);
             await this.loadRoles();
@@ -22,11 +22,23 @@ const Engine = {
         }
     },
 
-    async loadGame(gameName){
-            const scenario =
+    async loadGame(scenarioId){
+
+        console.log(
+            "LOAD GAME ID:",
+            gameName
+        );
+    
+        console.log(
+            "AVAILABLE SCENARIOS:",
+            Launcher.scenarios
+        );
+    
+        const scenario =
             Launcher.scenarios.find(
-                s=>s.id===gameName
+                s=>s.id===scenarioId
             );
+    
         if(!scenario){
             throw new Error(
                 "Scénář nenalezen"
