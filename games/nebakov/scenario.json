@@ -3,6 +3,8 @@
   "scenarioName": "Tajemství Nebákova",
   "description": "Dobrodružný scénář v okolí Nebákova.",
   "legend":"games/nebakov/legend.json",
+  "roles":"games/nebakov/roles.json",
+  "events":"games/nebakov/events.json"
   "roleSet":"stredovek",
   "startScene": "scene_211",
   
