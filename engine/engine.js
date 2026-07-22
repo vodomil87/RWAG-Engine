@@ -5,6 +5,7 @@ const Engine = {
         reputation:0,
         inventory:[],
         roles:[],
+        players:[],
         flags:{}
     },
 
