@@ -45,6 +45,8 @@ hraci: "👥",
 semafor: "🚦",
 fajfka: "✅",
 krizek: "❌",
-otaznik: "❓"
+otaznik: "❓",
+available:"🟢",
+not_available:"🔴"
    
 };
