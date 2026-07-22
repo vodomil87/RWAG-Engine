@@ -535,7 +535,7 @@ const Menu = {
                     ${player.name}
                 </div>
                 <div>
-                    ${player.role?.name || "🎲"}}
+                    ${player.role?.name || ${icons.kostka}
                 </div>
             `;
     
