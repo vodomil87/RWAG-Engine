@@ -45,6 +45,10 @@
                 "text":"pokles reputace"
             },
             {
+                "icon":"svitek",
+                "text":"úkol"
+            },
+            {
                 "icon":"batoh",
                 "text":"předmět do inventáře"
             },
@@ -54,7 +58,7 @@
             },
             {
                 "icon":"lebka",
-                "text":"prokletí"
+                "text":"prokletí, nezdar"
             },
             {
                 "icon":"zamceno",
