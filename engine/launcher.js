@@ -38,12 +38,6 @@ const Launcher = {
         this.scenarios.forEach(
             scenario=>{
                 const status =
-                    Statuses[scenario.status] ||
-                    {
-                        icon:"",
-                        text:scenario.status
-                    };
-                const status =
                     ScenarioStatus.get(
                         scenario.status
                     );
