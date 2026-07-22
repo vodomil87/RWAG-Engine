@@ -7,7 +7,7 @@ const Roles = {
         );
 
         const response = await fetch(
-            `roles/${roleSet}.json`
+            roleSet
         );
 
         if(!response.ok){
