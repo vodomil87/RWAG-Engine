@@ -12,7 +12,7 @@ render(){
  const r=Engine.state.reputation;
  const icon=r>0?icons.rep_pos:r<0?icons.rep_neg:icons.rep_neu;
  bar.innerHTML=`
-
+ 
 <button id="menuButton">${icons.menu}</button>
 
 <span>
@@ -26,3 +26,20 @@ if(window.Menu){
 }
 }};
 window.Status=Status;
+
+
+const Statuses = {
+    available:{
+        icon:icons.puntik_zeleny,
+        text:"K dispozici"
+    },
+    preparing:{
+        icon:icons.puntik_cerveny,
+        text:"Připravujeme..."
+    },
+    beta:{
+        icon:icons.puntik_zluty,
+        text:"Beta verze"
+    }
+};
+window.Statuses = Statuses;
