@@ -48,6 +48,7 @@ krizek: "❌",
 otaznik: "❓",
 puntik_zeleny:"🟢",
 puntik_cerveny:"🔴",
-puntik_zluty:"🟡"
+puntik_zluty:"🟡",
+kostka:"🎲"
    
 };
