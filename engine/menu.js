@@ -43,9 +43,9 @@ const Menu = {
             this.open
         );
         
-    if(this.open){
-        this.render();
-    }
+        if(this.open){
+            this.render();
+        }
     },
 
     close(){
@@ -358,11 +358,11 @@ const Menu = {
             Settings.setVibration(
                 !Settings.getVibration()
             );
+            
             updateToggles();
         };
-
+        
         updateToggles();
-
     },
  
     updateFontButtons(){
@@ -542,43 +542,44 @@ const Menu = {
         const max =
             Engine.game.players_max || 8;
     
-    if(players.length < max){
-        const add=document.createElement("div");
-        add.className="player-row";
-        if(!this.addingPlayer){
-            add.innerHTML=`
-                <div>
-                    <button id="addPlayer">
-                        ${icons.plus}
-                    </button>
-                </div>
-                <div>-</div>
-            `;
-        }else{
-            add.innerHTML=`
-                <div>
-                    <input
-                        id="playerName"
-                        placeholder="Jméno hráče">
-                </div>
-                <div>
-                    <button id="assignRole">
-                        ${icons.kostka}
-                    </button>
-                </div>
-            `;
-        }
-        list.appendChild(add);
-        if(!this.addingPlayer){
-            document.getElementById("addPlayer").onclick=()=>{
-                this.addPlayerForm();
-            };
-        }else{
-            document.getElementById("assignRole").onclick=()=>{
-                console.log(
-                    document.getElementById("playerName").value
-                );
-            };
+            if(players.length < max){
+            const add=document.createElement("div");
+            add.className="player-row";
+            if(!this.addingPlayer){
+                add.innerHTML=`
+                    <div>
+                        <button id="addPlayer">
+                            ${icons.plus}
+                        </button>
+                    </div>
+                    <div>-</div>
+                `;
+            }else{
+                add.innerHTML=`
+                    <div>
+                        <input
+                            id="playerName"
+                            placeholder="Jméno hráče">
+                    </div>
+                    <div>
+                        <button id="assignRole">
+                            ${icons.kostka}
+                        </button>
+                    </div>
+                `;
+            }
+            list.appendChild(add);
+            if(!this.addingPlayer){
+                document.getElementById("addPlayer").onclick=()=>{
+                    this.addPlayerForm();
+                };
+            }else{
+                document.getElementById("assignRole").onclick=()=>{
+                    console.log(
+                        document.getElementById("playerName").value
+                    );
+                };
+            }
         }
     },
     
