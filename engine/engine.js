@@ -171,8 +171,9 @@ const Engine = {
         return {
             reputation:0,
             inventory:[],
-            roles:[],          // dostupné nerozdané role
+            roles:[],
             players:[],
+            pendingPlayers:[],
             flags:{}
         };
     },
