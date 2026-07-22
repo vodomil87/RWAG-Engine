@@ -122,6 +122,38 @@ const Engine = {
         UI.renderScene(scene);
     },
 
+    addPlayer(name){
+        if(!name){
+            return false;
+        }
+        if(this.state.roles.length===0){
+            return false;
+        }
+        const index =
+            Math.floor(
+                Math.random() *
+                this.state.roles.length
+            );
+        const role =
+            this.state.roles.splice(
+                index,
+                1
+            )[0];
+        this.state.players.push({
+            name:name,
+            role:role
+        });
+        console.log(
+            "PLAYER:",
+            this.state.players
+        );
+        console.log(
+            "REMAINING ROLES:",
+            this.state.roles
+        );
+        return true;
+    },
+    
     exitScenario(){
         this.game = null;
         this.legend = null;
