@@ -601,8 +601,12 @@ const Menu = {
                     document.querySelector(
                         `.playerNameInput[data-index="${index}"]`
                     );
+                if(!input.value.trim()){
+                    alert("Zadej jméno hráče");
+                    return;
+                }
                 Engine.addPlayer(
-                    input.value
+                    input.value.trim()
                 );
                 Engine.state.pendingPlayers.splice(
                     index,
