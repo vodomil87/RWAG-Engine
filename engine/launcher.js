@@ -117,6 +117,8 @@ const Launcher = {
             "game"
         ).style.display = "block";
            
-        Engine.start(id);
+        Engine.start(
+            scenario.id
+        );
     }
 };
