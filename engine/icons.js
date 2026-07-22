@@ -46,7 +46,8 @@ semafor: "🚦",
 fajfka: "✅",
 krizek: "❌",
 otaznik: "❓",
-available:"🟢",
-not_available:"🔴"
+puntik_zeleny:"🟢",
+puntik_cerveny:"🔴",
+puntik_zluty:"🟡"
    
 };
