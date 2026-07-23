@@ -503,8 +503,10 @@ body.font-typewriter{
 }
 
 #playersAdd button{
-    font-size:1.5rem;
+    font-size:calc(var(--game-font-size) * 1.5);
     height:calc(var(--game-font-size) * 2.5);
+    border-radius:calc(var(--game-font-size) * 2.5);
+    text-align:center;
 }
 
 .player-name-edit{
