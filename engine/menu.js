@@ -538,41 +538,57 @@ const Menu = {
             const row=document.createElement("div");
             row.className="player-row";
             if(!player.confirmed){
-                row.innerHTML=`
-                    <div class="player-name-edit">
+            row.innerHTML=`
+                <div class="player-name-cell">
+                    ${
+                        player.confirmed
+                        ?
+                        `<span>${player.name}</span>`
+                        :
+                        `
                         <input
                             class="playerNameInput"
                             data-index="${index}"
                             placeholder="Jméno hráče"
                             value="${player.name}">
-                        <button 
-                            class="confirmName"
-                            data-index="${index}">
+                        `
+                    }
+                </div>
+                <div class="player-confirm-cell">
+                    ${
+                        player.confirmed
+                        ?
+                        ""
+                        :
+                        `
+                        <button class="confirmName" data-index="${index}">
                             ${icons.fajfka}
                         </button>
-                    </div>
-                    <div>
-                        <button 
-                            class="assignRole"
-                            data-index="${index}"
-                            disabled>
-                            ${icons.kostka}
-                        </button>
-                    </div>
-                `;
+                        `
+                    }
+                </div>
+                <div class="player-role-cell">
+                    <button 
+                        class="assignRole"
+                        data-index="${index}"
+                        ${player.confirmed ? "" : "disabled"}>
+                        ${icons.kostka}
+                    </button>
+                </div>
+            `;
             }else{
-                row.innerHTML=`
-                    <div>
-                        ${player.name}
-                    </div>
-                    <div>
-                        <button 
-                            class="assignRole"
-                            data-index="${index}">
-                            ${icons.kostka}
-                        </button>
-                    </div>
-                `;
+            row.innerHTML=`
+                <div>
+                    ${player.name}
+                </div>
+                <div>
+                    <button 
+                        class="assignRole"
+                        data-index="${index}">
+                        ${icons.kostka}
+                    </button>
+                </div>
+            `;
             }
             list.appendChild(row);
         });
