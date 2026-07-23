@@ -504,8 +504,8 @@ body.font-typewriter{
 
 #playersAdd button{
     font-size:calc(var(--game-font-size) * 1.5);
-    height:calc(var(--game-font-size) * 2.5);
-    border-radius:calc(var(--game-font-size) * 2.5);
+    height:calc(var(--game-font-size) * 3);
+    border-radius:calc(var(--game-font-size) * 3);
     text-align:center;
 }
 
