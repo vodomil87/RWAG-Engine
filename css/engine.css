@@ -312,7 +312,8 @@ body.font-typewriter{
     font-size:calc(var(--game-font-size) + 4px);
 /*    font-weight:bold;*/
 /*    margin-bottom:20px;*/
-    margin: calc(var(--game-font-size) / 2) 0;
+    padding:calc(var(--game-font-size) / 2) 0;
+    margin:calc(var(--game-font-size) / 2) 0;
 }
 
 .menu-item{
@@ -330,7 +331,8 @@ body.font-typewriter{
 }
 
 .menu-section{
-    margin: calc(var(--game-font-size) / 2) 0;    
+    padding:calc(var(--game-font-size) / 2) 0;
+    margin:calc(var(--game-font-size) / 2) 0;
 /*    margin-top:15px;*/
     margin-bottom:10px;
 /*    font-weight:bold;*/
@@ -380,7 +382,7 @@ body.font-typewriter{
 .toggle-button{
     width:calc(var(--game-font-size) * 4);
     height:calc(var(--game-font-size) * 2);
-    border-radius:calc(var(--game-font-size));
+    border-radius:var(--game-font-size);
     border:1px solid var(--border-color);
     background:#777;
     color:white;
@@ -463,6 +465,7 @@ body.font-typewriter{
     flex-direction:column;
     gap:4px;
     width:100%;
+    margin: var(--game-font-size) 0;
 }
 
 .players-header,
@@ -559,7 +562,7 @@ body.font-typewriter{
 }
 
 .player-name-cell{
-    height:var(--button-size));
+    height:var(--button-size);
     display:flex;
     align-items:center;
     min-width:0;
