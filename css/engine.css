@@ -510,15 +510,11 @@ body.font-typewriter{
     font-size:calc(var(--game-font-size) * 1.5);
     height:calc(var(--game-font-size) * 3.5);
     border-radius:calc(var(--game-font-size) * 3.5);
-  
     background:var(--panel-color);
-    border:1px solid var(--border-color);
     color:var(--text-color);
     cursor:pointer;
-    
     text-align:center;
     align-items:center;
-    justify-content:center;
 }
 
 .player-name-edit{
@@ -564,9 +560,7 @@ body.font-typewriter{
     display:flex;
     align-items:center;
     min-width:0;
-
     background:var(--panel-color);
-    border:1px solid var(--border-color);
     color:var(--text-color);
     cursor:pointer;
     font-size:var(--game-font-size);
