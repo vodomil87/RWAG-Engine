@@ -510,6 +510,12 @@ body.font-typewriter{
     font-size:calc(var(--game-font-size) * 1.5);
     height:calc(var(--game-font-size) * 3.5);
     border-radius:calc(var(--game-font-size) * 3.5);
+  
+    background:var(--panel-color);
+    border:1px solid var(--border-color);
+    color:var(--text-color);
+    cursor:pointer;
+    
     text-align:center;
     align-items:center;
     justify-content:center;
@@ -559,7 +565,6 @@ body.font-typewriter{
     background:var(--panel-color);
     border:1px solid var(--border-color);
     color:var(--text-color);
-    border-radius:var(--game-font-size);
     cursor:pointer;
     font-size:var(--game-font-size);
 }
@@ -584,4 +589,5 @@ body.font-typewriter{
 #playersList{
     width:100%;
     overflow:hidden;
+    gap:2px;
 }
