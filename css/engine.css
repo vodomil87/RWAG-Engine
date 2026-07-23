@@ -40,114 +40,14 @@ h1{
     font-size:var(--title-size);
     font-weight:700;
     margin:0 0 20px;
-/*    
-    font-weight:bold;
-*/
+/*    font-weight:bold;*/
 }
 
 h2{
     font-size:var(--subtitle-size);
     font-weight:700;
     margin:0 0 16px;
-/*    
-    font-weight:bold;
-*/
-}
-
-body.theme-dark{
-    --bg-color:#111;
-    --text-color:#eee;
-    --panel-color:#222;
-    --border-color:#444;
-    --panel-bg:#222;
-    --panel-item-bg:#222;
-    --panel-border:#444;
-}
-
-body.theme-light{
-    --bg-color:#fff;
-    --text-color:#111;
-    --panel-color:#f0f0f0;
-    --border-color:#ccc;
-    --panel-bg:#f2f2f2;
-    --panel-item-bg:#f2f2f2;
-    --panel-border:#ccc;
-}
-
-body.theme-medieval{
-    --bg-color:#d88b32;
-    --text-color:#57320c;
-    --panel-color:#e6a04d;
-    --border-color:#8b5a20;
-    --panel-bg:#efb05d;
-    --panel-item-bg:#efb05d;
-    --panel-border:#8b5a20;
-}
-
-body.font-default{
-    --font-active-color:#666;
-    /* šedá #666 */
-}
-
-body.font-medieval{
-    --font-active-color:#666;
-    /* hnědá #783f04, tmavší hnědá #57320c */
-}
-
-body.font-typewriter{
-    --font-active-color:#666;
-     /* modrá - default #4ea3ff, tmavší #3d85c6 */
-}
-
-body.font-default{
-    font-family:var(--font-default);
-}
-
-#fontDefault{
-    font-family:var(--font-default);
-}
-
-.font-default{
-    font-family:var(--font-default);
-}
-
-.font-preview.default{
-    font-family:var(--font-default);
-}
-
-body.font-medieval{
-    font-family:var(--font-medieval);
-}
-
-#fontMedieval{
-    font-family:var(--font-medieval);
 /*    font-weight:bold;*/
-}
-
-.font-medieval{
-    font-family:var(--font-medieval);
-/*    font-weight:bold;*/
-}
-
-.font-preview.medieval{
-    font-family:var(--font-medieval);
-/*    font-weight:bold;*/
-}
-
-body.font-typewriter{
-    font-family:var(--font-typewriter);
-}
-
-#fontTypewriter{
-    font-family:var(--font-typewriter);
-}
-
-.font-typewriter{
-    font-family:var(--font-typewriter);
-}
-
-.font-preview.typewriter{
-    font-family:var(--font-typewriter);
 }
 
 .theme-picker{
@@ -157,45 +57,13 @@ body.font-typewriter{
     margin-bottom:15px;
 }
 
-.theme-preview.dark{
-    background:#111;
-    color:white;
-}
-
-.theme-preview.light{
-    background:white;
-    color:black;
-}
-
-.theme-preview.medieval{
-    background:#d98b2b;
-    color:black;
-}
-
-.theme-preview,
-.font-preview{
-    width:var(--button-size);
-    height:var(--button-size);
-    border-radius:var(--button-radius);
-    border:2px solid var(--border-color);
-    background:var(--panel-item-bg);
-    color:var(--text-color);
-    cursor:pointer;
-    font-size:var(--game-font-size);
-/*    
-    font-weight:bold;
-*/
-}
-
 .theme-btn{
     width:calc(var(--game-font-size) * 2.5);
     height:calc(var(--game-font-size) * 2.5);
     border-radius:calc(var(--game-font-size) / 4);
     border:2px solid #666;
     font-size:var(--game-font-size);
-/*    
-    font-weight:bold;
-*/
+/*    font-weight:bold;*/
     cursor:pointer;
 }
 
@@ -214,6 +82,52 @@ body.font-typewriter{
     color:#111;
 }
 
+/* tmavé schéma */
+body.theme-dark{
+    --bg-color:#111;
+    --text-color:#eee;
+    --panel-color:#222;
+    --border-color:#444;
+    --panel-bg:#222;
+    --panel-item-bg:#222;
+    --panel-border:#444;
+}
+
+/* světlé schéma */
+body.theme-light{
+    --bg-color:#fff;
+    --text-color:#111;
+    --panel-color:#f0f0f0;
+    --border-color:#ccc;
+    --panel-bg:#f2f2f2;
+    --panel-item-bg:#f2f2f2;
+    --panel-border:#ccc;
+}
+
+/* středověké schéma */
+body.theme-medieval{
+    --bg-color:#d88b32;
+    --text-color:#57320c;
+    --panel-color:#e6a04d;
+    --border-color:#8b5a20;
+    --panel-bg:#efb05d;
+    --panel-item-bg:#efb05d;
+    --panel-border:#8b5a20;
+}
+
+.theme-preview,
+.font-preview{
+    width:var(--button-size);
+    height:var(--button-size);
+    border-radius:var(--button-radius);
+    border:2px solid var(--border-color);
+    background:var(--panel-item-bg);
+    color:var(--text-color);
+    cursor:pointer;
+    font-size:var(--game-font-size);
+/*    font-weight:bold;*/
+}
+
 .theme-preview.active{
     outline:2px solid var(--font-active-color);
     transform:scale(1.08);
@@ -223,9 +137,79 @@ body.font-typewriter{
     filter:brightness(1.1);
 }
 
-.font-preview.active{
-    outline:2px solid var(--font-active-color);
-    transform:scale(1.08);
+.theme-preview.dark{
+    background:#111;
+    color:white;
+}
+
+.theme-preview.light{
+    background:white;
+    color:black;
+}
+
+.theme-preview.medieval{
+    background:#d98b2b;
+    color:black;
+}
+
+/* výchozí font */
+body.font-default{
+    --font-active-color:#666;
+    /* šedá #666 */
+    font-family:var(--font-default);
+}
+
+#fontDefault{
+    font-family:var(--font-default);
+}
+
+.font-default{
+    font-family:var(--font-default);
+}
+
+.font-preview.default{
+    font-family:var(--font-default);
+}
+
+/* středovéký font */
+body.font-medieval{
+    --font-active-color:#666;
+    /* hnědá #783f04, tmavší hnědá #57320c */
+    font-family:var(--font-medieval);
+}
+
+#fontMedieval{
+    font-family:var(--font-medieval);
+/*    font-weight:bold;*/
+}
+
+.font-medieval{
+    font-family:var(--font-medieval);
+/*    font-weight:bold;*/
+}
+
+.font-preview.medieval{
+    font-family:var(--font-medieval);
+/*    font-weight:bold;*/
+}
+
+/* psací stroj font */
+body.font-typewriter{
+    --font-active-color:#666;
+     /* modrá - default #4ea3ff, tmavší #3d85c6 */
+    font-family:var(--font-typewriter);
+}
+
+#fontTypewriter{
+    font-family:var(--font-typewriter);
+}
+
+.font-typewriter{
+    font-family:var(--font-typewriter);
+}
+
+.font-preview.typewriter{
+    font-family:var(--font-typewriter);
 }
 
 .slider-wrapper{
@@ -543,7 +527,7 @@ body.font-typewriter{
 .player-row input{
     font:inherit;
     font-size:inherit;
-    color:inherit;
+    color:#666;
 }
 
 .player-row input::placeholder{
@@ -556,7 +540,7 @@ body.font-typewriter{
 }
 
 .player-name-cell{
-    height:32px;
+    height:calc(var(--game-font-size) * 2.5);
     display:flex;
     align-items:center;
     min-width:0;
@@ -565,7 +549,7 @@ body.font-typewriter{
 .player-name-cell input{
     width:100%;
     max-width:100%;
-    height:32px;
+    height:calc(var(--game-font-size) * 2.5);
     padding:4px 8px;
 }
 
