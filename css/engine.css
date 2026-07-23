@@ -34,6 +34,7 @@ textarea {
     --button-radius:calc(var(--game-font-size) / 2);
     --slider-color:var(--border-color); /*barva slideru */
     --settings-indent:15px; /*odsazení tlačítek a slideru */
+    --icon-button-size:calc(var(--game-font-size) * 3.5);
 }
 
 h1{
@@ -58,8 +59,8 @@ h2{
 }
 
 .theme-btn{
-    width:calc(var(--game-font-size) * 2.5);
-    height:calc(var(--game-font-size) * 2.5);
+    width:var(--button-size);
+    height:var(--button-size);
     border-radius:calc(var(--game-font-size) / 4);
     border:2px solid #666;
     font-size:var(--game-font-size);
@@ -508,11 +509,13 @@ body.font-typewriter{
 
 #playersAdd button{
     font-size:calc(var(--game-font-size) * 1.5);
-    height:calc(var(--game-font-size) * 3.5);
-    border-radius:calc(var(--game-font-size) * 3.5);
+    width:var(--icon-button-size);
+    height:var(--icon-button-size);
+    border-radius:50%;
     background:var(--panel-color);
     color:var(--text-color);
     cursor:pointer;
+    display:flex;
     text-align:center;
     align-items:center;
 }
@@ -533,7 +536,7 @@ body.font-typewriter{
     display:flex;
     align-items:center;
     justify-content:center;
-    height:calc(var(--game-font-size) * 2.5);
+    height:var(--button-size);
     background:var(--panel-color);
     border-radius:1px;
 }
@@ -542,7 +545,7 @@ body.font-typewriter{
     font:inherit;
     font-size:inherit;
     color:#666;
-    height:calc(var(--game-font-size) * 2.5);
+    height:var(--button-size);
     border-radius:1px;
 }
 
@@ -556,7 +559,7 @@ body.font-typewriter{
 }
 
 .player-name-cell{
-    height:calc(var(--game-font-size) * 2.5);
+    height:var(--button-size));
     display:flex;
     align-items:center;
     min-width:0;
@@ -569,7 +572,7 @@ body.font-typewriter{
 .player-name-cell input{
     width:100%;
     max-width:100%;
-    height:calc(var(--game-font-size) * 2.5);
+    height:var(--button-size);
     padding:4px 8px;
 }
 
