@@ -474,3 +474,54 @@ body.font-typewriter{
     text-align:center;
     flex-shrink:0;
 }
+
+.players-table{
+    border:1px solid var(--border-color);
+    border-radius:8px;
+    overflow:hidden;
+    margin:10px 0;
+}
+
+.player-row,
+.players-header{
+    display:grid;
+    grid-template-columns:1fr 120px;
+}
+
+.players-header{
+    font-weight:bold;
+    background:rgba(255,255,255,.08);
+}
+
+.players-header div,
+.player-row div{
+    padding:10px 12px;
+    border-bottom:1px solid var(--border-color);
+}
+
+.player-row:last-child div{
+    border-bottom:none;
+}
+
+.players-header div:last-child,
+.player-row div:last-child{
+    border-left:1px solid var(--border-color);
+    text-align:center;
+}
+
+.playerNameInput{
+    width:100%;
+    box-sizing:border-box;
+}
+
+.players-add{
+    text-align:center;
+    margin-top:12px;
+}
+
+.players-add button{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    font-size:20px;
+}
