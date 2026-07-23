@@ -538,6 +538,8 @@ body.font-typewriter{
     align-items:center;
     justify-content:center;
     height:calc(var(--game-font-size) * 2.5);
+    background:var(--panel-color);
+    border-radius:1px;
 }
 
 .player-row input{
@@ -545,6 +547,7 @@ body.font-typewriter{
     font-size:inherit;
     color:#666;
     height:calc(var(--game-font-size) * 2.5);
+    border-radius:1px;
 }
 
 .player-row input::placeholder{
