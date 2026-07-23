@@ -497,18 +497,13 @@ const Menu = {
                 <div>Jméno</div>
                 <div>Role</div>
             </div>
-            <div id="playersList">
-            </div>
+            <div id="playersList"></div>
         </div>
-        <div
-            class="players-add"
-            id="playersAdd">
-        </div>
+        <div id="playersAdd"></div>
         <hr>
         <div class="menu-item" id="menuBack">
             ${icons.zpet} Zpět
         </div>
-    
         `;
     
         this.renderPlayers();
@@ -520,114 +515,55 @@ const Menu = {
     },
 
     renderPlayers(){
-        const list =
-            document.getElementById(
-                "playersList"
-            );
-        list.innerHTML = "";
-        
-        const players =
-            Engine.state.players || [];
-        
+        const list=document.getElementById("playersList");
+        list.innerHTML="";
+        const players=Engine.state.players || [];
+        // Hotoví hráči
         players.forEach(player=>{
-            const row=document.createElement(
-                "div"
-            );
+            const row=document.createElement("div");
             row.className="player-row";
             row.innerHTML=`
-                <div>
+                <div class="player-name">
                     ${player.name}
                 </div>
-                <div>
-                    ${player.role?.name}
+                <div class="player-role">
+                    ${player.role?.name || "-"}
                 </div>
             `;
-    
             list.appendChild(row);
         });
-       
-        const max =
-            Engine.game.players_max || 8;
-        
-        // čekající hráči
+    
+        // Rozpracovaní hráči
         Engine.state.pendingPlayers.forEach((player,index)=>{
             const row=document.createElement("div");
             row.className="player-row";
             row.innerHTML=`
-                <div>
+                <div class="player-name">
                     <input
                         class="playerNameInput"
                         data-index="${index}"
                         placeholder="Jméno hráče"
                         value="${player.name}">
                 </div>
-                <div>
-                    <button class="assignRole" data-index="${index}">
+                <div class="player-role">
+                    <button
+                        class="assignRole"
+                        data-index="${index}">
                         ${icons.kostka}
                     </button>
                 </div>
             `;
             list.appendChild(row);
         });
-        
-        // tlačítko +
-        if(
-            Engine.state.players.length +
-            Engine.state.pendingPlayers.length
-            < max
-        ){
-            const add=document.createElement("div");
-            add.className="player-row";
-            add.innerHTML=`
-                <div>
-                    <button id="addPlayer">
-                        ${icons.plus}
-                    </button>
-                </div>
-                <div>
-                    -
-                </div>
-            `;
-            const addContainer =
-                document.getElementById(
-                    "playersAdd"
-                );
-
-            if(
-                Engine.state.players.length +
-                Engine.state.pendingPlayers.length
-                < max
-            ){
-                addContainer.innerHTML=`
-                    <button id="addPlayer">
-                        ${icons.plus}
-                    </button>
-                `;
-            
-                document.getElementById(
-                    "addPlayer"
-                ).onclick=()=>{
-                    this.addPlayerForm();
-                };
-            }
-                            
-            addContainer.innerHTML="";
-        
-            document.getElementById("addPlayer").onclick=()=>{
-                this.addPlayerForm();
-            };
-        }
-        
-        // aktivace kostek
+    
+        // Aktivace kostek
         document.querySelectorAll(".assignRole")
         .forEach(button=>{
             button.onclick=()=>{
-                const index =
-                    button.dataset.index;
-                const input =
-                    document.querySelector(
-                        `.playerNameInput[data-index="${index}"]`
-                    );
+                const index=button.dataset.index;
+                const input=document.querySelector(
+                    `.playerNameInput[data-index="${index}"]`
+                );
                 if(!input.value.trim()){
                     alert("Zadej jméno hráče");
                     return;
@@ -639,9 +575,28 @@ const Menu = {
                     index,
                     1
                 );
-                this.renderRoles();
+                this.renderPlayers();
             };
         });
+    
+        // Plus dole
+        const add=document.getElementById("playersAdd");
+        add.innerHTML="";
+        const max=Engine.game.players_max || 8;
+        if(
+            players.length +
+            Engine.state.pendingPlayers.length
+            < max
+        ){
+            add.innerHTML=`
+                <button id="addPlayer">
+                    ${icons.plus}
+                </button>
+            `;
+            document.getElementById("addPlayer").onclick=()=>{
+                this.addPlayerForm();
+            };
+        }
     },
     
     addPlayerForm(){
