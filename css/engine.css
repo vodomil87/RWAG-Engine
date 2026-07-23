@@ -504,6 +504,7 @@ body.font-typewriter{
 
 #playersAdd button{
     font-size:1.5rem;
+    height:calc(var(--game-font-size) * 2.5);
 }
 
 .player-name-edit{
@@ -522,12 +523,14 @@ body.font-typewriter{
     display:flex;
     align-items:center;
     justify-content:center;
+    height:calc(var(--game-font-size) * 2.5);
 }
 
 .player-row input{
     font:inherit;
     font-size:inherit;
     color:#666;
+    height:calc(var(--game-font-size) * 2.5);
 }
 
 .player-row input::placeholder{
