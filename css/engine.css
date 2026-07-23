@@ -317,8 +317,8 @@ body.font-typewriter{
 }
 
 .menu-item{
-    padding:12px 0;
-    margin:6px 0;
+    padding:var(--game-font-size) 0;
+    margin:calc(var(--game-font-size) / 2) 0;
     background:var(--panel-item-bg);
     border:none;
     border-radius:8px;
@@ -546,7 +546,6 @@ body.font-typewriter{
     font-size:inherit;
     color:#666;
     height:var(--button-size);
-    border-radius:1px;
 }
 
 .player-row input::placeholder{
