@@ -539,28 +539,33 @@ const Menu = {
             row.className="player-row";
             if(!player.confirmed){
                 row.innerHTML=`
-                    <div class="player-name">
+                    <div>
                         <input
                             class="playerNameInput"
                             data-index="${index}"
                             placeholder="Jméno hráče"
                             value="${player.name}">
                     </div>
-                    <div class="player-role">
-                        <button
+                    <div>
+                        <button 
                             class="confirmPlayer"
                             data-index="${index}">
                             ${icons.fajfka}
+                        </button>
+                        <button 
+                            class="assignRole"
+                            data-index="${index}">
+                            ${icons.kostka}
                         </button>
                     </div>
                 `;
             }else{
                 row.innerHTML=`
-                    <div class="player-name">
+                    <div>
                         ${player.name}
                     </div>
-                    <div class="player-role">
-                        <button
+                    <div>
+                        <button 
                             class="assignRole"
                             data-index="${index}">
                             ${icons.kostka}
@@ -612,7 +617,28 @@ const Menu = {
                 this.renderPlayers();
             };
         });
-    
+
+        document.querySelectorAll(".confirmPlayer")
+        .forEach(button=>{
+            button.onclick=()=>{
+                const index =
+                    button.dataset.index;
+                const input =
+                    document.querySelector(
+                        `.playerNameInput[data-index="${index}"]`
+                    );
+                if(!input.value.trim()){
+                    alert("Zadej jméno hráče");
+                    return;
+                }
+                Engine.state.pendingPlayers[index].name =
+                    input.value.trim();
+                Engine.state.pendingPlayers[index].confirmed =
+                    true;
+                this.renderRoles();
+            };
+        });
+        
         // Plus dole
         const add=document.getElementById("playersAdd");
         add.innerHTML="";
