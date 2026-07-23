@@ -533,9 +533,21 @@ body.font-typewriter{
 }
 
 .player-row button{
+    font:inherit;
+    font-size:inherit;
     display:flex;
     align-items:center;
     justify-content:center;
+}
+
+.player-row input{
+    font:inherit;
+    font-size:inherit;
+    color:inherit;
+}
+
+.player-row input::placeholder{
+    font:inherit;
 }
 
 .assignRole:disabled{
