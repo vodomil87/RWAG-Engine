@@ -489,14 +489,12 @@ body.font-typewriter{
     gap:8px;
 }
 
+.player-role-cell,
 .player-confirm-cell{
     width:40px;
-    text-align:center;
-}
-
-.player-role-cell{
-    width:40px;
-    text-align:center;
+    display:flex;
+    justify-content:center;
+/*    text-align:center;*/
 }
 
 .players-header{
@@ -537,4 +535,19 @@ body.font-typewriter{
 .assignRole:disabled{
     opacity:0.4;
     cursor:not-allowed;
+}
+
+.player-name-cell{
+    height:32px;
+    display:flex;
+    align-items:center;
+}
+
+.player-name-cell input{
+    height:32px;
+    padding:4px 8px;
+}
+
+.player-name-cell span{
+    padding:4px 8px;
 }
