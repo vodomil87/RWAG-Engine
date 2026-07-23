@@ -523,7 +523,7 @@ const Menu = {
             const row=document.createElement("div");
             row.className="player-row";
             row.innerHTML=`
-                <div class="player-name">
+                <div class="player-name-cell">
                     ${player.name}
                 </div>
                 <div class="player-role">
