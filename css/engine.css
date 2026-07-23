@@ -507,3 +507,19 @@ body.font-typewriter{
 #playersAdd button{
     font-size:1.5rem;
 }
+
+.player-name-edit{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.player-name-edit input{
+    flex:1;
+}
+
+.player-row button{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
