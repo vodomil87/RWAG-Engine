@@ -537,7 +537,6 @@ const Menu = {
         Engine.state.pendingPlayers.forEach((player,index)=>{
             const row=document.createElement("div");
             row.className="player-row";
-            if(!player.confirmed){
             row.innerHTML=`
                 <div class="player-name-cell">
                     ${
@@ -561,14 +560,16 @@ const Menu = {
                         ""
                         :
                         `
-                        <button class="confirmName" data-index="${index}">
+                        <button 
+                            class="confirmName"
+                            data-index="${index}">
                             ${icons.fajfka}
                         </button>
                         `
                     }
                 </div>
                 <div class="player-role-cell">
-                    <button 
+                    <button
                         class="assignRole"
                         data-index="${index}"
                         ${player.confirmed ? "" : "disabled"}>
@@ -576,20 +577,6 @@ const Menu = {
                     </button>
                 </div>
             `;
-            }else{
-            row.innerHTML=`
-                <div>
-                    ${player.name}
-                </div>
-                <div>
-                    <button 
-                        class="assignRole"
-                        data-index="${index}">
-                        ${icons.kostka}
-                    </button>
-                </div>
-            `;
-            }
             list.appendChild(row);
         });
 
