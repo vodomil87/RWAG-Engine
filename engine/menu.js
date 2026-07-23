@@ -538,40 +538,40 @@ const Menu = {
             const row=document.createElement("div");
             row.className="player-row";
             if(!player.confirmed){
-                row.innerHTML=`
-                    <div>
-                        <input
-                            class="playerNameInput"
-                            data-index="${index}"
-                            placeholder="Jméno hráče"
-                            value="${player.name}">
-                    </div>
-                    <div>
-                        <button 
-                            class="confirmPlayer"
-                            data-index="${index}">
-                            ${icons.fajfka}
-                        </button>
-                        <button 
-                            class="assignRole"
-                            data-index="${index}">
-                            ${icons.kostka}
-                        </button>
-                    </div>
-                `;
+            row.innerHTML=`
+                <div class="player-name-edit">
+                    <input
+                        class="playerNameInput"
+                        data-index="${index}"
+                        placeholder="Jméno hráče"
+                        value="${player.name}">
+                    <button 
+                        class="confirmPlayerName"
+                        data-index="${index}">
+                        ${icons.fajfka}
+                    </button>
+                </div>
+                <div>
+                    <button 
+                        class="assignRole"
+                        data-index="${index}">
+                        ${icons.kostka}
+                    </button>
+                </div>
+            `;
             }else{
-                row.innerHTML=`
-                    <div>
-                        ${player.name}
-                    </div>
-                    <div>
-                        <button 
-                            class="assignRole"
-                            data-index="${index}">
-                            ${icons.kostka}
-                        </button>
-                    </div>
-                `;
+            row.innerHTML=`
+                <div>
+                    ${player.name}
+                </div>
+                <div>
+                    <button 
+                        class="assignRole"
+                        data-index="${index}">
+                        ${icons.kostka}
+                    </button>
+                </div>
+            `;
             }
             list.appendChild(row);
         });
@@ -592,6 +592,25 @@ const Menu = {
                     input.value.trim();
                 Engine.state.pendingPlayers[index].confirmed=true;
                 this.renderPlayers();
+            };
+        });
+
+        document.querySelectorAll(".confirmPlayerName")
+        .forEach(button=>{
+            button.onclick=()=>{
+                const index =
+                    button.dataset.index;
+                const input =
+                    document.querySelector(
+                        `.playerNameInput[data-index="${index}"]`
+                    );
+                if(!input.value.trim()){
+                    alert("Zadej jméno hráče");
+                    return;
+                }
+                Engine.state.pendingPlayers[index].name =
+                    input.value.trim();
+                this.renderRoles();
             };
         });
         
