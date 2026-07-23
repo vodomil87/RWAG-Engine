@@ -484,9 +484,19 @@ body.font-typewriter{
 .players-header,
 .player-row{
     display:grid;
-    grid-template-columns:1fr auto;
-    gap:12px;
+    grid-template-columns: 1fr auto auto;
     align-items:center;
+    gap:8px;
+}
+
+.player-confirm-cell{
+    width:40px;
+    text-align:center;
+}
+
+.player-role-cell{
+    width:40px;
+    text-align:center;
 }
 
 .players-header{
@@ -522,4 +532,9 @@ body.font-typewriter{
     display:flex;
     align-items:center;
     justify-content:center;
+}
+
+.assignRole:disabled{
+    opacity:0.4;
+    cursor:not-allowed;
 }
