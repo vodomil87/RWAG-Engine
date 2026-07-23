@@ -485,6 +485,13 @@ body.font-typewriter{
     display:flex;
     justify-content:center;
     text-align:center;
+
+    background:var(--panel-color);
+    border:1px solid var(--border-color);
+    color:var(--text-color);
+    border-radius:var(--game-font-size);
+    cursor:pointer;
+    font-size:var(--game-font-size);   
 }
 
 .players-header{
@@ -549,6 +556,13 @@ body.font-typewriter{
     display:flex;
     align-items:center;
     min-width:0;
+
+    background:var(--panel-color);
+    border:1px solid var(--border-color);
+    color:var(--text-color);
+    border-radius:var(--game-font-size);
+    cursor:pointer;
+    font-size:var(--game-font-size);
 }
 
 .player-name-cell input{
