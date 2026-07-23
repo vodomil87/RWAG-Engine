@@ -500,6 +500,10 @@ const Menu = {
             <div id="playersList">
             </div>
         </div>
+        <div
+            class="players-add"
+            id="playersAdd">
+        </div>
         <hr>
         <div class="menu-item" id="menuBack">
             ${icons.zpet} Zpět
@@ -584,7 +588,30 @@ const Menu = {
                     -
                 </div>
             `;
-            list.appendChild(add);
+            const addContainer =
+                document.getElementById(
+                    "playersAdd"
+                );
+
+            if(
+                Engine.state.players.length +
+                Engine.state.pendingPlayers.length
+                < max
+            ){
+                addContainer.innerHTML=`
+                    <button id="addPlayer">
+                        ${icons.plus}
+                    </button>
+                `;
+            
+                document.getElementById(
+                    "addPlayer"
+                ).onclick=()=>{
+                    this.addPlayerForm();
+                };
+            }
+                            
+            addContainer.innerHTML="";
         
             document.getElementById("addPlayer").onclick=()=>{
                 this.addPlayerForm();
