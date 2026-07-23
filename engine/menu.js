@@ -658,6 +658,10 @@ const Menu = {
                     input.value.trim();
                 Engine.state.pendingPlayers[index].confirmed =
                     true;
+                console.log(
+                    "PENDING:",
+                    Engine.state.pendingPlayers
+                );
                 this.renderRoles();
             };
         });
