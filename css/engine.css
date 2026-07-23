@@ -317,7 +317,7 @@ body.font-typewriter{
 }
 
 .menu-item{
-    padding:var(--game-font-size) 0;
+    padding:calc(var(--game-font-size) / 2) 0;
     margin:calc(var(--game-font-size) / 2) 0;
     background:var(--panel-item-bg);
     border:none;
@@ -505,10 +505,12 @@ body.font-typewriter{
 #playersAdd{
     margin-top:14px;
     text-align:center;
+    align-items:center;
+    vertical-align: middle;
 }
 
 #playersAdd button{
-    font-size:calc(var(--game-font-size) * 1.5);
+    font-size:calc(var(--game-font-size) * 1.3);
     width:var(--icon-button-size);
     height:var(--icon-button-size);
     border-radius:50%;
@@ -517,6 +519,7 @@ body.font-typewriter{
     cursor:pointer;
     display:flex;
     text-align:center;
+    vertical-align: middle;
     align-items:center;
 }
 
