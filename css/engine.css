@@ -638,7 +638,6 @@ body.font-typewriter{
     color:var(--text-color);
     border:1px solid var(--border-color);
     border-radius:8px;
-
 }
 
 .players-hint{
@@ -646,4 +645,26 @@ body.font-typewriter{
     font-size:0.85em;
     opacity:.7;
     text-align:center;
+}
+
+.primary-button{
+    width:100%;
+    min-height:var(--button-size);
+    padding:12px 18px;
+    border-radius:12px;
+    font-size:var(--game-font-size);
+    font-weight:bold;
+    background:var(--accent-color);
+    color:white;
+    cursor:pointer;
+}
+
+.icon-button{
+    font-size:calc(var(--game-font-size) * 1.5);
+    width:var(--icon-button-size);
+    height:var(--icon-button-size);
+    border-radius:50%;
+    background:var(--panel-color);
+    color:var(--text-color);
+    cursor:pointer;
 }
