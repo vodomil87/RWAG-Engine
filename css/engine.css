@@ -291,12 +291,12 @@ body.font-typewriter{
     position:fixed;
     top:0;
     left:-320px;
-    width:300px;
+    width:350px;
     height:100vh;
     background:var(--panel-bg);
     color:var(--text-color);
     border-right:2px solid var(--panel-border);
-    padding:20px;
+    padding:10px;
     box-sizing:border-box;
     transition:left .25s ease;
     z-index:1000;
