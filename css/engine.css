@@ -531,8 +531,8 @@ body.font-typewriter{
 
 #playersAdd button{
     font-size:calc(var(--game-font-size) * 1.5);
-    width:var(--button-size);
-    height:var(--button-size);
+    width:var(--icon-button-size);
+    height:var(--icon-button-size);
     border-radius:50%;
     background:var(--panel-color);
     color:var(--text-color);
