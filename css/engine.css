@@ -500,9 +500,14 @@ body.font-typewriter{
     width:100%;
 }
 
+.player-row:has(.player-role-cell:only-child){
+    grid-template-columns:
+        minmax(0,1fr)
+        var(--button-size);
+}
+
 .player-role-cell,
 .player-confirm-cell{
-    width:100%;
     display:flex;
     justify-content:center;
     align-items:center;
