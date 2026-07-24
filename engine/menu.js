@@ -514,6 +514,40 @@ const Menu = {
         };
     },
 
+    assignRandomRole(index){
+        const pending =
+            Engine.state.pendingPlayers[index];
+        const roles =
+            Engine.game.roles || [];
+        // role už použité u hráčů
+        const used =
+            Engine.state.players
+            .map(p=>p.role?.id)
+            .filter(Boolean);
+        // role už rozdané čekajícím hráčům
+        const pendingUsed =
+            Engine.state.pendingPlayers
+            .map(p=>p.role?.id)
+            .filter(Boolean);
+        const available =
+            roles.filter(role =>
+                !used.includes(role.id) &&
+                !pendingUsed.includes(role.id)
+            );
+        if(available.length===0){
+            alert("Nejsou dostupné žádné role.");
+            return;
+        }
+        const role =
+            available[
+                Math.floor(
+                    Math.random()*available.length
+                )
+            ];
+        pending.role = role;
+        this.renderRoles();
+    },
+    
     renderPlayers(){
         const list=document.getElementById("playersList");
         list.innerHTML="";
@@ -635,22 +669,9 @@ const Menu = {
         document.querySelectorAll(".assignRole")
         .forEach(button=>{
             button.onclick=()=>{
-                const index=button.dataset.index;
-                const input=document.querySelector(
-                    `.playerNameInput[data-index="${index}"]`
-                );
-                if(!input.value.trim()){
-                    alert("Zadej jméno hráče");
-                    return;
-                }
-                Engine.addPlayer(
-                    Engine.state.pendingPlayers[index].name
-                );
-                Engine.state.pendingPlayers.splice(
-                    index,
-                    1
-                );
-                this.renderPlayers();
+                const index =
+                    button.dataset.index;
+                this.assignRandomRole(index);
             };
         });
 
