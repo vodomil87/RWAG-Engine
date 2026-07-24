@@ -624,3 +624,19 @@ body.font-typewriter{
     overflow:hidden;
     gap:2px;
 }
+
+#assignRolesWrapper{
+    margin:20px 0;
+}
+
+#assignRolesButton{
+    width:100%;
+    height:var(--button-size);
+    font:inherit;
+    cursor:pointer;
+    background:var(--panel-color);
+    color:var(--text-color);
+    border:1px solid var(--border-color);
+    border-radius:8px;
+
+}
