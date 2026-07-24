@@ -131,12 +131,14 @@ body.theme-medieval{
 
 .font-preview.active,
 .theme-preview.active{
-    outline:2px solid var(--font-active-color);
+    outline:2px solid var(--text-color);
     transform:scale(1.08);
 }
 
 .theme-preview:hover,
-.font-preview:hover{
+.font-preview:hover,
+.toggle-button:hover,
+.toggle-button.on:hover{
     filter:brightness(1.1);
 }
 
@@ -292,7 +294,7 @@ body.font-typewriter{
 #menuPanel{
     position:fixed;
     top:0;
-    left:-320px;
+    left:-350px;
     width:350px;
     height:100vh;
     background:var(--panel-bg);
