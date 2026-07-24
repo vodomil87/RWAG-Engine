@@ -20,27 +20,20 @@ const Engine = {
     },
 
     async loadGame(scenarioId){
-
         console.log(
             "LOAD GAME ID:",
             scenarioId
         );
-    
-        console.log(
-            "AVAILABLE SCENARIOS:",
-            Launcher.scenarios
-        );
-    
         const scenario =
             Launcher.scenarios.find(
                 s=>s.id===scenarioId
             );
-    
         if(!scenario){
             throw new Error(
                 "Scénář nenalezen"
             );
         }
+    
         const response =
             await fetch(
                 scenario.file
@@ -50,14 +43,43 @@ const Engine = {
                 "Nelze načíst scénář"
             );
         }
+    
         this.game =
             await response.json();
+    
         // základní cesta ke scénáři
         this.basePath =
             scenario.file.substring(
                 0,
                 scenario.file.lastIndexOf("/")
             ) + "/";
+    
+        // načtení rolí
+        try{
+            const rolesResponse =
+                await fetch(
+                    this.basePath + "roles.json"
+                );
+            if(rolesResponse.ok){
+                const rolesData =
+                    await rolesResponse.json();
+                this.game.roles =
+                    rolesData.roles;
+                console.log(
+                    "ROLES LOADED:",
+                    this.game.roles
+                );
+            }else{
+                this.game.roles=[];
+            }
+        }catch(e){
+            console.warn(
+                "Role nelze načíst",
+                e
+            );
+            this.game.roles=[];
+        }
+    
         console.log(
             "BASE PATH:",
             this.basePath
@@ -69,9 +91,7 @@ const Engine = {
             await Roles.load(
                 this.basePath + this.game.roleSet
             );
-    
         this.state.roles = [...roles];
-        
         console.log(
             "AVAILABLE ROLES:",
             this.state.roles
@@ -79,29 +99,24 @@ const Engine = {
     },
 
     async loadLegend(){
-    
         if(!this.game.legend){
             console.log(
                 "Scénář nemá legendu"
             );
             return;
         }
-    
         const response =
             await fetch(
                 this.basePath + this.game.legend
             );
-    
         if(!response.ok){
             throw new Error(
                 "Nelze načíst legendu"
             );
         }
-    
         this.legend =
             await response.json();
-    
-        console.log(
+         console.log(
             "LEGEND LOADED:",
             this.legend
         );
