@@ -646,6 +646,9 @@ const Menu = {
         const add = document.getElementById("playersAdd");
         const max = Engine.game.players_max || 8;
         const min = Engine.game.players_min || 1;
+        const totalRows =
+            players.length +
+            Engine.state.pendingPlayers.length;
         const confirmedPending =
             Engine.state.pendingPlayers.filter(
                 p =>
@@ -660,7 +663,7 @@ const Menu = {
         add.innerHTML = "";
         
         // tlačítko +
-        if(count < max){
+        if(totalRows < max){
             add.innerHTML += `
                 <button id="addPlayer" class="icon-button">
                     ${icons.plus}
