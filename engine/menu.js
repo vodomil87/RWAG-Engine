@@ -1,7 +1,6 @@
 const Menu = {
     page:"main",
     open:false,
-    addingPlayer:false,
     playersMode:"edit",
     init(){
         const b=document.getElementById("menuButton");
@@ -85,46 +84,32 @@ const Menu = {
             this.renderLauncherMenu();
         return;
         }
-        
         document.getElementById("menuPanel").innerHTML=`
-        
         <div class="menu-title">
             ${icons.svitek} ${Engine.game?.scenarioName || "Scénář"}
         </div>
-        
         <div class="menu-item" id="menuRoles">
             ${icons.hraci} Hráči a role ${icons.vpred}
         </div>
-        
         <div class="menu-item">${icons.svitek} Úkoly </div>
-        
         <div class="menu-item">${icons.batoh} Inventář </div>
-        
         <div class="menu-item" id="menuLegend">
             ${icons.knihy} Přehled pravidel ${icons.vpred}
         </div>
-        
         <div class="menu-item">${icons.graf} Statistiky</div>
-        
         <div class="menu-item">${icons.disketa} Uložit / Načíst pozici</div>
-        
         <div class="menu-item" id="menuExit">
             ${icons.dvere} Ukončit scénář
         </div>
-        
         <hr>
-        
         <div class="menu-item" id="menuSettings">
             ${icons.nastaveni} Nastavení ${icons.vpred}
         </div>
-        
         <hr>
-        
         <div class="menu-item" id="menuAbout">
             ${icons.info} O aplikaci ${icons.vpred}
         </div>
         `;
-        
         document.getElementById("menuSettings").onclick = (e) => {
             e.stopPropagation();
             this.showSettings();
@@ -237,7 +222,7 @@ const Menu = {
         </div>
         <div class="menu-section">
             ${icons.up_down} Velikost písma:
-            <span id="fontSizeValue">16</span> px
+            <span id="fontSizeValue"></span> px
         </div>
         <div class="slider-wrapper">
             <input
@@ -509,12 +494,6 @@ const Menu = {
             <div id="playersList"></div>
         </div>
         <div id="playersAdd"></div>
-        <div id="assignRolesWrapper">
-            <button id="assignRolesButton">
-                ${icons.kostka}
-                Potvrdit a přidělit role
-            </button>
-        </div>
         <hr>
         <div class="menu-item" id="menuBack">
             ${icons.zpet} Zpět
@@ -522,12 +501,6 @@ const Menu = {
         `;
     
         this.renderPlayers();
-        
-        document
-        .getElementById("assignRolesButton")
-        .onclick=()=>{
-            alert("Nyní bude uložen seznam hráčů a každému bude náhodně přidělana jeho role. Přejete si pokračovat?");
-        };
         
         document.getElementById("menuBack").onclick=(e)=>{
             e.stopPropagation();
@@ -556,40 +529,6 @@ const Menu = {
         };
     },
         
-    assignRandomRole(index){
-        const pending =
-            Engine.state.pendingPlayers[index];
-        const roles =
-            Engine.game.roles || [];
-        // role už použité u hráčů
-        const used =
-            Engine.state.players
-            .map(p=>p.role?.id)
-            .filter(Boolean);
-        // role už rozdané čekajícím hráčům
-        const pendingUsed =
-            Engine.state.pendingPlayers
-            .map(p=>p.role?.id)
-            .filter(Boolean);
-        const available =
-            roles.filter(role =>
-                !used.includes(role.id) &&
-                !pendingUsed.includes(role.id)
-            );
-        if(available.length===0){
-            alert("Nejsou dostupné žádné role.");
-            return;
-        }
-        const role =
-            available[
-                Math.floor(
-                    Math.random()*available.length
-                )
-            ];
-        pending.role = role;
-        this.renderRoles();
-    },
-    
     renderPlayers(){
         const list=document.getElementById("playersList");
         list.innerHTML="";
@@ -665,55 +604,6 @@ const Menu = {
             list.appendChild(row);
         });
 
-        document
-        .querySelectorAll(".confirmPlayer")
-        .forEach(button=>{
-            button.onclick=()=>{
-                const index=button.dataset.index;
-                const input=document.querySelector(
-                    `.playerNameInput[data-index="${index}"]`
-                );
-                if(!input.value.trim()){
-                    alert("Zadej jméno hráče");
-                    return;
-                }
-                Engine.state.pendingPlayers[index].name=
-                    input.value.trim();
-                Engine.state.pendingPlayers[index].confirmed=true;
-                this.renderPlayers();
-            };
-        });
-
-        document.querySelectorAll(".confirmPlayerName")
-        .forEach(button=>{
-            button.onclick=()=>{
-                const index =
-                    button.dataset.index;
-                const input =
-                    document.querySelector(
-                        `.playerNameInput[data-index="${index}"]`
-                    );
-                if(!input.value.trim()){
-                    alert("Zadej jméno hráče");
-                    return;
-                }
-                Engine.state.pendingPlayers[index].name =
-                    input.value.trim();
-                this.renderRoles();
-            };
-        });
-        
-        // Aktivace kostek
-        document.querySelectorAll(".assignRole")
-        .forEach(button=>{
-            button.onclick=()=>{
-                const index =
-                    button.dataset.index;
-                Engine.assignRandomRole(index);
-                this.renderPlayers();
-            };
-        });
-
         document.querySelectorAll(".confirmName")
         .forEach(button=>{
             button.onclick=()=>{
@@ -752,28 +642,7 @@ const Menu = {
             };
         });
         
-        document.querySelectorAll(".confirmPlayer")
-        .forEach(button=>{
-            button.onclick=()=>{
-                const index =
-                    button.dataset.index;
-                const input =
-                    document.querySelector(
-                        `.playerNameInput[data-index="${index}"]`
-                    );
-                if(!input.value.trim()){
-                    alert("Zadej jméno hráče");
-                    return;
-                }
-                Engine.state.pendingPlayers[index].name =
-                    input.value.trim();
-                Engine.state.pendingPlayers[index].confirmed =
-                    true;
-                this.renderRoles();
-            };
-        });
-        
-        // Plus dole
+         // Plus dole
         const add = document.getElementById("playersAdd");
         const max = Engine.game.players_max || 8;
         const min = Engine.game.players_min || 1;
@@ -796,6 +665,7 @@ const Menu = {
             <button
                 id="confirmPlayers"
                 ${count < min ? "disabled" : ""}>
+                ${icons.kostka}
                 Potvrdit a přidělit role
             </button>
         `;
@@ -806,43 +676,23 @@ const Menu = {
         }
         
         document.getElementById("confirmPlayers").onclick = () => {
-            if(count < min){
-                add.innerHTML += `
-                    <div class="players-hint">
-                        Minimálně ${min} hráči
-                    </div>
-                `;
-            };
-            this.confirmPlayers();
+            this.confirm(
+                "Nyní dojde k náhodnému přiřazení rolí jednotlivým hráčům. Přejete si pokračovat?",
+                ()=>{
+                    this.assignRoles();
+                }
+            );
         };
-        
     },
     
     addPlayerForm(){
         Engine.state.pendingPlayers.push({
             name:"",
             confirmed:false,
-            role:null
         });
         this.renderRoles();
     },
 
-    createPlayer(){
-        const name =
-            document.getElementById(
-                "playerName"
-            ).value.trim();
-        if(!name){
-            return;
-        }
-        if(
-            Engine.addPlayer(name)
-        ){
-            this.addingPlayer=false;
-            this.renderRoles();
-        }
-    },
-    
     showMain(){
         this.page="main";
         this.render();
