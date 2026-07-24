@@ -107,13 +107,22 @@ body.theme-light{
 
 /* středověké schéma */
 body.theme-medieval{
-    --bg-color:#d88b32;
+/*    --bg-color:#d88b32;*/
+    --bg-color:transparent;
     --text-color:#57320c;
-    --panel-color:#e6a04d;
+/*    --panel-color:#e6a04d;*/
+    --panel-color:rgba(239,176,93,.85);
     --border-color:#8b5a20;
-    --panel-bg:#efb05d;
-    --panel-item-bg:#efb05d;
+/*    --panel-bg:#efb05d;
+    --panel-item-bg:#efb05d;*/
+    --panel-bg:rgba(239,176,93,.92);
+    --panel-item-bg:rgba(239,176,93,.85);
     --panel-border:#8b5a20;
+
+    background-image:url("images/background_medieval.png");
+    background-repeat:repeat;
+    background-position:top left;
+    background-attachment:fixed;
 }
 
 .theme-preview,
@@ -153,8 +162,14 @@ body.theme-medieval{
 }
 
 .theme-preview.medieval{
-    background:#d98b2b;
+/*    background:#d98b2b;*/
+    background:transparent;
     color:black;
+
+    background-image:url("images/background_medieval.png");
+    background-repeat:repeat;
+    background-position:top left;
+    background-attachment:fixed;
 }
 
 /* výchozí font */
