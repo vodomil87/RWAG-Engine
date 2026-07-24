@@ -774,23 +774,48 @@ const Menu = {
         });
         
         // Plus dole
-        const add=document.getElementById("playersAdd");
-        add.innerHTML="";
-        const max=Engine.game.players_max || 8;
-        if(
+        const add = document.getElementById("playersAdd");
+        const max = Engine.game.players_max || 8;
+        const min = Engine.game.players_min || 1;
+        const count =
             players.length +
-            Engine.state.pendingPlayers.length
-            < max
-        ){
-            add.innerHTML=`
+            Engine.state.pendingPlayers.length;
+        add.innerHTML = "";
+        
+        // tlačítko +
+        if(count < max){
+            add.innerHTML += `
                 <button id="addPlayer">
                     ${icons.plus}
                 </button>
             `;
-            document.getElementById("addPlayer").onclick=()=>{
-                this.addPlayerForm();
-            };
         }
+        
+        // tlačítko potvrdit
+        add.innerHTML += `
+            <button
+                id="confirmPlayers"
+                ${count < min ? "disabled" : ""}>
+                Potvrdit a přidělit role
+            </button>
+        `;
+
+        const addBtn = document.getElementById("addPlayer");
+        if(addBtn){
+            addBtn.onclick = () => this.addPlayerForm();
+        }
+        
+        document.getElementById("confirmPlayers").onclick = () => {
+            if(count < min){
+                add.innerHTML += `
+                    <div class="players-hint">
+                        Minimálně ${min} hráči
+                    </div>
+                `;
+            };
+            this.confirmPlayers();
+        };
+        
     },
     
     addPlayerForm(){
