@@ -30,7 +30,7 @@ textarea {
     --font-default: system-ui, sans-serif;
     --font-medieval: "MedievalSharp", serif;
     --font-typewriter: "Special Elite", monospace;
-    --button-size:clamp(42px, calc(var(--game-font-size) * 2), 52px);;
+    --button-size:clamp(32px, calc(var(--game-font-size) * 2), 52px);;
     --button-radius:calc(var(--game-font-size) / 2);
     --slider-color:var(--border-color); /*barva slideru */
     --settings-indent:15px; /*odsazení tlačítek a slideru */
