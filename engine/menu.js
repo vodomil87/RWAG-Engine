@@ -569,11 +569,10 @@ const Menu = {
                     }
                 </div>
                 <div class="player-role-cell">
-                    <button
-                        class="assignRole"
-                        data-index="${index}"
-                        ${player.confirmed ? "" : "disabled"}>
-                        ${icons.kostka}
+                    <button 
+                        class="cancelPlayer"
+                        data-index="${index}">
+                        ${icons.krizek}
                     </button>
                 </div>
             `;
@@ -661,6 +660,19 @@ const Menu = {
                 console.log(
                     "PENDING:",
                     Engine.state.pendingPlayers
+                );
+                this.renderRoles();
+            };
+        });
+
+        document.querySelectorAll(".cancelPlayer")
+        .forEach(button=>{
+            button.onclick=()=>{
+                const index =
+                    button.dataset.index;
+                Engine.state.pendingPlayers.splice(
+                    index,
+                    1
                 );
                 this.renderRoles();
             };
