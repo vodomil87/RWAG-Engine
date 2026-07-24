@@ -532,9 +532,13 @@ body.font-typewriter{
 /*    text-align:center;*/
 /*    align-items:center;*/
     margin-bottom: 14px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    align-items:flex-start;
 }
 
-#playersAdd button{
+.icon-button{
     font-size:calc(var(--game-font-size) * 1.5);
     width:var(--icon-button-size);
     height:var(--icon-button-size);
@@ -586,11 +590,6 @@ body.font-typewriter{
     font:inherit;
 }
 
-.assignRole:disabled{
-    opacity:0.4;
-    cursor:not-allowed;
-}
-
 .player-name-cell{
     height:var(--button-size);
     display:flex;
@@ -625,21 +624,6 @@ body.font-typewriter{
     gap:2px;
 }
 
-#assignRolesWrapper{
-    margin:20px 0;
-}
-
-#assignRolesButton{
-    width:100%;
-    height:var(--button-size);
-    font:inherit;
-    cursor:pointer;
-    background:var(--panel-color);
-    color:var(--text-color);
-    border:1px solid var(--border-color);
-    border-radius:8px;
-}
-
 .players-hint{
     margin-top:6px;
     font-size:0.85em;
@@ -656,15 +640,5 @@ body.font-typewriter{
     font-weight:bold;
     background:var(--accent-color);
     color:white;
-    cursor:pointer;
-}
-
-.icon-button{
-    font-size:calc(var(--game-font-size) * 1.5);
-    width:var(--icon-button-size);
-    height:var(--icon-button-size);
-    border-radius:50%;
-    background:var(--panel-color);
-    color:var(--text-color);
     cursor:pointer;
 }
