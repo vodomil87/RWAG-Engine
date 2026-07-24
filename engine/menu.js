@@ -671,7 +671,8 @@ const Menu = {
             button.onclick=()=>{
                 const index =
                     button.dataset.index;
-                this.assignRandomRole(index);
+                Engine.assignRandomRole(index);
+                this.renderPlayers();
             };
         });
 
