@@ -569,11 +569,25 @@ const Menu = {
                     }
                 </div>
                 <div class="player-role-cell">
-                    <button 
-                        class="cancelPlayer"
-                        data-index="${index}">
-                        ${icons.krizek}
-                    </button>
+                    ${
+                        player.confirmed
+                        ?
+                        `
+                        <button
+                            class="assignRole"
+                            data-index="${index}">
+                            ${icons.kostka}
+                        </button>
+                        `
+                        :
+                        `
+                        <button
+                            class="cancelPlayer"
+                            data-index="${index}">
+                            ${icons.krizek}
+                        </button>
+                        `
+                    }
                 </div>
             `;
             list.appendChild(row);
