@@ -640,3 +640,10 @@ body.font-typewriter{
     border-radius:8px;
 
 }
+
+.players-hint{
+    margin-top:6px;
+    font-size:0.85em;
+    opacity:.7;
+    text-align:center;
+}
