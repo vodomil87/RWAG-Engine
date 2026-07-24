@@ -505,7 +505,6 @@ body.font-typewriter{
     text-align:center;
     background:var(--panel-color);
     color:var(--text-color);
-    cursor:pointer;
     font-size:var(--game-font-size);
 }
 
@@ -559,6 +558,7 @@ body.font-typewriter{
     height:var(--button-size);
     background:var(--panel-color);
     border-radius:1px;
+    cursor:pointer;
 }
 
 .player-row input{
@@ -584,7 +584,6 @@ body.font-typewriter{
     min-width:0;
     background:var(--panel-color);
     color:var(--text-color);
-    cursor:pointer;
     font-size:var(--game-font-size);
 }
 
