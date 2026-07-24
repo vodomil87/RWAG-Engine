@@ -654,7 +654,7 @@ const Menu = {
         // tlačítko +
         if(count < max){
             add.innerHTML += `
-                <button id="addPlayer">
+                <button id="addPlayer" class="icon-button">
                     ${icons.plus}
                 </button>
             `;
@@ -663,7 +663,7 @@ const Menu = {
         // tlačítko potvrdit
         add.innerHTML += `
             <button
-                id="confirmPlayers"
+                id="confirmPlayers" class="primary-button"
                 ${count < min ? "disabled" : ""}>
                 ${icons.kostka}
                 Potvrdit a přidělit role
