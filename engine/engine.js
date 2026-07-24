@@ -53,7 +53,18 @@ const Engine = {
                 0,
                 scenario.file.lastIndexOf("/")
             ) + "/";
-    
+
+        const rolesResponse =
+            await fetch(
+                scenario.file.substring(
+                    0,
+                    scenario.file.lastIndexOf("/")
+                ) + "/roles.json"
+            );
+        
+        this.roles =
+            await rolesResponse.json();
+        
         // načtení rolí
         try{
             const rolesResponse =
@@ -167,6 +178,57 @@ const Engine = {
             this.state.roles
         );
         return true;
+    },
+
+    assignRandomRole(playerIndex){
+        const players =
+            this.state.pendingPlayers;
+        const player =
+            players[playerIndex];
+        if(!player){
+            console.error("Hráč nenalezen");
+            return;
+        }
+    
+        // již použité role
+        const usedRoles =
+            this.state.players
+            .map(p=>p.role?.id)
+            .filter(Boolean);
+    
+        // dostupné role
+        const availableRoles =
+            this.roles.roles.filter(
+                role=>!usedRoles.includes(role.id)
+            );
+    
+        if(availableRoles.length===0){
+            alert("Nejsou dostupné žádné role.");
+            return;
+        }
+    
+        // náhodný výběr
+        const randomRole =
+            availableRoles[
+                Math.floor(
+                    Math.random()*availableRoles.length
+                )
+            ];
+    
+        // přiřazení
+        player.role=randomRole;
+    
+        // přesun hráče mezi hotové
+        this.state.players.push(player);
+        this.state.pendingPlayers.splice(
+            playerIndex,
+            1
+        );
+    
+        console.log(
+            "PŘIŘAZENA ROLE:",
+            randomRole
+        );
     },
     
     exitScenario(){
