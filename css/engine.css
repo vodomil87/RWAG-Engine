@@ -30,7 +30,7 @@ textarea {
     --font-default: system-ui, sans-serif;
     --font-medieval: "MedievalSharp", serif;
     --font-typewriter: "Special Elite", monospace;
-    --button-size:calc(var(--game-font-size) * 2.5);
+    --button-size:clamp(42px, calc(var(--game-font-size) * 2), 52px);;
     --button-radius:calc(var(--game-font-size) / 2);
     --slider-color:var(--border-color); /*barva slideru */
     --settings-indent:15px; /*odsazení tlačítek a slideru */
@@ -487,10 +487,12 @@ body.font-typewriter{
 .players-header,
 .player-row{
     display:grid;
-    grid-template-columns: minmax(0, 1fr) 40px 40px;
+    grid-template-columns:
+        minmax(0,1fr)
+        var(--button-size)
+        var(--button-size);
+    gap:4px;
     align-items:center;
-/*    gap:4px;*/
-    width:100%;
 }
 
 .player-row{
@@ -499,9 +501,10 @@ body.font-typewriter{
 
 .player-role-cell,
 .player-confirm-cell{
-    width:40px;
+    width:100%;
     display:flex;
     justify-content:center;
+    align-items:center;
     text-align:center;
     background:var(--panel-color);
     color:var(--text-color);
@@ -551,7 +554,7 @@ body.font-typewriter{
 
 .player-row button{
     font:inherit;
-    font-size:inherit;
+    font-size:1.1rem;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -589,6 +592,7 @@ body.font-typewriter{
 
 .player-name-cell input{
     width:100%;
+    min-width:0;
     max-width:100%;
     height:var(--button-size);
     padding:4px 8px;
