@@ -623,6 +623,7 @@ body.font-typewriter{
     font-size:calc(var(--game-font-size) * 1.0);
     width:var(--icon-button-size);
     height:var(--icon-button-size);
+    padding:calc(var(--game-font-size) * 1.0);
     border-radius:50%;
     background:var(--panel-color);
     color:var(--text-color);
@@ -636,7 +637,7 @@ body.font-typewriter{
 .primary-button{
     width:100%;
     min-height:var(--button-size);
-    padding:12px 18px;
+    padding:calc(var(--game-font-size) * 1.0) calc(var(--game-font-size) * 1.5);
     border-radius:12px;
     font-size:calc(var(--game-font-size) * 1.0);
 /*    font-weight:bold;*/
