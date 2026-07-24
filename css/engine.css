@@ -35,7 +35,7 @@ textarea {
     --button-radius:calc(var(--game-font-size) / 2);
     --slider-color:var(--border-color); /*barva slideru */
     --settings-indent:15px; /*odsazení tlačítek a slideru */
-    --icon-button-size:calc(var(--game-font-size) * 3.5);
+    --icon-button-size:calc(var(--game-font-size) * 2);
 }
 
 h1{
@@ -148,7 +148,9 @@ body.theme-medieval{
 .theme-preview:hover,
 .font-preview:hover,
 .toggle-button:hover,
-.toggle-button.on:hover{
+.toggle-button.on:hover,
+.icon-button:hover,
+.primary-button:hover{
     filter:brightness(1.1);
 }
 
@@ -538,20 +540,6 @@ body.font-typewriter{
     align-items:flex-start;
 }
 
-.icon-button{
-    font-size:calc(var(--game-font-size) * 1.5);
-    width:var(--icon-button-size);
-    height:var(--icon-button-size);
-    border-radius:50%;
-    background:var(--panel-color);
-    color:var(--text-color);
-    cursor:pointer;
-/*    display:flex;*/
-/*    text-align:center;*/
-    vertical-align: middle;
-    align-items:center;
-}
-
 .player-name-edit{
     display:flex;
     align-items:center;
@@ -631,14 +619,34 @@ body.font-typewriter{
     text-align:center;
 }
 
+.icon-button{
+    font-size:calc(var(--game-font-size) * 1.0);
+    width:var(--icon-button-size);
+    height:var(--icon-button-size);
+    border-radius:50%;
+    background:var(--panel-color);
+    color:var(--text-color);
+    cursor:pointer;
+/*    display:flex;*/
+/*    text-align:center;*/
+    vertical-align: middle;
+    align-items:center;
+}
+
 .primary-button{
-    width:100%;
+/*    width:100%;*/
     min-height:var(--button-size);
     padding:12px 18px;
     border-radius:12px;
-    font-size:var(--game-font-size);
-    font-weight:bold;
+    font-size:calc(var(--game-font-size) * 1.0);
+/*    font-weight:bold;*/
     background:var(--accent-color);
     color:white;
     cursor:pointer;
+}
+
+.icon-button:disabled,
+.primary-button:disabled{
+    opacity: .5;
+    cursor:not-allowed
 }
