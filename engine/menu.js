@@ -646,9 +646,18 @@ const Menu = {
         const add = document.getElementById("playersAdd");
         const max = Engine.game.players_max || 8;
         const min = Engine.game.players_min || 1;
-        const count =
-            players.length +
-            Engine.state.pendingPlayers.length;
+        const players = Engine.state.players || [];
+        const confirmedPending =
+            Engine.state.pendingPlayers.filter(
+                p =>
+                    p.confirmed &&
+                    p.name.trim() !== ""
+            ).length;
+        const totalPlayers =
+            players.length + confirmedPending;
+        const canAssign =
+            totalPlayers >= min;
+        
         add.innerHTML = "";
         
         // tlačítko +
@@ -664,7 +673,7 @@ const Menu = {
         add.innerHTML += `
             <button
                 id="confirmPlayers" class="primary-button"
-                ${count < min ? "disabled" : ""}>
+                ${canAssign ? "" : "disabled"}>
                 ${icons.kostka}
                 Potvrdit a přidělit role
             </button>
