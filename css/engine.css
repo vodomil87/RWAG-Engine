@@ -129,11 +129,13 @@ body.theme-medieval{
 /*    font-weight:bold;*/
 }
 
+.font-preview.active,
 .theme-preview.active{
     outline:2px solid var(--font-active-color);
     transform:scale(1.08);
 }
 
+.theme-preview:hover,
 .font-preview:hover{
     filter:brightness(1.1);
 }
