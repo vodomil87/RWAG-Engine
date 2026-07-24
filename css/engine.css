@@ -621,8 +621,8 @@ body.font-typewriter{
 
 .icon-button{
     font-size:calc(var(--game-font-size) * 1.0);
-    width:var(--icon-button-size);
-    height:var(--icon-button-size);
+/*    width:var(--icon-button-size);
+    height:var(--icon-button-size);*/
     padding:calc(var(--game-font-size) * 1.0);
     border-radius:50%;
     background:var(--panel-color);
