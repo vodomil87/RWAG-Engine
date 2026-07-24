@@ -479,8 +479,6 @@ const Menu = {
 
     renderPlayersEditor(){
         const panel=document.getElementById("menuPanel");
-        const players =
-            Engine.state.players || [];
         panel.innerHTML=`
         <div class="menu-title">
             ${icons.hraci}
