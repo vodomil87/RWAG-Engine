@@ -489,7 +489,9 @@ body.font-typewriter{
 .player-row{
     display:grid;
     grid-template-columns:
-        2fr 1fr 1fr;
+        minmax(0,1fr)
+        var(--button-size)
+        var(--button-size);
     gap:4px;
     align-items:center;
 }
