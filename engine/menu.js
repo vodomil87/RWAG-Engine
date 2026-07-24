@@ -509,6 +509,12 @@ const Menu = {
             <div id="playersList"></div>
         </div>
         <div id="playersAdd"></div>
+        <div id="assignRolesWrapper">
+            <button id="assignRolesButton">
+                ${icons.kostka}
+                Potvrdit a přidělit role
+            </button>
+        </div>
         <hr>
         <div class="menu-item" id="menuBack">
             ${icons.zpet} Zpět
@@ -516,7 +522,13 @@ const Menu = {
         `;
     
         this.renderPlayers();
-    
+        
+        document
+        .getElementById("assignRolesButton")
+        .onclick=()=>{
+            alert("Nyní bude uložen seznam hráčů a každému bude náhodně přidělana jeho role. Přejete si pokračovat?");
+        };
+        
         document.getElementById("menuBack").onclick=(e)=>{
             e.stopPropagation();
             this.showMain();
@@ -633,25 +645,21 @@ const Menu = {
                     }
                 </div>
                 <div class="player-role-cell">
-                    ${
-                        player.confirmed
-                        ?
-                        `
-                        <button
-                            class="assignRole"
-                            data-index="${index}">
-                            ${icons.kostka}
-                        </button>
-                        `
-                        :
-                        `
-                        <button
-                            class="cancelPlayer"
-                            data-index="${index}">
-                            ${icons.krizek}
-                        </button>
-                        `
-                    }
+                
+                ${
+                player.confirmed
+                ?
+                ``
+                :
+                `
+                <button
+                class="cancelPlayer"
+                data-index="${index}">
+                ${icons.krizek}
+                </button>
+                `
+                }
+                
                 </div>
             `;
             list.appendChild(row);
