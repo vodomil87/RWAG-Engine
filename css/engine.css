@@ -31,6 +31,7 @@ textarea {
     --font-medieval: "MedievalSharp", serif;
     --font-typewriter: "Special Elite", monospace;
     --button-size:clamp(32px, calc(var(--game-font-size) * 2), 52px);;
+    --role-button-size:40px;
     --button-radius:calc(var(--game-font-size) / 2);
     --slider-color:var(--border-color); /*barva slideru */
     --settings-indent:15px; /*odsazení tlačítek a slideru */
@@ -306,7 +307,7 @@ body.font-typewriter{
     position:fixed;
     top:0;
     left:-350px;
-    width:350px;
+    width:min(350px,90vw);
     height:100vh;
     background:var(--panel-bg);
     color:var(--text-color);
@@ -489,8 +490,8 @@ body.font-typewriter{
     display:grid;
     grid-template-columns:
         minmax(0,1fr)
-        var(--button-size)
-        var(--button-size);
+        var(--role-button-size)
+        var(--role-button-size);
     gap:4px;
     align-items:center;
 }
@@ -554,13 +555,16 @@ body.font-typewriter{
 
 .player-row button{
     font:inherit;
-    font-size:1.1rem;
+    font-size:var(--game-font-size);
+    width:var(--role-button-size);
+    height:var(--role-button-size);
     display:flex;
     align-items:center;
     justify-content:center;
-    height:var(--button-size);
+    padding:0;
     background:var(--panel-color);
-    border-radius:1px;
+    color:var(--text-color);
+    border-radius:6px;
     cursor:pointer;
 }
 
@@ -585,6 +589,7 @@ body.font-typewriter{
     display:flex;
     align-items:center;
     min-width:0;
+    width:100%;
     background:var(--panel-color);
     color:var(--text-color);
     font-size:var(--game-font-size);
