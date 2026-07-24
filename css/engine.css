@@ -298,10 +298,6 @@ body.font-typewriter{
     font-family:inherit;
 }
 
-.choice:hover {
-    filter:brightness(1.1);
-}
-
 .choice:disabled {
     opacity: .5;
 }
@@ -432,7 +428,8 @@ body.font-typewriter{
     transition:.2s;
 }
 
-.scenario-card:hover{
+.scenario-card:hover,
+.choice:hover{
     transform:scale(1.02);
     filter:brightness(1.1);
 }
