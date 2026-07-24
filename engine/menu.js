@@ -2,6 +2,7 @@ const Menu = {
     page:"main",
     open:false,
     addingPlayer:false,
+    playersMode:"edit",
     init(){
         const b=document.getElementById("menuButton");
         if(b){
@@ -484,6 +485,14 @@ const Menu = {
     },
 
     renderRoles(){
+        if(this.playersMode==="edit"){
+            this.renderPlayersEditor();
+        }else{
+            this.renderAssignedRoles();
+        }
+    },    
+
+    renderPlayersEditor(){
         const panel=document.getElementById("menuPanel");
         const players =
             Engine.state.players || [];
@@ -514,6 +523,27 @@ const Menu = {
         };
     },
 
+    renderAssignedRoles(){
+        const panel=
+            document.getElementById("menuPanel");
+        panel.innerHTML=`
+            <div class="menu-title">
+                Přidělené role
+            </div>
+            <div>
+                Tady bude seznam rolí.
+            </div>
+            <hr>
+            <div class="menu-item" id="menuBack">
+                ${icons.zpet} Zpět
+            </div>
+        `;
+        document.getElementById("menuBack").onclick=()=>{
+            this.playersMode="edit";
+            this.renderRoles();
+        };
+    },
+        
     assignRandomRole(index){
         const pending =
             Engine.state.pendingPlayers[index];
