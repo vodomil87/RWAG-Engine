@@ -92,12 +92,12 @@ const Menu = {
         </div>
         
         <div class="menu-item" id="menuRoles">
-            ${icons.role} Role ${icons.vpred}
+            ${icons.hraci} Hráči a role ${icons.vpred}
         </div>
         
-        <div class="menu-item">${icons.svitek} Úkoly</div>
+        <div class="menu-item">${icons.svitek} Úkoly </div>
         
-        <div class="menu-item">${icons.batoh} Inventář</div>
+        <div class="menu-item">${icons.batoh} Inventář </div>
         
         <div class="menu-item" id="menuLegend">
             ${icons.knihy} Přehled pravidel ${icons.vpred}
@@ -489,7 +489,7 @@ const Menu = {
             Engine.state.players || [];
         panel.innerHTML=`
         <div class="menu-title">
-            ${icons.role}
+            ${icons.hraci}
             Správa hráčů a jejich rolí
         </div>
         <div class="players-table">
