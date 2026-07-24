@@ -243,7 +243,7 @@ const Menu = {
             id="fontSizeRange"
             type="range"
             min="10"
-            max="24"
+            max="30"
             value="16">
         </div>
         <div class="menu-section">
