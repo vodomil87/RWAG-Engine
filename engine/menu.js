@@ -646,7 +646,6 @@ const Menu = {
         const add = document.getElementById("playersAdd");
         const max = Engine.game.players_max || 8;
         const min = Engine.game.players_min || 1;
-        const players = Engine.state.players || [];
         const confirmedPending =
             Engine.state.pendingPlayers.filter(
                 p =>
