@@ -30,8 +30,8 @@ textarea {
     --font-default: system-ui, sans-serif;
     --font-medieval: "MedievalSharp", serif;
     --font-typewriter: "Special Elite", monospace;
-    --button-size:clamp(32px, calc(var(--game-font-size) * 2), 52px);;
-    --role-button-size:40px;
+    --button-size:clamp(32px, calc(var(--game-font-size) * 2), 52px);
+    --role-button-size:var(--button-size);
     --button-radius:calc(var(--game-font-size) / 2);
     --slider-color:var(--border-color); /*barva slideru */
     --settings-indent:15px; /*odsazení tlačítek a slideru */
@@ -490,8 +490,8 @@ body.font-typewriter{
     display:grid;
     grid-template-columns:
         minmax(0,1fr)
-        var(--role-button-size)
-        var(--role-button-size);
+        var(--button-size)
+        var(--button-size);
     gap:4px;
     align-items:center;
 }
@@ -531,8 +531,8 @@ body.font-typewriter{
 
 #playersAdd button{
     font-size:calc(var(--game-font-size) * 1.5);
-    width:var(--icon-button-size);
-    height:var(--icon-button-size);
+    width:var(--button-size);
+    height:var(--button-size);
     border-radius:50%;
     background:var(--panel-color);
     color:var(--text-color);
@@ -556,15 +556,15 @@ body.font-typewriter{
 .player-row button{
     font:inherit;
     font-size:var(--game-font-size);
-    width:var(--role-button-size);
-    height:var(--role-button-size);
+    height:var(--button-size);
+    width:var(--button-size);
     display:flex;
     align-items:center;
     justify-content:center;
     padding:0;
     background:var(--panel-color);
     color:var(--text-color);
-    border-radius:6px;
+    border-radius:1px;
     cursor:pointer;
 }
 
@@ -573,6 +573,8 @@ body.font-typewriter{
     font-size:inherit;
     color:#666;
     height:var(--button-size);
+    min-width:0;
+    width:100%;
 }
 
 .player-row input::placeholder{
