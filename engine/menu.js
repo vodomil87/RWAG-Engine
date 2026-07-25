@@ -350,41 +350,6 @@ const Menu = {
         
         updateToggles();
     },
- 
-    updateFontButtons(){
-        document
-            .querySelectorAll(".font-preview")
-            .forEach(btn=>{
-                btn.classList.remove("active");
-            });
-        const font =
-            localStorage.getItem("rwag_font")
-            || "default";
-        document
-            .getElementById(
-                "font" +
-                font.charAt(0).toUpperCase() +
-                font.slice(1)
-            )
-            ?.classList.add("active");
-    },
-    
-    updateThemeButtons(){
-        const currentTheme =
-            localStorage.getItem("rwag_theme") || "dark";
-        document
-            .querySelectorAll(".theme-preview")
-            .forEach(btn=>{
-                 btn.classList.remove("active");
-            });
-        document
-            .getElementById(
-                "theme" +
-                currentTheme.charAt(0).toUpperCase() +
-                currentTheme.slice(1)
-            )
-            ?.classList.add("active");
-     },
 
     renderLegend(){
         const legend = Engine.legend;
@@ -689,6 +654,12 @@ const Menu = {
                 "Nyní dojde k náhodnému přiřazení rolí jednotlivým hráčům. Přejete si pokračovat?",
                 ()=>{
                     this.assignRoles();
+                },
+                ()=>{
+                    this.showRoles();
+                },
+                ()=>{
+                    this.renderRoles();
                 }
             );
         };
@@ -712,11 +683,13 @@ const Menu = {
         this.render();
     },
 
-    confirm(text, yesCallback){
-        console.log("CONFIRM:", text);
+    confirm(text, yesCallback, noCallback){
+        this.confirmYes = null;
+        this.confirmNo = null;
         this.page = "confirm";
         this.confirmText = text;
         this.confirmYes = yesCallback;
+        this.confirmNo = noCallback;
         this.render();
     },
 
@@ -745,7 +718,11 @@ const Menu = {
         };
         document.getElementById("confirmNo").onclick=(e)=>{
             e.stopPropagation();
-            this.showMain();
+                    if(this.confirmNo){
+                this.confirmNo();
+            }else{
+                this.showMain();
+            }
         };
     }
 };
