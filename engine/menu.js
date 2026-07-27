@@ -547,34 +547,28 @@ const Menu = {
                 <div class="player-confirm-cell">
                     ${
                         player.confirmed
-                        ?
-                        ""
-                        :
-                        `
-                        <button 
-                            class="confirmName"
-                            data-index="${index}">
-                            ${icons.fajfka}
-                        </button>
+                        ? ""
+                        : `
+                            <button
+                                class="confirmName"
+                                data-index="${index}">
+                                ${icons.fajfka}
+                            </button>
                         `
                     }
                 </div>
                 <div class="player-role-cell">
-                
-                ${
-                player.confirmed
-                ?
-                ``
-                :
-                `
-                <button
-                class="cancelPlayer"
-                data-index="${index}">
-                ${icons.krizek}
-                </button>
-                `
-                }
-                
+                    ${
+                        this.playersMode === "edit"
+                        ? `
+                            <button
+                                class="cancelPlayer"
+                                data-index="${index}">
+                                ${icons.krizek}
+                            </button>
+                        `
+                        : ""
+                    }
                 </div>
             `;
             list.appendChild(row);
@@ -608,12 +602,13 @@ const Menu = {
         document.querySelectorAll(".cancelPlayer")
         .forEach(button=>{
             button.onclick=()=>{
-                const index =
-                    button.dataset.index;
-                Engine.state.pendingPlayers.splice(
-                    index,
-                    1
-                );
+                const type = button.dataset.type;
+                const index = Number(button.dataset.index);
+                if(type === "player"){
+                    Engine.state.players.splice(index,1);
+                }else{
+                    Engine.state.pendingPlayers.splice(index,1);
+                }
                 this.renderRoles();
             };
         });
