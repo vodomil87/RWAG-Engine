@@ -568,9 +568,11 @@ const Menu = {
                         <div class="player-name-cell">
                             ${player.name}
                         </div>
+                        <div></div>
                         <div class="player-role-cell">
                             ${player.role?.name || "?"}
                         </div>
+                        <div></div>
                     </div>
                 `;
                 });
