@@ -480,14 +480,7 @@ const Menu = {
                 <div></div>
                 <div>Role</div>
 
-<div class="player-confirm-cell">
-    <button
-        class="roleInfo"
-        data-index="${index}">
-        ${icons.otaznik}
-    </button>
-</div>
-                
+               
             </div>
             <div id="playersList"></div>
         </div>
@@ -497,19 +490,11 @@ const Menu = {
             ${icons.zpet} Zpět do menu
         </div>
         `;
-    
         this.renderPlayers();
-        
         document.getElementById("menuBack").onclick=(e)=>{
             e.stopPropagation();
             this.showMain();
         };
-
-document.getElementById("roleInfo").onclick=(e)=>{
-    e.stopPropagation();
-    this.showMain();
-};
-        
     },
 
     renderAssignedPlayersEditor(){
@@ -579,13 +564,11 @@ document.getElementById("roleInfo").onclick=(e)=>{
                     `.playerEditName[data-index="${index}"]`
                 );
                 const newName = input.value.trim();
-                if(oldName === newName){
-                    return;
-                }
+                
                 this.confirm(
                     `Skutečně chcete přejmenovat hráče <b>${oldName}</b> na <b>${newName}</b>?`,
                     ()=>{
-                        this.savePlayerName(index);
+                        this.savePlayerName(index, newName);
                     },
                     ()=>{
                         this.editingAssignedPlayers = true;
@@ -614,19 +597,15 @@ document.getElementById("roleInfo").onclick=(e)=>{
         });
     },
 
-    savePlayerName(index){
-        const input=document.querySelector(
-            `.playerEditName[data-index="${index}"]`
-        );
-        if(!input.value.trim()){
+    savePlayerName(index, newName){
+        if(!newName.trim()){
             alert("Zadej jméno hráče");
             return;
         }
-        Engine.state.players[index].name =
-            input.value.trim();
+        Engine.state.players[index].name = newName.trim();
         this.editingAssignedPlayers = true;
         this.renderRoles();
-    },
+    }
     
     deletePlayer(index){
         Engine.state.players.splice(index,1);
