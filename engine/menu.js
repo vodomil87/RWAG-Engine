@@ -2,6 +2,7 @@ const Menu = {
     page:"main",
     open:false,
     playersMode:"edit",
+    editingAssignedPlayers:false,
     init(){
         const b=document.getElementById("menuButton");
         if(b){
@@ -459,6 +460,10 @@ const Menu = {
     },   
 
     renderPlayersEditor(){
+        if(this.editingAssignedPlayers){
+            this.renderAssignedPlayersEditor();
+            return;
+        }
         const panel=document.getElementById("menuPanel");
         panel.innerHTML=`
         <div class="menu-title">
@@ -487,6 +492,49 @@ const Menu = {
         };
     },
 
+    renderAssignedPlayersEditor(){
+        const panel=document.getElementById("menuPanel");
+            panel.innerHTML=`
+        <div class="menu-title">
+            ${icons.hraci}
+            Upravit hráče
+        </div>
+            <div class="players-table">
+                <div class="players-header">
+                    <div>Jméno</div>
+                    <div>Role</div>
+                </div>
+                <div id="assignedPlayersList"></div>
+            </div>
+        <hr>
+        <div class="menu-item" id="menuBack">
+            ${icons.zpet} Zpět
+        </div>
+        `;
+        const list=document.getElementById("assignedPlayersList");
+            Engine.state.players.forEach((player,index)=>{
+        const row=document.createElement("div");
+            row.className="player-row";
+            row.innerHTML=`
+        <div>
+            <input 
+            class="playerEditName"
+            data-index="${index}"
+            value="${player.name}">
+        </div>
+        <div>
+            ${player.role.name}
+        </div>
+        `;
+        list.appendChild(row);
+        });
+        document.getElementById("menuBack").onclick=()=>{
+            this.editingAssignedPlayers=false;
+            this.playersMode="assigned";
+            this.renderRoles();
+        };
+    },
+    
     renderAssignedRoles(){
         const panel =
             document.getElementById("menuPanel");
@@ -516,26 +564,25 @@ const Menu = {
             `;
         });
         html += `
+                <button 
+                    id="editPlayersButton"
+                    class="primary-button">
+                    ${icons.nastaveni}
+                    Upravit hráče
+                </button>
             </div>
-            <hr>
-            <button 
-                id="editPlayersButton"
-                class="primary-button">
-                ${icons.nastaveni}
-                Upravit hráče
-            </button>
             <hr>
             <div class="menu-item" id="menuBack">
                 ${icons.zpet} Zpět
             </div>
         `;
         panel.innerHTML = html;
-        document
-        .getElementById("editPlayersButton")
-        .onclick = ()=>{
+        document.getElementById("editPlayers").onclick=(e)=>{
+            e.stopPropagation();
+        
             this.playersMode="edit";
-            // hráče necháme,
-            // jen se vrátíme do editoru
+            this.editingAssignedPlayers=true;
+        
             this.renderRoles();
         };
         document.getElementById("menuBack").onclick=()=>{
