@@ -627,15 +627,7 @@ const Menu = {
                     <div>Jméno</div>
                     <div></div>
                     <div>Role</div>
-
-<div class="player-confirm-cell">
-    <button
-        class="confirmCancelPlayer"
-        data-index="${index}">
-        ${icons.otaznik}
-    </button>
-</div>
-
+                    <div></div>
                 </div>
                 `;
                 players.forEach(player=>{
@@ -678,11 +670,6 @@ const Menu = {
             this.editingAssignedPlayers=true;
             this.renderRoles();
         };
-
-document.getElementById("menuBack").onclick=()=>{
-    this.showMain();
-};
-        
         document.getElementById("menuBack").onclick=()=>{
             this.showMain();
         };
