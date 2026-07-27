@@ -528,7 +528,7 @@ const Menu = {
                 this.playersMode = "edit";
                 this.renderRoles();
             };
-    }
+    },
         
     renderPlayers(){
         const list=document.getElementById("playersList");
