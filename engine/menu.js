@@ -627,7 +627,15 @@ const Menu = {
                     <div>Jméno</div>
                     <div></div>
                     <div>Role</div>
-                    <div></div>
+
+<div class="player-confirm-cell">
+    <button
+        class="confirmCancelPlayer"
+        data-index="${index}">
+        ${icons.otaznik}
+    </button>
+</div>
+
                 </div>
                 `;
                 players.forEach(player=>{
@@ -670,6 +678,11 @@ const Menu = {
             this.editingAssignedPlayers=true;
             this.renderRoles();
         };
+
+document.getElementById("menuBack").onclick=()=>{
+    this.showMain();
+};
+        
         document.getElementById("menuBack").onclick=()=>{
             this.showMain();
         };
@@ -786,7 +799,7 @@ const Menu = {
             };
         });
         
-         // Plus dole
+        // Plus dole
         const add = document.getElementById("playersAdd");
         const max = Engine.game.players_max || 8;
         const min = Engine.game.players_min || 1;
