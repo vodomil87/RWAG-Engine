@@ -479,8 +479,7 @@ const Menu = {
                 <div>Jméno</div>
                 <div></div>
                 <div>Role</div>
-
-               
+                <div></div>
             </div>
             <div id="playersList"></div>
         </div>
@@ -605,7 +604,7 @@ const Menu = {
         Engine.state.players[index].name = newName.trim();
         this.editingAssignedPlayers = true;
         this.renderRoles();
-    }
+    },
     
     deletePlayer(index){
         Engine.state.players.splice(index,1);
