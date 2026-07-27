@@ -485,25 +485,50 @@ const Menu = {
     },
 
     renderAssignedRoles(){
-        const panel=
+        const panel =
             document.getElementById("menuPanel");
-        panel.innerHTML=`
+        let html = `
             <div class="menu-title">
+                ${icons.hraci}
                 Přidělené role
             </div>
-            <div>
-                Tady bude seznam rolí.
+            <div class="players-table">
+                <div class="players-header">
+                    <div>Jméno</div>
+                    <div>Role</div>
+                </div>
+        `;
+        Engine.state.players.forEach(player=>{
+            html += `
+                <div class="player-row assigned">
+                    <div class="player-name-cell">
+                        ${player.name}
+                    </div>
+                    <div class="player-role">
+                        ${player.role?.name || "???"}
+                    </div>
+                </div>
+            `;
+        });
+        html += `
             </div>
-            <hr>
-            <div class="menu-item" id="menuBack">
-                ${icons.zpet} Zpět
+            <div id="playersBottom">
+                <button
+                    id="editPlayers"
+                    class="primary-button">
+                    ${icons.nastaveni}
+                    Upravit hráče
+                </button>
             </div>
         `;
-        document.getElementById("menuBack").onclick=()=>{
-            this.playersMode="edit";
-            this.renderRoles();
-        };
-    },
+        panel.innerHTML = html;
+        document
+            .getElementById("editPlayers")
+            .onclick = ()=>{
+                this.playersMode = "edit";
+                this.renderRoles();
+            };
+    }
         
     renderPlayers(){
         const list=document.getElementById("playersList");
