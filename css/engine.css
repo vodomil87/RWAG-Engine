@@ -496,6 +496,7 @@ body.font-typewriter{
         var(--button-size);
     gap:4px;
     align-items:center;
+    margin-bottom:6px;
 }
 
 .players-header-editor{
@@ -505,6 +506,7 @@ body.font-typewriter{
         minmax(0,1fr);
     gap:4px;
     align-items:center;
+    margin-bottom:6px;
 }
 
 .player-row{
@@ -547,11 +549,6 @@ body.font-typewriter{
     background:var(--panel-color);
     color:var(--text-color);
     font-size:var(--game-font-size);
-}
-
-.players-header{
-/*    font-weight:bold;*/
-    margin-bottom:6px;
 }
 
 .player-name input{
