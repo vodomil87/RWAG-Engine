@@ -492,6 +492,7 @@ body.font-typewriter{
     display:grid;
     grid-template-columns:
         minmax(0,1fr)
+        var(--button-size)
         minmax(0,1fr)
         var(--button-size);
     gap:4px;
@@ -523,6 +524,7 @@ body.font-typewriter{
     display:grid;
     grid-template-columns:
         minmax(0,1fr)
+        var(--button-size)
         minmax(0,1fr)
         var(--button-size);
     gap:4px;
