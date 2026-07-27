@@ -1,6 +1,7 @@
 const Menu = {
     page:"main",
     open:false,
+    addingPlayer:false,
     playersMode:"edit",
     rolesPage:"list",
     selectedRole:null,
@@ -449,13 +450,13 @@ const Menu = {
     },
 
     renderRoles(){
-        switch(this.rolesPage){
-            case "editor":
-                this.renderAssignedPlayersEditor();
-                return;
-            case "detail":
-                this.renderRoleDetail();
-                return;
+        if(this.rolesPage==="detail"){
+            this.renderRoleDetail();
+            return;
+        }
+        if(this.rolesPage==="editor"){
+            this.renderAssignedPlayersEditor();
+            return;
         }
         const hasRoles =
             Engine.state.players &&
@@ -555,8 +556,7 @@ const Menu = {
         list.appendChild(row);
         });
         document.getElementById("menuBack").onclick=()=>{
-            this.editingAssignedPlayers=false;
-            this.playersMode="assigned";
+            this.rolesPage = "list";
             this.renderRoles();
         };
 
@@ -679,23 +679,27 @@ const Menu = {
         .forEach(button=>{
             button.onclick=(e)=>{
                 e.stopPropagation();
-                const roleId = button.dataset.role;
-                console.log(roleId);
+                const roleId =
+                    button.dataset.role;
+                console.log(
+                    "DETAIL ROLE:",
+                    roleId
+                );
+                this.selectedRole =
+                    Engine.game.roles.find(
+                        r=>r.id===roleId
+                    );
+                this.rolesPage="detail";
+                this.renderRoles();
             };
         });
         
         document.getElementById("editPlayersButton").onclick=(e)=>{
             e.stopPropagation();
-            
             console.log("KLIK NA UPRAVIT HRÁČE");
-            
-            this.editingAssignedPlayers=true;
+            this.rolesPage = "editor";
             this.renderRoles();
         };
-        document.getElementById("menuBack").onclick=()=>{
-            this.showMain();
-        };
-    },
         
     renderPlayers(){
         const list=document.getElementById("playersList");
@@ -868,6 +872,31 @@ const Menu = {
         };
     },
 
+    renderRoleDetail(){
+        const role = this.selectedRole;
+        if(!role){
+            this.renderAssignedRoles();
+            return;
+        }
+        document.getElementById("menuPanel").innerHTML=`
+            <div class="menu-title">
+                ${icons.hraci}
+                ${role.name}
+            </div>
+            <div class="menu-description">
+                ${role.description || "Bez popisu role."}
+            </div>
+            <hr>
+            <div class="menu-item" id="menuBack">
+                ${icons.zpet} Zpět
+            </div>
+        `;
+        document.getElementById("menuBack").onclick=()=>{
+            this.rolesPage="list";
+            this.renderRoles();
+        };
+    },
+    
     assignRoles(){
         const confirmed =
             Engine.state.pendingPlayers.filter(
