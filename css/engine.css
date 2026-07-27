@@ -653,3 +653,16 @@ body.font-typewriter{
     opacity: .5;
     cursor:not-allowed
 }
+
+.checkbox-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:6px 0;
+    cursor:pointer;
+    accent-color:var(--border-color);
+}
+
+.checkbox-row label{
+    cursor:pointer;
+}
