@@ -518,6 +518,10 @@ const Menu = {
                     Upravit seznam hráčů
                 </button>
             </div>
+            <hr>
+            <div class="menu-item" id="menuBack">
+                ${icons.zpet} Zpět
+            </div>
         `;
         panel.innerHTML = html;
         document
@@ -525,12 +529,7 @@ const Menu = {
             .onclick = ()=>{
                 this.playersMode = "edit";
                 this.renderRoles();
-            }
-        <hr>
-        <div class="menu-item" id="menuBack">
-            ${icons.zpet} Zpět
-        </div>
-        `;
+            };
     },
         
     renderPlayers(){
