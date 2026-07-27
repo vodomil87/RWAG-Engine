@@ -492,18 +492,8 @@ body.font-typewriter{
     display:grid;
     grid-template-columns:
         minmax(0,1fr)
-        var(--button-size)
-        var(--button-size);
-    gap:4px;
-    align-items:center;
-    margin-bottom:6px;
-}
-
-.players-header-editor{
-    display:grid;
-    grid-template-columns:
         minmax(0,1fr)
-        minmax(0,1fr);
+        var(--button-size);
     gap:4px;
     align-items:center;
     margin-bottom:6px;
@@ -533,7 +523,8 @@ body.font-typewriter{
     display:grid;
     grid-template-columns:
         minmax(0,1fr)
-        minmax(0,1fr);
+        minmax(0,1fr)
+        var(--button-size);
     gap:4px;
     align-items:center;
     padding: 3px;
