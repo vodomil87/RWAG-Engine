@@ -183,72 +183,89 @@ const Menu = {
         <div class="menu-section">
             ${icons.den_noc} Barevné schéma
         </div>
-        <div class="theme-picker">
-            <button
-                id="themeDark"
-                class="theme-preview dark">
-                Aa
-            </button>
-            <button
-                id="themeLight"
-                class="theme-preview light">
-                Aa
-            </button>
-            <button
-                id="themeMedieval"
-                class="theme-preview medieval">
-                Aa
-            </button>
-        </div>
+            <div class="theme-picker">
+                <button
+                    id="themeDark"
+                    class="theme-preview dark">
+                    Aa
+                </button>
+                <button
+                    id="themeLight"
+                    class="theme-preview light">
+                    Aa
+                </button>
+                <button
+                    id="themeMedieval"
+                    class="theme-preview medieval">
+                    Aa
+                </button>
+            </div>
         <div class="menu-section">
             ${icons.font} Font
         </div>
-        <div class="theme-picker">
-            <button
-                id="fontDefault"
-                class="font-preview font-default">
-                Aa
-            </button>
-            <button
-                id="fontMedieval"
-                class="font-preview font-medieval">
-                Aa
-            </button>
-            <button
-                id="fontTypewriter"
-                class="font-preview font-typewriter">
-                Aa
-            </button>
-        </div>
+            <div class="theme-picker">
+                <button
+                    id="fontDefault"
+                    class="font-preview font-default">
+                    Aa
+                </button>
+                <button
+                    id="fontMedieval"
+                    class="font-preview font-medieval">
+                    Aa
+                </button>
+                <button
+                    id="fontTypewriter"
+                    class="font-preview font-typewriter">
+                    Aa
+                </button>
+            </div>
         <div class="menu-section">
             ${icons.up_down} Velikost písma:
             <span id="fontSizeValue"></span> px
         </div>
-        <div class="slider-wrapper">
-            <input
-            id="fontSizeRange"
-            type="range"
-            min="10"
-            max="30"
-            value="16">
-        </div>
+            <div class="slider-wrapper">
+                <input
+                id="fontSizeRange"
+                type="range"
+                min="10"
+                max="30"
+                value="16">
+            </div>
         <div class="menu-section">
            ${icons.zvonek} Oznámení
         </div>
-        <div class="setting-row settings-section">
-            <span>${icons.repro_nic} Zvuky</span>
-            <button 
-                id="soundToggle"
-                class="toggle-button">
-            </button>
+            <div class="setting-row settings-section">
+                <span>${icons.repro_nic} Zvuky</span>
+                <button 
+                    id="soundToggle"
+                    class="toggle-button">
+                </button>
+            </div>
+            <div class="setting-row settings-section">
+                <span>${icons.vibrace} Vibrace</span>
+                <button 
+                    id="vibrationToggle"
+                    class="toggle-button">
+                </button>
+            </div>
+            
+        <div class="menu-section">
+            ${icons.tv} Další možnosti zobrazení
         </div>
-        <div class="setting-row settings-section">
-            <span>${icons.vibrace} Vibrace</span>
-            <button 
-                id="vibrationToggle"
-                class="toggle-button">
-            </button>
-        </div>
+            <span>
+                <div class="setting-row settings-section">
+                    <div>
+                        <input type="checkbox" id="choice_confirm" name="choice_confirm" checked />
+                        <label for="choice_confirm"> Požádat o potvrzení rozhodnutí</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="quests_done_hide" name="quests_done_hide" checked />
+                        <label for="quests_done_hide"> Skrýt splněné úkoly</label>
+                    </div>
+                </div>
+            </span>
+
         <hr>
         <div class="menu-item" id="menuBack">
             ${icons.zpet} Zpět
