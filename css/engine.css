@@ -538,6 +538,12 @@ body.font-typewriter{
     height: var(--button-size)
 }
 
+.player-row-editor:has(.player-role-cell:only-child){
+    grid-template-columns:
+        minmax(0,1fr)
+        var(--button-size);
+}
+
 .player-role-cell,
 .player-confirm-cell{
     display:flex;
