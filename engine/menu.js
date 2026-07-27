@@ -560,26 +560,32 @@ const Menu = {
                     <div class="player-role-cell">
                         ${player.role?.name || "?"}
                     </div>
-                </div>
-            `;
+              `;
         });
         html += `
-                <button 
-                    id="editPlayersButton"
-                    class="primary-button">
-                    ${icons.nastaveni}
-                    Upravit hráče
-                </button>
+                </div>
             </div>
+            <button 
+                id="editPlayersButton"
+                class="primary-button">
+                ${icons.nastaveni}
+                Upravit hráče
+            </button>
             <hr>
             <div class="menu-item" id="menuBack">
                 ${icons.zpet} Zpět
             </div>
         `;
         panel.innerHTML = html;
+        console.log(
+            "EDIT BUTTON:",
+            document.getElementById("editPlayersButton")
+        );
         document.getElementById("editPlayersButton").onclick=(e)=>{
             e.stopPropagation();
-        
+            
+            console.log("KLIK NA UPRAVIT HRÁČE");
+            
             this.editingAssignedPlayers=true;
             this.renderRoles();
         };
