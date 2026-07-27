@@ -545,35 +545,37 @@ const Menu = {
                 ${icons.hraci}
                 Přidělené role
             </div>
+            
             <div class="players-table">
                 <div class="players-header">
                     <div>Jméno</div>
                     <div>Role</div>
                 </div>
-        `;
-        players.forEach(player=>{
-            html += `
-                <div class="player-row">
-                    <div class="player-name-cell">
-                        ${player.name}
+                `;
+                players.forEach(player=>{
+                    html += `
+                    <div class="player-row">
+                        <div class="player-name-cell">
+                            ${player.name}
+                        </div>
+                        <div class="player-role-cell">
+                            ${player.role?.name || "?"}
+                        </div>
                     </div>
-                    <div class="player-role-cell">
-                        ${player.role?.name || "?"}
-                    </div>
-              `;
-        });
-            html += `
-                    </div>
-                    <button 
-                        id="editPlayersButton"
-                        class="primary-button">
-                        ${icons.nastaveni}
-                        Upravit hráče
-                    </button>
-                    <hr>
-                    <div class="menu-item" id="menuBack">
-                        ${icons.zpet} Zpět
-                    </div>
+                `;
+                });
+                    html += `
+            </div>
+                <button 
+                    id="editPlayersButton"
+                    class="primary-button">
+                    ${icons.nastaveni}
+                    Upravit hráče
+                </button>
+                <hr>
+                <div class="menu-item" id="menuBack">
+                    ${icons.zpet} Zpět
+                </div>
             `;
         panel.innerHTML = html;
         console.log(
@@ -603,9 +605,12 @@ const Menu = {
             row.className="player-row";
             row.innerHTML=`
                 <div class="player-name-cell">
-                    ${player.name}
+                    <input 
+                        class="playerEditName"
+                        data-index="${index}"
+                        value="${player.name}">
                 </div>
-                <div class="player-role">
+                <div class="player-role-cell">
                     ${player.role?.name || "-"}
                 </div>
             `;
