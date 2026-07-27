@@ -2,6 +2,8 @@ const Menu = {
     page:"main",
     open:false,
     playersMode:"edit",
+    rolesPage:"list",
+    selectedRole:null,
     editingAssignedPlayers:false,
     init(){
         const b=document.getElementById("menuButton");
@@ -447,9 +449,13 @@ const Menu = {
     },
 
     renderRoles(){
-        if(this.editingAssignedPlayers){
-            this.renderAssignedPlayersEditor();
-            return;
+        switch(this.rolesPage){
+            case "editor":
+                this.renderAssignedPlayersEditor();
+                return;
+            case "detail":
+                this.renderRoleDetail();
+                return;
         }
         const hasRoles =
             Engine.state.players &&
@@ -641,11 +647,11 @@ const Menu = {
                                 ${player.role?.name || "?"}
                             </div>
                             <div class="player-confirm-cell">
-                                <button
-                                    class="roleInfo"
-                                    data-index="${index}">
-                                    ${icons.otaznik}
-                                </button>
+                            <button
+                                class="roleInfo"
+                                data-role="${player.role.id}">
+                                ${icons.otaznik}
+                            </button>
                             </div>
                         </div>
                     `;
@@ -668,21 +674,13 @@ const Menu = {
             "EDIT BUTTON:",
             document.getElementById("editPlayersButton")
         );
-
+        
         document.querySelectorAll(".roleInfo")
         .forEach(button=>{
             button.onclick=(e)=>{
                 e.stopPropagation();
-                const index = button.dataset.index;
-                const player =
-                    Engine.state.players[index];
-                console.log(
-                    "INFO ROLE:",
-                    player.role
-                );
-                alert(
-                    player.role.description
-                );
+                const roleId = button.dataset.role;
+                console.log(roleId);
             };
         });
         
