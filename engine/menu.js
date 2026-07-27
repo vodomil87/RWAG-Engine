@@ -91,13 +91,13 @@ const Menu = {
         <div class="menu-item" id="menuRoles">
             ${icons.hraci} Hráči a role ${icons.vpred}
         </div>
-        <div class="menu-item">${icons.svitek} Úkoly </div>
-        <div class="menu-item">${icons.batoh} Inventář </div>
+        <div class="menu-item">${icons.svitek} Úkoly ${icons.zabrana}</div>
+        <div class="menu-item">${icons.batoh} Inventář ${icons.zabrana}</div>
         <div class="menu-item" id="menuLegend">
             ${icons.knihy} Přehled pravidel ${icons.vpred}
         </div>
-        <div class="menu-item">${icons.graf} Statistiky</div>
-        <div class="menu-item">${icons.disketa} Uložit / Načíst pozici</div>
+        <div class="menu-item">${icons.graf} Statistiky ${icons.zabrana}</div>
+        <div class="menu-item">${icons.disketa} Uložit / Načíst pozici ${icons.zabrana}</div>
         <div class="menu-item" id="menuExit">
             ${icons.dvere} Ukončit scénář
         </div>
@@ -253,16 +253,14 @@ const Menu = {
         <div class="menu-section">
             ${icons.tv} Další možnosti zobrazení
         </div>
-            <span>
-                <div class="setting-row settings-section">
-                    <input type="checkbox" id="choice_confirm" name="choice_confirm" checked />
-                    <label for="choice_confirm"> Požádat o potvrzení rozhodnutí</label>
-                </div>
-                <div class="setting-row settings-section">
-                    <input type="checkbox" id="quests_done_hide" name="quests_done_hide" checked />
-                    <label for="quests_done_hide"> Skrýt splněné úkoly</label>
-                </div>
-            </span>
+            <div class="checkbox-row settings-section">
+                <input type="checkbox" id="choice_confirm" name="choice_confirm" checked />
+                <label for="choice_confirm"> Požádat o potvrzení rozhodnutí</label>
+            </div>
+            <div class="checkbox-row settings-section">
+                <input type="checkbox" id="quests_done_hide" name="quests_done_hide" checked />
+                <label for="quests_done_hide"> Skrýt splněné úkoly</label>
+            </div>
 
         <hr>
         <div class="menu-item" id="menuBack">
