@@ -263,7 +263,7 @@ const Menu = {
             </div>
         <hr>
         <div class="menu-item" id="menuBack">
-            ${icons.zpet} Zpět
+            ${icons.zpet} Zpět do menu
         </div>
         `;
         
@@ -375,7 +375,7 @@ const Menu = {
                 </p>
                 <hr>
                 <div class="menu-item" id="menuBack">
-                    ${icons.zpet} Zpět
+                    ${icons.zpet} Zpět do menu
                 </div>
             `;
             document.getElementById("menuBack").onclick=()=>{
@@ -413,7 +413,7 @@ const Menu = {
         html+=`
             <hr>
             <div class="menu-item" id="menuBack">
-                ${icons.zpet} Zpět
+                ${icons.zpet} Zpět do menu
             </div>
         `;
     
@@ -433,11 +433,11 @@ const Menu = {
         <p>
         RWAG Engine
         <br>
-        Verze 0.2
+        Verze 0.3
         </p>
         <hr>
         <div class="menu-item" id="menuBack">
-            ${icons.zpet} Zpět
+            ${icons.zpet} Zpět do menu
         </div>
         `;
         document.getElementById("menuBack").onclick = (e) => {
@@ -484,7 +484,7 @@ const Menu = {
         <div id="playersAdd"></div>
         <hr>
         <div class="menu-item" id="menuBack">
-            ${icons.zpet} Zpět
+            ${icons.zpet} Zpět do menu
         </div>
         `;
     
@@ -578,7 +578,7 @@ const Menu = {
                 </button>
                 <hr>
                 <div class="menu-item" id="menuBack">
-                    ${icons.zpet} Zpět
+                    ${icons.zpet} Zpět do menu
                 </div>
             `;
         panel.innerHTML = html;
