@@ -52,6 +52,7 @@ puntik_zluty:"🟡",
 kostka:"🎲",
 bryle:"👓",
 tv:"📺",
-kladivo_klic:"🛠️"
+kladivo_klic:"🛠️",
+zabrana:"🚧"
    
 };
