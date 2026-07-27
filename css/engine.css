@@ -570,7 +570,7 @@ body.font-typewriter{
     font:inherit;
     font-size:inherit;
     color:#666;
-    height:var(--button-size)
+    height:var(--button-size);
     min-width:0;
     width:100%;
 }
