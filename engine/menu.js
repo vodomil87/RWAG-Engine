@@ -447,6 +447,10 @@ const Menu = {
     },
 
     renderRoles(){
+        if(this.editingAssignedPlayers){
+            this.renderAssignedPlayersEditor();
+            return;
+        }
         const hasRoles =
             Engine.state.players &&
             Engine.state.players.some(
@@ -457,7 +461,7 @@ const Menu = {
         }else{
             this.renderPlayersEditor();
         }
-    },   
+    },
 
     renderPlayersEditor(){
         if(this.editingAssignedPlayers){
