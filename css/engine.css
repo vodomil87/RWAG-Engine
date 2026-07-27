@@ -632,6 +632,7 @@ body.font-typewriter{
 /*    text-align:center;*/
     vertical-align: middle;
     align-items:center;
+    border:2px solid var(--border-color);
 }
 
 .primary-button{
@@ -644,6 +645,7 @@ body.font-typewriter{
     background:var(--accent-color);
     color:white;
     cursor:pointer;
+    border:2px solid var(--border-color);
 }
 
 .icon-button:disabled,
