@@ -249,7 +249,6 @@ const Menu = {
                     class="toggle-button">
                 </button>
             </div>
-            
         <div class="menu-section">
             ${icons.tv} Další možnosti zobrazení
         </div>
@@ -261,7 +260,6 @@ const Menu = {
                 <input type="checkbox" id="quests_done_hide" name="quests_done_hide" checked />
                 <label for="quests_done_hide"> Skrýt splněné úkoly</label>
             </div>
-
         <hr>
         <div class="menu-item" id="menuBack">
             ${icons.zpet} Zpět
@@ -517,7 +515,7 @@ const Menu = {
                     id="editPlayers"
                     class="primary-button">
                     ${icons.nastaveni}
-                    Upravit hráče
+                    Upravit seznam hráčů
                 </button>
             </div>
         `;
@@ -528,6 +526,11 @@ const Menu = {
                 this.playersMode = "edit";
                 this.renderRoles();
             };
+        <hr>
+        <div class="menu-item" id="menuBack">
+            ${icons.zpet} Zpět
+        </div>
+        `;
     },
         
     renderPlayers(){
@@ -703,9 +706,19 @@ const Menu = {
             Engine.state.pendingPlayers.filter(
                 p=>p.confirmed
             );
-        Engine.state.players =
-            confirmed;
+        Engine.state.players = confirmed;
         Engine.state.pendingPlayers = [];
+        // vytvoří kopii seznamu rolí
+        const roles = [...Engine.game.roles];
+        // náhodně je rozdá hráčům
+        Engine.state.players.forEach(player=>{
+            const index =
+                Math.floor(
+                    Math.random()*roles.length
+                );
+            player.role = roles[index];
+            roles.splice(index,1);
+        });
         this.playersMode="assigned";
         this.renderRoles();
     },
