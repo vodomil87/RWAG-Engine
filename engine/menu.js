@@ -517,7 +517,7 @@ const Menu = {
         const list=document.getElementById("assignedPlayersList");
             Engine.state.players.forEach((player,index)=>{
         const row=document.createElement("div");
-            row.className="player-row";
+            row.className="player-row-editor";
             row.innerHTML=`
         <div>
             <input 
@@ -550,7 +550,7 @@ const Menu = {
             </div>
             
             <div class="players-table">
-                <div class="players-header">
+                <div class="players-header-editor">
                     <div>Jméno</div>
                     <div>Role</div>
                 </div>
