@@ -446,12 +446,17 @@ const Menu = {
     },
 
     renderRoles(){
-        if(this.playersMode==="edit"){
-            this.renderPlayersEditor();
-        }else{
+        const hasRoles =
+            Engine.state.players &&
+            Engine.state.players.some(
+                p=>p.role
+            );
+        if(hasRoles){
             this.renderAssignedRoles();
+        }else{
+            this.renderPlayersEditor();
         }
-    },    
+    },   
 
     renderPlayersEditor(){
         const panel=document.getElementById("menuPanel");
@@ -528,6 +533,9 @@ const Menu = {
             // hráče necháme,
             // jen se vrátíme do editoru
             this.renderRoles();
+        };
+        document.getElementById("menuBack").onclick=()=>{
+            this.showMain();
         };
     },
         
