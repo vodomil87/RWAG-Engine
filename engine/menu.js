@@ -640,7 +640,15 @@ const Menu = {
                         <div class="player-role-cell">
                             ${player.role?.name || "?"}
                         </div>
-                        <div></div>
+
+                        <div class="player-confirm-cell">
+                            <button
+                                class="roleInfo"
+                                data-index="${index}">
+                                ${icons.otaznik}
+                            </button>
+                        </div>
+                        
                     </div>
                 `;
                 });
@@ -662,6 +670,16 @@ const Menu = {
             "EDIT BUTTON:",
             document.getElementById("editPlayersButton")
         );
+
+        document.getElementById("roleInfo").onclick=(e)=>{
+            e.stopPropagation();
+            
+            console.log("KLIK NA INFO O ROLI");
+            
+            this.editingAssignedPlayers=true;
+            this.renderRoles();
+        };
+        
         document.getElementById("editPlayersButton").onclick=(e)=>{
             e.stopPropagation();
             
