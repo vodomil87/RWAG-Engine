@@ -557,7 +557,7 @@ const Menu = {
                 `;
                 players.forEach(player=>{
                     html += `
-                    <div class="player-row">
+                    <div class="player-row-editor">
                         <div class="player-name-cell">
                             ${player.name}
                         </div>
