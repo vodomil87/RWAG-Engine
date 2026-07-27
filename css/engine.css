@@ -538,12 +538,6 @@ body.font-typewriter{
     height: var(--button-size)
 }
 
-.player-row-editor:has(.player-role-cell:only-child){
-    grid-template-columns:
-        minmax(0,1fr)
-        minmax(0,1fr);
-}
-
 .player-role-cell,
 .player-confirm-cell{
     display:flex;
@@ -611,6 +605,19 @@ body.font-typewriter{
 }
 
 .player-row input::placeholder{
+    font:inherit;
+}
+
+.player-row-editor input{
+    font:inherit;
+    font-size:inherit;
+    color:#666;
+    height:var(--button-size);
+    min-width:0;
+    width:100%;
+}
+
+.player-row-editor input::placeholder{
     font:inherit;
 }
 
