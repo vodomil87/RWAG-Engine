@@ -526,6 +526,18 @@ body.font-typewriter{
         var(--button-size);
 }
 
+.player-row-editor{
+    width:100%;
+    display:grid;
+    grid-template-columns:
+        minmax(0,1fr)
+        minmax(0,1fr);
+    gap:4px;
+    align-items:center;
+    padding: 3px;
+    height: var(--button-size)
+}
+
 .player-role-cell,
 .player-confirm-cell{
     display:flex;
