@@ -472,12 +472,11 @@ const Menu = {
         panel.innerHTML=`
         <div class="menu-title">
             ${icons.hraci}
-            Správa hráčů a jejich rolí
+            Správa hráčů
         </div>
         <div class="players-table">
-            <div class="players-header">
+            <div class="players-header-newgame">
                 <div>Jméno</div>
-                <div>Role</div>
             </div>
             <div id="playersList"></div>
         </div>
