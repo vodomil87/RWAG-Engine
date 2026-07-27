@@ -562,20 +562,19 @@ const Menu = {
                     </div>
               `;
         });
-        html += `
-                </div>
-            </div>
-            <button 
-                id="editPlayersButton"
-                class="primary-button">
-                ${icons.nastaveni}
-                Upravit hráče
-            </button>
-            <hr>
-            <div class="menu-item" id="menuBack">
-                ${icons.zpet} Zpět
-            </div>
-        `;
+            html += `
+                    </div>
+                    <button 
+                        id="editPlayersButton"
+                        class="primary-button">
+                        ${icons.nastaveni}
+                        Upravit hráče
+                    </button>
+                    <hr>
+                    <div class="menu-item" id="menuBack">
+                        ${icons.zpet} Zpět
+                    </div>
+            `;
         panel.innerHTML = html;
         console.log(
             "EDIT BUTTON:",
