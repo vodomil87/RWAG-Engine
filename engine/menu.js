@@ -477,6 +477,9 @@ const Menu = {
         <div class="players-table">
             <div class="players-header">
                 <div>Jméno</div>
+                <div></div>
+                <div>Role</div>
+                <div></div>
             </div>
             <div id="playersList"></div>
         </div>
@@ -505,7 +508,9 @@ const Menu = {
             <div class="players-table">
                 <div class="players-header">
                     <div>Jméno</div>
+                    <div></div>
                     <div>Role</div>
+                    <div></div>
                 </div>
                 <div id="assignedPlayersList"></div>
             </div>
@@ -546,13 +551,15 @@ const Menu = {
         let html = `
             <div class="menu-title">
                 ${icons.hraci}
-                Přidělené role
+                Hráči a jejich role
             </div>
             
             <div class="players-table">
                 <div class="players-header">
                     <div>Jméno</div>
+                    <div></div>
                     <div>Role</div>
+                    <div></div>
                 </div>
                 `;
                 players.forEach(player=>{
