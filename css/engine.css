@@ -498,7 +498,7 @@ body.font-typewriter{
     align-items:center;
 }
 
-.players-header-newgame{
+.players-header-editor{
     display:grid;
     grid-template-columns:
         minmax(0,1fr)
