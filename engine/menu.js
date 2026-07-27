@@ -700,6 +700,7 @@ const Menu = {
             this.rolesPage = "editor";
             this.renderRoles();
         };
+    },
         
     renderPlayers(){
         const list=document.getElementById("playersList");
