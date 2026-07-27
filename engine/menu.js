@@ -524,6 +524,10 @@ const Menu = {
                 ${icons.nastaveni}
                 Upravit hráče
             </button>
+            <hr>
+            <div class="menu-item" id="menuBack">
+                ${icons.zpet} Zpět
+            </div>
         `;
         panel.innerHTML = html;
         document
