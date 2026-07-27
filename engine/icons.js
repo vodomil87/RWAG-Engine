@@ -49,6 +49,9 @@ otaznik: "❓",
 puntik_zeleny:"🟢",
 puntik_cerveny:"🔴",
 puntik_zluty:"🟡",
-kostka:"🎲"
+kostka:"🎲",
+bryle:"👓",
+tv:"📺",
+kladivo_klic:"🛠️"
    
 };
