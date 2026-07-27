@@ -436,7 +436,7 @@ const Menu = {
         </p>
         <hr>
         <div class="menu-item" id="menuBack">
-           ${icons.zpet} Zpět
+            ${icons.zpet} Zpět
         </div>
         `;
         document.getElementById("menuBack").onclick = (e) => {
@@ -485,6 +485,8 @@ const Menu = {
     renderAssignedRoles(){
         const panel =
             document.getElementById("menuPanel");
+        const players =
+            Engine.state.players || [];
         let html = `
             <div class="menu-title">
                 ${icons.hraci}
@@ -496,40 +498,37 @@ const Menu = {
                     <div>Role</div>
                 </div>
         `;
-        Engine.state.players.forEach(player=>{
+        players.forEach(player=>{
             html += `
-                <div class="player-row assigned">
+                <div class="player-row">
                     <div class="player-name-cell">
                         ${player.name}
                     </div>
-                    <div class="player-role">
-                        ${player.role?.name || "???"}
+                    <div class="player-role-cell">
+                        ${player.role?.name || "?"}
                     </div>
                 </div>
             `;
         });
         html += `
             </div>
-            <div id="playersBottom">
-                <button
-                    id="editPlayers"
-                    class="primary-button">
-                    ${icons.nastaveni}
-                    Upravit seznam hráčů
-                </button>
-            </div>
             <hr>
-            <div class="menu-item" id="menuBack">
-                ${icons.zpet} Zpět
-            </div>
+            <button 
+                id="editPlayersButton"
+                class="primary-button">
+                ${icons.nastaveni}
+                Upravit hráče
+            </button>
         `;
         panel.innerHTML = html;
         document
-            .getElementById("editPlayers")
-            .onclick = ()=>{
-                this.playersMode = "edit";
-                this.renderRoles();
-            };
+        .getElementById("editPlayersButton")
+        .onclick = ()=>{
+            this.playersMode="edit";
+            // hráče necháme,
+            // jen se vrátíme do editoru
+            this.renderRoles();
+        };
     },
         
     renderPlayers(){
