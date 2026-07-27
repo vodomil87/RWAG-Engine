@@ -492,9 +492,8 @@ body.font-typewriter{
     display:grid;
     grid-template-columns:
         minmax(0,1fr)
-        minmax(0,1fr);
-/*        var(--button-size)
-        var(--button-size);*/
+        var(--button-size)
+        var(--button-size);
     gap:4px;
     align-items:center;
 }
@@ -504,9 +503,8 @@ body.font-typewriter{
     display:grid;
     grid-template-columns:
         minmax(0,1fr)
-        minmax(0,1fr);
-/*        var(--button-size)
-        var(--button-size);*/
+        var(--button-size)
+        var(--button-size);
     gap:4px;
     align-items:center;
     padding: 3px;
