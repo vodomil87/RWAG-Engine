@@ -475,7 +475,7 @@ const Menu = {
             Správa hráčů
         </div>
         <div class="players-table">
-            <div class="players-header-newgame">
+            <div class="players-header-editor">
                 <div>Jméno</div>
             </div>
             <div id="playersList"></div>
@@ -503,7 +503,7 @@ const Menu = {
             Správa hráčů
         </div>
             <div class="players-table">
-                <div class="players-header">
+                <div class="players-header-editor">
                     <div>Jméno</div>
                     <div>Role</div>
                 </div>
