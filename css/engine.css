@@ -541,7 +541,7 @@ body.font-typewriter{
 .player-row-editor:has(.player-role-cell:only-child){
     grid-template-columns:
         minmax(0,1fr)
-        var(--button-size);
+        minmax(0,1fr);
 }
 
 .player-role-cell,
