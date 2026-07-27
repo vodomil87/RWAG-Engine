@@ -627,30 +627,28 @@ const Menu = {
                     <div>Jméno</div>
                     <div></div>
                     <div>Role</div>
-                    <div></div>
+                    <div>Info</div>
                 </div>
                 `;
-                players.forEach(player=>{
+                players.forEach((player,index)=>{
                     html += `
-                    <div class="player-row-editor">
-                        <div class="player-name-cell">
-                            ${player.name}
+                        <div class="player-row-editor">
+                            <div class="player-name-cell">
+                                ${player.name}
+                            </div>
+                            <div></div>
+                            <div class="player-role-cell">
+                                ${player.role?.name || "?"}
+                            </div>
+                            <div class="player-confirm-cell">
+                                <button
+                                    class="roleInfo"
+                                    data-index="${index}">
+                                    ${icons.otaznik}
+                                </button>
+                            </div>
                         </div>
-                        <div></div>
-                        <div class="player-role-cell">
-                            ${player.role?.name || "?"}
-                        </div>
-
-                        <div class="player-confirm-cell">
-                            <button
-                                class="roleInfo"
-                                data-index="${index}">
-                                ${icons.otaznik}
-                            </button>
-                        </div>
-                        
-                    </div>
-                `;
+                    `;
                 });
                     html += `
             </div>
@@ -671,14 +669,22 @@ const Menu = {
             document.getElementById("editPlayersButton")
         );
 
-        document.getElementById("roleInfo").onclick=(e)=>{
-            e.stopPropagation();
-            
-            console.log("KLIK NA INFO O ROLI");
-            
-            this.editingAssignedPlayers=true;
-            this.renderRoles();
-        };
+        document.querySelectorAll(".roleInfo")
+        .forEach(button=>{
+            button.onclick=(e)=>{
+                e.stopPropagation();
+                const index = button.dataset.index;
+                const player =
+                    Engine.state.players[index];
+                console.log(
+                    "INFO ROLE:",
+                    player.role
+                );
+                alert(
+                    player.role.description
+                );
+            };
+        });
         
         document.getElementById("editPlayersButton").onclick=(e)=>{
             e.stopPropagation();
