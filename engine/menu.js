@@ -533,7 +533,7 @@ const Menu = {
 
 <div class="player-confirm-cell">
     <button
-        class="confirmName"
+        class="confirmNameChange"
         data-index="${index}">
         ${icons.fajfka}
     </button>
@@ -545,7 +545,7 @@ const Menu = {
 
 <div class="player-confirm-cell">
     <button
-        class="cancelPlayer"
+        class="confirmCancelPlayer"
         data-index="${index}">
         ${icons.krizek}
     </button>
@@ -559,7 +559,67 @@ const Menu = {
             this.playersMode="assigned";
             this.renderRoles();
         };
+
+document.querySelectorAll(".confirmNameChange")
+.forEach(button=>{
+    const index = button.dataset.index;
+    const oldName = Engine.state.players[index].name;
+    const input = document.querySelector(
+        `.playerEditName[data-index="${index}"]`
+    );
+    const newName = input.value.trim();
+    if(oldName === newName){
+        return;
+    }
+    this.confirm(
+        `Skutečně chcete přejmenovat hráče <b>${oldName}</b> na <b>${newName}</b>?`,
+        ()=>{
+            this.savePlayerName(index);
+        },
+        ()=>{
+            this.editingAssignedPlayers = true;
+            this.renderRoles();
+        }
+    );
+});
+
+document.querySelectorAll(".confirmCancelPlayer")
+.forEach(button=>{
+    const index = button.dataset.index;
+    const name = Engine.state.players[index].name;
+    this.confirm(
+        `Skutečně chcete odstranit hráče <b>${name}</b>?`,
+        ()=>{
+            this.deletePlayer(index);
+        },
+        ()=>{
+            this.editingAssignedPlayers = true;
+            this.renderRoles();
+        }
+    );
+});
+        
     },
+
+savePlayerName(index){
+    const input=document.querySelector(
+        `.playerEditName[data-index="${index}"]`
+    );
+    if(!input.value.trim()){
+        alert("Zadej jméno hráče");
+        return;
+    }
+    Engine.state.players[index].name =
+        input.value.trim();
+    this.editingAssignedPlayers = true;
+    this.renderRoles();
+},
+
+deletePlayer(index){
+    Engine.state.players.splice(index,1);
+    this.editingAssignedPlayers = true;
+    this.renderRoles();
+},
     
     renderAssignedRoles(){
         const panel =
@@ -571,7 +631,6 @@ const Menu = {
                 ${icons.hraci}
                 Hráči a jejich role
             </div>
-            
             <div class="players-table">
                 <div class="players-header">
                     <div>Jméno</div>
