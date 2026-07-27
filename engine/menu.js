@@ -479,7 +479,15 @@ const Menu = {
                 <div>Jméno</div>
                 <div></div>
                 <div>Role</div>
-                <div></div>
+
+<div class="player-confirm-cell">
+    <button
+        class="roleInfo"
+        data-index="${index}">
+        ${icons.otaznik}
+    </button>
+</div>
+                
             </div>
             <div id="playersList"></div>
         </div>
@@ -496,6 +504,12 @@ const Menu = {
             e.stopPropagation();
             this.showMain();
         };
+
+document.getElementById("roleInfo").onclick=(e)=>{
+    e.stopPropagation();
+    this.showMain();
+};
+        
     },
 
     renderAssignedPlayersEditor(){
