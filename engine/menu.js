@@ -672,6 +672,18 @@ const Menu = {
             );
         };
     },
+
+    assignRoles(){
+        const confirmed =
+            Engine.state.pendingPlayers.filter(
+                p=>p.confirmed
+            );
+        Engine.state.players =
+            confirmed;
+        Engine.state.pendingPlayers = [];
+        this.playersMode="assigned";
+        this.renderRoles();
+    },
     
     addPlayerForm(){
         Engine.state.pendingPlayers.push({
