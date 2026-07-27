@@ -501,7 +501,7 @@ const Menu = {
             panel.innerHTML=`
         <div class="menu-title">
             ${icons.hraci}
-            Upravit hráče
+            Správa hráčů
         </div>
             <div class="players-table">
                 <div class="players-header">
