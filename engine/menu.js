@@ -530,9 +530,23 @@ const Menu = {
             data-index="${index}"
             value="${player.name}">
         </div>
+
+<button
+    class="confirmName"
+    data-index="${index}">
+    ${icons.fajfka}
+</button>
+        
         <div>
             ${player.role?.name || "-"}
         </div>
+
+<button
+    class="cancelPlayer"
+    data-index="${index}">
+    ${icons.krizek}
+</button>
+
         `;
         list.appendChild(row);
         });
