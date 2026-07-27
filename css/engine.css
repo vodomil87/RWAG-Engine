@@ -498,6 +498,15 @@ body.font-typewriter{
     align-items:center;
 }
 
+.players-header-newgame{
+    display:grid;
+    grid-template-columns:
+        minmax(0,1fr)
+        minmax(0,1fr);
+    gap:4px;
+    align-items:center;
+}
+
 .player-row{
     width:100%;
     display:grid;
