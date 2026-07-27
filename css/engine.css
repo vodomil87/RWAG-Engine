@@ -570,6 +570,7 @@ body.font-typewriter{
     flex:1;
 }
 
+.player-row-editor button,
 .player-row button{
     font:inherit;
     font-size:var(--game-font-size);
@@ -585,6 +586,7 @@ body.font-typewriter{
     cursor:pointer;
 }
 
+.player-row-editor input,
 .player-row input{
     font:inherit;
     font-size:inherit;
@@ -594,20 +596,8 @@ body.font-typewriter{
     width:100%;
 }
 
+.player-row-editor input::placeholder,
 .player-row input::placeholder{
-    font:inherit;
-}
-
-.player-row-editor input{
-    font:inherit;
-    font-size:inherit;
-    color:#666;
-    height:var(--button-size);
-    min-width:0;
-    width:100%;
-}
-
-.player-row-editor input::placeholder{
     font:inherit;
 }
 
