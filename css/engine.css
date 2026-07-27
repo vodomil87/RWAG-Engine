@@ -487,8 +487,18 @@ body.font-typewriter{
     margin: var(--game-font-size) 0;
 }
 
-.players-header,
+.players-header{
+    display:grid;
+    grid-template-columns:
+        minmax(0,1fr)
+        var(--button-size)
+        var(--button-size);
+    gap:4px;
+    align-items:center;
+}
+
 .player-row{
+    width:100%;
     display:grid;
     grid-template-columns:
         minmax(0,1fr)
@@ -497,10 +507,7 @@ body.font-typewriter{
     gap:4px;
     align-items:center;
     padding: 3px;
-}
-
-.player-row{
-    width:100%;
+    height: var(--button-size)
 }
 
 .player-row:has(.player-role-cell:only-child){
