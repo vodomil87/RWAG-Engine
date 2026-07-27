@@ -523,7 +523,7 @@ const Menu = {
             value="${player.name}">
         </div>
         <div>
-            ${player.role.name}
+            ${player.role?.name || "-"}
         </div>
         `;
         list.appendChild(row);
@@ -577,12 +577,10 @@ const Menu = {
             </div>
         `;
         panel.innerHTML = html;
-        document.getElementById("editPlayers").onclick=(e)=>{
+        document.getElementById("editPlayersButton").onclick=(e)=>{
             e.stopPropagation();
         
-            this.playersMode="edit";
             this.editingAssignedPlayers=true;
-        
             this.renderRoles();
         };
         document.getElementById("menuBack").onclick=()=>{
