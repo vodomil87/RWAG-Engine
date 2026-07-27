@@ -509,7 +509,7 @@ body.font-typewriter{
     gap:4px;
     align-items:center;
     padding: 3px;
-    height: var(--button-size)
+    height:calc(var(--button-size)*1,1)
 }
 
 .player-row:has(.player-role-cell:only-child){
@@ -528,7 +528,7 @@ body.font-typewriter{
     gap:4px;
     align-items:center;
     padding: 3px;
-    height: var(--button-size)
+    height:calc(var(--button-size)*1,1)
 }
 
 .player-role-cell,
