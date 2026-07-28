@@ -377,11 +377,11 @@ const Menu = {
                 Legenda není dostupná.
                 </p>
                 <hr>
-                <div class="menu-item" id="menuBack">
+                <div class="menu-item" id="menuMain">
                     ${icons.zpet} Zpět do menu
                 </div>
             `;
-            document.getElementById("menuBack").onclick=()=>{
+            document.getElementById("menuMain").onclick=()=>{
                 this.showMain();
             };
             return;
@@ -415,14 +415,14 @@ const Menu = {
     
         html+=`
             <hr>
-            <div class="menu-item" id="menuBack">
+            <div class="menu-item" id="menuMain">
                 ${icons.zpet} Zpět do menu
             </div>
         `;
     
         document.getElementById("menuPanel").innerHTML=html;
     
-        document.getElementById("menuBack").onclick=(e)=>{
+        document.getElementById("menuMain").onclick=(e)=>{
             e.stopPropagation();
             this.showMain();
         };
@@ -439,11 +439,11 @@ const Menu = {
         Verze 0.3
         </p>
         <hr>
-        <div class="menu-item" id="menuBack">
+        <div class="menu-item" id="menuMain">
             ${icons.zpet} Zpět do menu
         </div>
         `;
-        document.getElementById("menuBack").onclick = (e) => {
+        document.getElementById("menuMain").onclick = (e) => {
             e.stopPropagation();
             this.showMain();
         };
@@ -492,12 +492,12 @@ const Menu = {
         </div>
         <div id="playersAdd"></div>
         <hr>
-        <div class="menu-item" id="menuBack">
+        <div class="menu-item" id="menuMain">
             ${icons.zpet} Zpět do menu
         </div>
         `;
         this.renderPlayers();
-        document.getElementById("menuBack").onclick=(e)=>{
+        document.getElementById("menuMain").onclick=(e)=>{
             e.stopPropagation();
             this.showMain();
         };
@@ -665,7 +665,7 @@ const Menu = {
                     Upravit hráče
                 </button>
                 <hr>
-                <div class="menu-item" id="menuBack">
+                <div class="menu-item" id="menuMain">
                     ${icons.zpet} Zpět do menu
                 </div>
             `;
@@ -701,7 +701,7 @@ const Menu = {
             this.renderRoles();
         };
 
-        document.getElementById("menuBack").onclick=(e)=>{
+        document.getElementById("menuMain").onclick=(e)=>{
             e.stopPropagation();
             this.showMain();
         };  
@@ -884,33 +884,56 @@ const Menu = {
             this.renderAssignedRoles();
             return;
         }
-        document.getElementById("menuPanel").innerHTML=`
-            <div class="menu-title">
-                ${icons.role}
-                ${role.name}
-            </div>
-            <div class="menu-description">
-                ${role.description || "Bez popisu role."}
-            </div>
 
-<div class="menu-description">
-    ${role.character || "Bez popisu role."}
-</div>
-<div class="menu-description">
-    ${role.advantages || "Bez popisu role."}
-</div>
-<div class="menu-description">
-    ${role.disadvantages.text || "Bez popisu role."}
-</div>
-            
-            <hr>
-            <div class="menu-item" id="menuBack">
-                ${icons.zpet} Zpět na seznam hráčů
-            </div>
-        `;
+document.getElementById("menuPanel").innerHTML=`
+    <div class="menu-title">
+        ${icons.role}
+        ${role.name}
+    </div>
+    <div class="menu-section">
+        Charakter
+    </div>
+    <div class="menu-description">
+        ${role.character?.join("<br><br>") || ""}
+    </div>
+    <div class="menu-section">
+        ${icons.plus} Výhoda
+    </div>
+    <div class="menu-description">
+        ${
+            role.advantages
+                ?.map(a=>a.text)
+                .join("<br><br>")
+            || ""
+        }
+    </div>
+    <div class="menu-section">
+        ${icons.minus} Nevýhoda
+    </div>
+    <div class="menu-description">
+        ${
+            role.disadvantages
+                ?.map(d=>d.text)
+                .join("<br><br>")
+            || ""
+        }
+    </div>
+    <hr>
+    <div class="menu-item" id="menuBack">
+        ${icons.zpet} Zpět na seznam hráčů
+    </div>
+    <div class="menu-item" id="menuMain">
+        ${icons.zpet} Zpět do menu
+    </div>
+`;
+
         document.getElementById("menuBack").onclick=()=>{
             this.rolesPage="list";
             this.renderRoles();
+        };
+        
+        document.getElementById("menuMain").onclick=()=>{
+            this.showMain();
         };
     },
     
