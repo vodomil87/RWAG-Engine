@@ -660,12 +660,28 @@ if(back){
         .forEach(button=>{
             button.onclick = ()=>{
                 const index = button.dataset.index;
-
                 const player = Engine.state.players[index];
+
+                const assignedPlayers =
+                    Engine.state.players.filter(
+                        p => p.role
+                    ).length;
+            
+                const min =
+                    Engine.game.players_min || 1;
+            
+                if(player.role && assignedPlayers <= min){
+                    alert(
+                        `Minimální počet hráčů je ${min}.`
+                    );
+                    return;
+                }
+                
                 if(player.newPlayer){
                     this.deletePlayer(index);
                     return;
                 }
+                
                 const name = player.name;
                 this.confirm(
                     `Skutečně chcete odstranit hráče <b>${name}</b>?`,
