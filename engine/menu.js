@@ -521,7 +521,7 @@ const Menu = {
             </div>
         <hr>
         <div class="menu-item" id="menuBack">
-            ${icons.zpet} Zpět
+            ${icons.zpet} Zpět na seznam hráčů
         </div>
         `;
         const list=document.getElementById("assignedPlayersList");
@@ -885,47 +885,44 @@ const Menu = {
             return;
         }
 
-document.getElementById("menuPanel").innerHTML=`
-    <div class="menu-title">
-        ${icons.role}
-        ${role.name}
-    </div>
-    <div class="menu-section">
-        Charakter
-    </div>
-    <div class="menu-description">
-        ${role.character?.join("<br><br>") || ""}
-    </div>
-    <div class="menu-section">
-        ${icons.plus} Výhoda
-    </div>
-    <div class="menu-description">
-        ${
-            role.advantages
-                ?.map(a=>a.text)
-                .join("<br><br>")
-            || ""
-        }
-    </div>
-    <div class="menu-section">
-        ${icons.minus} Nevýhoda
-    </div>
-    <div class="menu-description">
-        ${
-            role.disadvantages
-                ?.map(d=>d.text)
-                .join("<br><br>")
-            || ""
-        }
-    </div>
-    <hr>
-    <div class="menu-item" id="menuBack">
-        ${icons.zpet} Zpět na seznam hráčů
-    </div>
-    <div class="menu-item" id="menuMain">
-        ${icons.zpet} Zpět do menu
-    </div>
-`;
+        document.getElementById("menuPanel").innerHTML=`
+            <div class="menu-title">
+                ${icons.role}
+                ${role.name}
+            </div>
+            <div class="menu-description">
+                ${role.character?.join("<br><br>") || ""}
+            </div>
+            <div class="menu-section">
+                ${icons[a.icon]} Výhoda
+            </div>
+            <div class="menu-description">
+                ${
+                    role.advantages
+                        ?.map(a=>a.text)
+                        .join("<br><br>")
+                    || ""
+                }
+            </div>
+            <div class="menu-section">
+                ${icons[a.icon]} Nevýhoda
+            </div>
+            <div class="menu-description">
+                ${
+                    role.disadvantages
+                        ?.map(d=>d.text)
+                        .join("<br><br>")
+                    || ""
+                }
+            </div>
+            <hr>
+            <div class="menu-item" id="menuBack">
+                ${icons.zpet} Zpět na seznam hráčů
+            </div>
+            <div class="menu-item" id="menuMain">
+                ${icons.zpet} Zpět do menu
+            </div>
+        `;
 
         document.getElementById("menuBack").onclick=()=>{
             this.rolesPage="list";
