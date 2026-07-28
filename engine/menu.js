@@ -553,65 +553,75 @@ const Menu = {
         list.appendChild(row);
         });
 
-        const add=document.getElementById("assignedPlayersAdd");
-        add.innerHTML="";
+const add=document.getElementById("assignedPlayersAdd");
+add.innerHTML="";
+
+const hasUnassignedPlayers =
+    Engine.state.players.some(
+        p =>
+            p.role == null &&
+            typeof p.name === "string" &&
+            p.name.trim() !== ""
+    );
+
+// tlačítko +
+if(Engine.state.players.length < (Engine.game.players_max || 8)){
+    add.innerHTML += `
+        <button
+            id="addAssignedPlayer"
+            class="icon-button">
+            ${icons.plus}
+        </button>
+    `;
+}
+
+// tlačítko přidělit role
+add.innerHTML += `
+    <button
+        id="assignNewRolesButton"
+        class="primary-button"
+        ${hasUnassignedPlayers ? "" : "disabled"}>
+        ${icons.kostka}
+        Přidělit role novým hráčům
+    </button>
+`;
+
+// onclick +
+const addPlayerBtn =
+    document.getElementById("addAssignedPlayer");
+
+if(addPlayerBtn){
+    addPlayerBtn.onclick=()=>{
+        Engine.state.players.push({
+            name:"",
+            role:null,
+            confirmed:false,
+            newPlayer:true
+        });
+
+        this.renderAssignedPlayersEditor();
+    };
+}
+
+// onclick role
+const assignBtn =
+    document.getElementById("assignNewRolesButton");
+
+if(assignBtn){
+    assignBtn.onclick=()=>{
+        this.assignRolesToNewPlayers();
+    };
+}
         
-        const max =
-            Engine.game.players_max || 8;
-        
-        // tlačítko +
-        if(Engine.state.players.length < max){
-        
-            add.innerHTML += `
-                <button
-                    id="addAssignedPlayer"
-                    class="icon-button">
-                    ${icons.plus}
-                </button>
-            `;
-        }
-        
-        // tlačítko role
-        const hasUnassignedPlayers =
-            Engine.state.players.some(
-                p =>
-                    !p.role &&
-                    p.name.trim() !== ""
-            );
-        
-        add.innerHTML += `
-            <button
-                id="assignNewRolesButton"
-                class="primary-button"
-                ${hasUnassignedPlayers ? "" : "disabled"}>
-                ${icons.kostka}
-                Přidělit role novým hráčům
-            </button>
-        `;
-                    
-        document
-            .getElementById("addAssignedPlayer")
-            .onclick=()=>{
-                Engine.state.players.push({
-                    name:"",
-                    role:null,
-                    newPlayer:true
-                });
-                this.renderAssignedPlayersEditor();
-            };
-        const assignBtn =
-            document.getElementById("assignNewRolesButton");
-        
-        if(assignBtn){
-            assignBtn.onclick=()=>{
-                this.assignRolesToNewPlayers();
-            };
-        };
-        
-        document.getElementById("menuBack").onclick=()=>{
-            this.rolesPage = "list";
-            this.renderRoles();
-        };
+const back =
+    document.getElementById("menuBack");
+
+if(back){
+    back.onclick=()=>{
+        this.rolesPage = "list";
+        this.renderRoles();
+    };
+}
 
         document.querySelectorAll(".confirmNameChange")
         .forEach(button=>{
