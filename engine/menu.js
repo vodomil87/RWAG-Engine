@@ -2,10 +2,8 @@ const Menu = {
     page:"main",
     open:false,
     addingPlayer:false,
-    playersMode:"edit",
     rolesPage:"list",
     selectedRole:null,
-    editingAssignedPlayers:false,
     init(){
         const b=document.getElementById("menuButton");
         if(b){
@@ -716,8 +714,7 @@ const Menu = {
             Engine.state.players[index];
         player.name = newName;
         player.newPlayer = false;
-        this.rolesPage="editor";
-        this.renderRoles();
+        this.openPlayersEditor();
     },
     
     deletePlayer(index){
@@ -1023,8 +1020,7 @@ const Menu = {
             usedRoles.push(role.id);
         });
     
-        this.rolesPage="editor";
-        this.renderRoles();
+        this.openPlayersEditor();
     },
     
     renderRoleDetail(){
@@ -1166,7 +1162,20 @@ const Menu = {
                 this.showMain();
             }
         };
+    },
+
+    openPlayersList(){
+        this.page="roles";
+        this.rolesPage="list";
+        this.render();
+    },
+    
+    openPlayersEditor(){
+        this.page="roles";
+        this.rolesPage="editor";
+        this.render();
     }
+    
 };
 
 window.Menu=Menu;
