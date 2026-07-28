@@ -540,7 +540,7 @@ const Menu = {
             </button>
         </div>
         <div>
-            ${player.role?.name || "-"}
+            ${player.role?.name || "(není přidělená)"}
         </div>
         <div class="player-confirm-cell">
             <button
@@ -680,12 +680,13 @@ const Menu = {
                             </div>
                             <div></div>
                             <div class="player-role-cell">
-                                ${player.role?.name || "?"}
+                                ${player.role?.name || "(není přidělená)"}
+                            </div>
                             </div>
                             <div class="player-confirm-cell">
                             <button
                                 class="roleInfo"
-                                data-role="${player.role.id}">
+                                data-role="${player.role?.id || ""}">
                                 ${icons.otaznik}
                             </button>
                             </div>
