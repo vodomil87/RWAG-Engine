@@ -519,6 +519,7 @@ const Menu = {
                 </div>
                 <div id="assignedPlayersList"></div>
             </div>
+        <div id="assignedPlayersAdd"></div>
         <hr>
         <div class="menu-item" id="menuBack">
             ${icons.zpet} Zpět na seznam hráčů
@@ -528,7 +529,7 @@ const Menu = {
             Engine.state.players.forEach((player,index)=>{
         const row=document.createElement("div");
             row.className="player-row-editor";
-            row.innerHTML=`
+            row.innerHTML=`        
         <div>
             <input 
             class="playerEditName"
@@ -555,6 +556,29 @@ const Menu = {
         `;
         list.appendChild(row);
         });
+
+        const add=document.getElementById("assignedPlayersAdd");
+        if(Engine.state.players.length < (Engine.game.players_max || 8)){
+            add.innerHTML=`
+                <button
+                    id="addAssignedPlayer"
+                    class="icon-button">
+                    ${icons.plus}
+                </button>
+            `;
+            document
+                .getElementById("addAssignedPlayer")
+                .onclick=()=>{
+                    Engine.state.players.push({
+                        name:"",
+                        role:null,
+                        confirmed:false,
+                        newPlayer:true
+                    });
+                    this.renderAssignedPlayersEditor();
+                };
+        }
+        
         document.getElementById("menuBack").onclick=()=>{
             this.rolesPage = "list";
             this.renderRoles();
