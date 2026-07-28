@@ -607,7 +607,6 @@ const Menu = {
                 this.assignRolesToNewPlayers();
             };
         };
-        }
         
         document.getElementById("menuBack").onclick=()=>{
             this.rolesPage = "list";
