@@ -553,75 +553,89 @@ const Menu = {
         list.appendChild(row);
         });
 
-const add=document.getElementById("assignedPlayersAdd");
-add.innerHTML="";
-
-const hasUnassignedPlayers =
-    Engine.state.players.some(
-        p =>
-            p.role == null &&
-            typeof p.name === "string" &&
-            p.name.trim() !== ""
-    );
-
-// tlačítko +
-if(Engine.state.players.length < (Engine.game.players_max || 8)){
-    add.innerHTML += `
-        <button
-            id="addAssignedPlayer"
-            class="icon-button">
-            ${icons.plus}
-        </button>
-    `;
-}
-
-// tlačítko přidělit role
-add.innerHTML += `
-    <button
-        id="assignNewRolesButton"
-        class="primary-button"
-        ${hasUnassignedPlayers ? "" : "disabled"}>
-        ${icons.kostka}
-        Přidělit role novým hráčům
-    </button>
-`;
-
-// onclick +
-const addPlayerBtn =
-    document.getElementById("addAssignedPlayer");
-
-if(addPlayerBtn){
-    addPlayerBtn.onclick=()=>{
-        Engine.state.players.push({
-            name:"",
-            role:null,
-            confirmed:false,
-            newPlayer:true
-        });
-
-        this.renderAssignedPlayersEditor();
-    };
-}
-
-// onclick role
-const assignBtn =
-    document.getElementById("assignNewRolesButton");
-
-if(assignBtn){
-    assignBtn.onclick=()=>{
-        this.assignRolesToNewPlayers();
-    };
-}
+        const add=document.getElementById("assignedPlayersAdd");
+        add.innerHTML="";
         
-const back =
-    document.getElementById("menuBack");
-
-if(back){
-    back.onclick=()=>{
-        this.rolesPage = "list";
-        this.renderRoles();
-    };
-}
+        const hasUnassignedPlayers =
+            Engine.state.players.some(
+                p =>
+                    p.role == null &&
+                    typeof p.name === "string" &&
+                    p.name.trim() !== ""
+            );
+        
+        // tlačítko +
+        if(Engine.state.players.length < (Engine.game.players_max || 8)){
+            add.innerHTML += `
+                <button
+                    id="addAssignedPlayer"
+                    class="icon-button">
+                    ${icons.plus}
+                </button>
+            `;
+        }
+        
+        // tlačítko přidělit role
+        add.innerHTML += `
+            <button
+                id="assignNewRolesButton"
+                class="primary-button"
+                ${hasUnassignedPlayers ? "" : "disabled"}>
+                ${icons.kostka}
+                Přidělit role novým hráčům
+            </button>
+        `;
+        
+        // onclick +
+        const addPlayerBtn =
+            document.getElementById("addAssignedPlayer");
+        
+        if(addPlayerBtn){
+            addPlayerBtn.onclick=()=>{
+                Engine.state.players.push({
+                    name:"",
+                    role:null,
+                    confirmed:false,
+                    newPlayer:true
+                });
+        
+                this.renderAssignedPlayersEditor();
+            };
+        }
+        
+        // onclick role
+        const assignBtn =
+            document.getElementById("assignNewRolesButton");
+        
+        if(assignBtn){
+            assignBtn.onclick=()=>{
+                this.assignRolesToNewPlayers();
+            };
+        }
+                
+        document.getElementById("menuBack").onclick=()=>{
+            const hasUnassignedPlayers =
+                Engine.state.players.some(
+                    p => !p.role
+                );
+            if(hasUnassignedPlayers){
+                this.confirm(
+                    "Někteří hráči zatím nemají přidělenou roli. Opravdu chcete opustit editor?",
+                    ()=>{
+                        this.rolesPage = "list";
+                        this.renderRoles();
+                    },
+                    ()=>{
+                        this.rolesPage = "editor";
+                        this.renderRoles();
+                    }
+                );
+                return;
+            }
+        
+            this.rolesPage = "list";
+            this.renderRoles();
+        };
 
         document.querySelectorAll(".confirmNameChange")
         .forEach(button=>{
@@ -672,7 +686,7 @@ if(back){
             
                 if(player.role && assignedPlayers <= min){
                     alert(
-                        `Minimální počet hráčů je ${min}.`
+                        `Není dosažen minimálně počet hráčů nebo někteří z hráčů nemají přidělenou roli. Minimální počet hráčů s rolemi je ${min}.`
                     );
                     return;
                 }
