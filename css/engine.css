@@ -549,6 +549,7 @@ body.font-typewriter{
     box-sizing:border-box;
 }
 
+#assignedPlayersAdd,
 #playersAdd{
     margin-top:calc(var(--game-font-size) / 2) 0;
 /*    text-align:center;*/
@@ -582,7 +583,7 @@ body.font-typewriter{
     padding:0;
     background:var(--panel-color);
     color:var(--text-color);
-    border-radius:1px;
+    border-radius:calc(var(--game-font-size) / 4);
     cursor:pointer;
 }
 
@@ -610,6 +611,7 @@ body.font-typewriter{
     background:var(--panel-color);
     color:var(--text-color);
     font-size:var(--game-font-size);
+    border-radius:calc(var(--game-font-size) / 4);
 }
 
 .player-name-cell input{
