@@ -256,11 +256,11 @@ const Menu = {
         </div>
             <div class="checkbox-row settings-section">
                 <input type="checkbox" id="choice_confirm" name="choice_confirm" checked />
-                <label for="choice_confirm"> Požádat o potvrzení rozhodnutí</label>
+                <label for="choice_confirm"> Vyžadovat potvrzení o rozhodnutí</label>
             </div>
             <div class="checkbox-row settings-section">
-                <input type="checkbox" id="quests_done_hide" name="quests_done_hide" checked />
-                <label for="quests_done_hide"> Skrýt splněné úkoly</label>
+                <input type="checkbox" id="quests_done_show" name="quests_done_show" checked />
+                <label for="quests_done_show"> Zobrazit splněné úkoly</label>
             </div>
         <hr>
         <div class="menu-item" id="menuBack">
