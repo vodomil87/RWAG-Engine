@@ -530,7 +530,7 @@ const Menu = {
             <input 
             class="playerEditName"
             data-index="${index}"
-            value="${player.name}">
+            value="${player.name || ""}">
         </div>
         <div class="player-confirm-cell">
             <button
@@ -554,24 +554,59 @@ const Menu = {
         });
 
         const add=document.getElementById("assignedPlayersAdd");
-        if(Engine.state.players.length < (Engine.game.players_max || 8)){
-            add.innerHTML=`
+        add.innerHTML="";
+        
+        const max =
+            Engine.game.players_max || 8;
+        
+        // tlačítko +
+        if(Engine.state.players.length < max){
+        
+            add.innerHTML += `
                 <button
                     id="addAssignedPlayer"
                     class="icon-button">
                     ${icons.plus}
                 </button>
             `;
-            document
-                .getElementById("addAssignedPlayer")
-                .onclick=()=>{
-                    Engine.state.players.push({
-                        name:"",
-                        role:null,
-                        newPlayer:true
-                    });
-                    this.renderAssignedPlayersEditor();
-                };
+        }
+        
+        // tlačítko role
+        const hasUnassignedPlayers =
+            Engine.state.players.some(
+                p =>
+                    !p.role &&
+                    p.name.trim() !== ""
+            );
+        
+        add.innerHTML += `
+            <button
+                id="assignNewRolesButton"
+                class="primary-button"
+                ${hasUnassignedPlayers ? "" : "disabled"}>
+                ${icons.kostka}
+                Přidělit role novým hráčům
+            </button>
+        `;
+                    
+        document
+            .getElementById("addAssignedPlayer")
+            .onclick=()=>{
+                Engine.state.players.push({
+                    name:"",
+                    role:null,
+                    newPlayer:true
+                });
+                this.renderAssignedPlayersEditor();
+            };
+        const assignBtn =
+            document.getElementById("assignNewRolesButton");
+        
+        if(assignBtn){
+            assignBtn.onclick=()=>{
+                this.assignRolesToNewPlayers();
+            };
+        };
         }
         
         document.getElementById("menuBack").onclick=()=>{
@@ -637,14 +672,12 @@ const Menu = {
         });
     },
 
-    savePlayerName(index, newName){
-        if(!newName.trim()){
-            alert("Zadej jméno hráče");
-            return;
-        }
-        Engine.state.players[index].name = newName.trim();
-        Engine.state.players[index].newPlayer = false;
-        this.rolesPage = "editor";
+    savePlayerName(index,newName){
+        const player =
+            Engine.state.players[index];
+        player.name = newName;
+        player.newPlayer = false;
+        this.rolesPage="editor";
         this.renderRoles();
     },
     
@@ -914,6 +947,47 @@ const Menu = {
         };
     },
 
+    assignRolesToNewPlayers(){
+        const roles =
+            Engine.game.roles || [];
+        const usedRoles =
+            Engine.state.players
+            .map(p=>p.role?.id)
+            .filter(Boolean);
+    
+        Engine.state.players
+        .filter(
+            p =>
+                !p.role &&
+                p.name.trim() !== ""
+        )
+        .forEach(player=>{
+            const available =
+                roles.filter(
+                    r =>
+                    !usedRoles.includes(r.id)
+                );
+    
+            if(available.length===0){
+                return;
+            }
+    
+            const role =
+                available[
+                    Math.floor(
+                        Math.random() *
+                        available.length
+                    )
+                ];
+    
+            player.role = role;
+            usedRoles.push(role.id);
+        });
+    
+        this.rolesPage="editor";
+        this.renderRoles();
+    },
+    
     renderRoleDetail(){
         const role = this.selectedRole;
         if(!role){
