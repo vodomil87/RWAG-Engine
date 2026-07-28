@@ -700,6 +700,11 @@ const Menu = {
             this.rolesPage = "editor";
             this.renderRoles();
         };
+
+        document.getElementById("menuBack").onclick=(e)=>{
+            e.stopPropagation();
+            this.showMain();
+        };  
     },
         
     renderPlayers(){
@@ -881,15 +886,26 @@ const Menu = {
         }
         document.getElementById("menuPanel").innerHTML=`
             <div class="menu-title">
-                ${icons.hraci}
+                ${icons.role}
                 ${role.name}
             </div>
             <div class="menu-description">
                 ${role.description || "Bez popisu role."}
             </div>
+
+<div class="menu-description">
+    ${role.character || "Bez popisu role."}
+</div>
+<div class="menu-description">
+    ${role.advantages || "Bez popisu role."}
+</div>
+<div class="menu-description">
+    ${role.disadvantages.text || "Bez popisu role."}
+</div>
+            
             <hr>
             <div class="menu-item" id="menuBack">
-                ${icons.zpet} Zpět
+                ${icons.zpet} Zpět na seznam hráčů
             </div>
         `;
         document.getElementById("menuBack").onclick=()=>{
