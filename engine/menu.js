@@ -682,13 +682,12 @@ const Menu = {
                             <div class="player-role-cell">
                                 ${player.role?.name || "(není přidělená)"}
                             </div>
-                            </div>
                             <div class="player-confirm-cell">
-                            <button
-                                class="roleInfo"
-                                data-role="${player.role?.id || ""}">
-                                ${icons.otaznik}
-                            </button>
+                                <button
+                                    class="roleInfo"
+                                    data-role="${player.role?.id || ""}">
+                                    ${icons.otaznik}
+                                </button>
                             </div>
                         </div>
                     `;
