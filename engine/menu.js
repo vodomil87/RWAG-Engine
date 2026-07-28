@@ -471,10 +471,6 @@ const Menu = {
     },
 
     renderPlayersEditor(){
-        if(this.editingAssignedPlayers){
-            this.renderAssignedPlayersEditor();
-            return;
-        }
         const panel=document.getElementById("menuPanel");
         panel.innerHTML=`
         <div class="menu-title">
@@ -595,12 +591,12 @@ const Menu = {
                 const newName = input.value.trim();
                 
                 this.confirm(
-                    `Skutečně chcete přejmenovat hráče <b>${oldName}</b> na <b>${newName}</b>?`,
+                    `Skutečně chceš přejmenovat hráče <b>${oldName}</b> na <b>${newName}</b>?`,
                     ()=>{
                         this.savePlayerName(index, newName);
                     },
                     ()=>{
-                        this.editingAssignedPlayers = true;
+                        this.rolesPage = "editor";
                         this.renderRoles();
                     }
                 );
@@ -613,12 +609,12 @@ const Menu = {
                 const index = button.dataset.index;
                 const name = Engine.state.players[index].name;
                 this.confirm(
-                    `Skutečně chcete odstranit hráče <b>${name}</b>?`,
+                    `Skutečně chceš odstranit hráče <b>${name}</b>?`,
                     ()=>{
                         this.deletePlayer(index);
                     },
                     ()=>{
-                        this.editingAssignedPlayers = true;
+                        this.rolesPage = "editor";
                         this.renderRoles();
                     }
                 );
@@ -632,13 +628,13 @@ const Menu = {
             return;
         }
         Engine.state.players[index].name = newName.trim();
-        this.editingAssignedPlayers = true;
+        this.rolesPage = "editor";
         this.renderRoles();
     },
     
     deletePlayer(index){
         Engine.state.players.splice(index,1);
-        this.editingAssignedPlayers = true;
+        this.rolesPage = "editor";
         this.renderRoles();
     },
     
@@ -918,7 +914,8 @@ const Menu = {
                 ${role.character?.join("<br><br>") || ""}
             </div>
             <div class="menu-section">
-                ${icons[a.icon]} Výhoda
+                ${icons[role.advantages?.[0]?.icon] || icons.plus}
+                Výhoda
             </div>
             <div class="menu-description">
                 ${
@@ -929,7 +926,8 @@ const Menu = {
                 }
             </div>
             <div class="menu-section">
-                ${icons[a.icon]} Nevýhoda
+                ${icons[role.disadvantages?.[0]?.icon] || icons.minus}
+                Nevýhoda
             </div>
             <div class="menu-description">
                 ${
