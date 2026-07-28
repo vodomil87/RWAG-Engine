@@ -568,7 +568,6 @@ const Menu = {
                     Engine.state.players.push({
                         name:"",
                         role:null,
-                        confirmed:false,
                         newPlayer:true
                     });
                     this.renderAssignedPlayersEditor();
@@ -584,14 +583,24 @@ const Menu = {
         .forEach(button=>{
             button.onclick = ()=>{
                 const index = button.dataset.index;
-                const oldName = Engine.state.players[index].name;
+                
+                const player = Engine.state.players[index];
                 const input = document.querySelector(
                     `.playerEditName[data-index="${index}"]`
                 );
                 const newName = input.value.trim();
-                
+                if(!newName){
+                    alert("Zadej jméno hráče");
+                    return;
+                }
+                if(player.newPlayer){
+                    this.savePlayerName(index,newName);
+                    return;
+                }
+                const oldName = player.name;
                 this.confirm(
-                    `Skutečně chceš přejmenovat hráče <b>${oldName}</b> na <b>${newName}</b>?`,
+                    `Skutečně chcete přejmenovat hráče <b>${oldName}</b> na <b>${newName}</b>?`,
+                    
                     ()=>{
                         this.savePlayerName(index, newName);
                     },
@@ -607,9 +616,15 @@ const Menu = {
         .forEach(button=>{
             button.onclick = ()=>{
                 const index = button.dataset.index;
-                const name = Engine.state.players[index].name;
+
+                const player = Engine.state.players[index];
+                if(player.newPlayer){
+                    this.deletePlayer(index);
+                    return;
+                }
+                const name = player.name;
                 this.confirm(
-                    `Skutečně chceš odstranit hráče <b>${name}</b>?`,
+                    `Skutečně chcete odstranit hráče <b>${name}</b>?`,
                     ()=>{
                         this.deletePlayer(index);
                     },
@@ -628,6 +643,7 @@ const Menu = {
             return;
         }
         Engine.state.players[index].name = newName.trim();
+        Engine.state.players[index].newPlayer = false;
         this.rolesPage = "editor";
         this.renderRoles();
     },
