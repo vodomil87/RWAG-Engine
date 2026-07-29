@@ -55,9 +55,13 @@ textarea {
     --button-size:clamp(32px, calc(var(--game-font-size) * 2), 52px);
     --role-button-size:var(--button-size);
     --button-radius:calc(var(--game-font-size) / 2);
+    --menu-padding-half:calc(var(--game-font-size) / 2);
+    --menu-margin-half:calc(var(--game-font-size) / 2);
     --slider-color:var(--border-color); /*barva slideru */
     --settings-indent:15px; /*odsazení tlačítek a slideru */
     --icon-button-size:clamp(32px, calc(var(--game-font-size) * 2), 52px);
+    --menu-font-size:calc(var(--game-font-size) + 4px);
+    --radius-small:calc(var(--game-font-size) / 4);
 }
 
 h1{
@@ -88,7 +92,7 @@ h2{
 .theme-btn{
     width:var(--button-size);
     height:var(--button-size);
-    border-radius:calc(var(--game-font-size) / 4);
+    border-radius:var(--radius-small);
     border:2px solid #666;
     font-size:var(--game-font-size);
 /*    font-weight:bold;*/
@@ -288,19 +292,19 @@ body.font-typewriter{
     align-items: center;
 /*    margin-bottom: 15px;*/
     padding: 8px 0;
-    font-size:calc(var(--game-font-size) + 2px);
+    font-size:var(--menu-font-size);
 }
 
 #menuButton {
     background:none;
     border:none;
     color:var(--text-color);
-    font-size:calc(var(--game-font-size) + 4px);
+    font-size:var(--menu-font-size);
     cursor:pointer;
 }
 
 .status-right {
-    font-size:calc(var(--game-font-size) + 2px);
+    font-size:var(--menu-font-size);
 }
 
 #launcher {
@@ -368,17 +372,17 @@ body.font-typewriter{
 }
 
 .menu-title{
-    font-size:calc(var(--game-font-size) + 4px);
+    font-size:var(--menu-font-size);
 /*    font-weight:bold;*/
 /*    margin-bottom:20px;*/
-    padding:calc(var(--game-font-size) / 2) 0;
-    margin:calc(var(--game-font-size) / 2) 0;
+    padding:var(--menu-padding-half) 0;
+    margin:var(--menu-margin-half) 0;
     cursor:pointer;
 }
 
 .menu-item{
-    padding:calc(var(--game-font-size) / 2) 0;
-    margin:calc(var(--game-font-size) / 2) 0;
+    padding:var(--menu-padding-half) 0;
+    margin:var(--menu-margin-half) 0;
     background:var(--panel-item-bg);
     border:none;
     border-radius:8px;
@@ -391,8 +395,8 @@ body.font-typewriter{
 }
 
 .menu-section{
-    padding:calc(var(--game-font-size) / 2) 0;
-    margin:calc(var(--game-font-size) / 2) 0;
+    padding:var(--menu-padding-half) 0;
+    margin:var(--menu-margin-half) 0;
 /*    margin-top:15px;*/
     margin-bottom:10px;
 /*    font-weight:bold;*/
@@ -496,7 +500,7 @@ body.font-typewriter{
 }
 
 .scenario-title{
-    font-size:calc(var(--game-font-size) + 4px);
+    font-size:var(--menu-font-size);
     margin-bottom:8px;
 }
 
@@ -592,10 +596,10 @@ body.font-typewriter{
 
 #assignedPlayersAdd,
 #playersAdd{
-    margin-top:calc(var(--game-font-size) / 2) 0;
+    margin-top:var(--menu-margin-half) 0;
 /*    text-align:center;*/
 /*    align-items:center;*/
-    margin-bottom:calc(var(--game-font-size) / 2) 0;
+    margin-bottom:var(--menu-margin-half) 0;
     display:flex;
     flex-direction:column;
     gap:12px;
@@ -624,7 +628,7 @@ body.font-typewriter{
     padding:0;
     background:var(--panel-color);
     color:var(--text-color);
-    border-radius:calc(var(--game-font-size) / 4);
+    border-radius:var(--radius-small);
     cursor:pointer;
 }
 
@@ -652,7 +656,7 @@ body.font-typewriter{
     background:var(--panel-color);
     color:var(--text-color);
     font-size:var(--game-font-size);
-    border-radius:calc(var(--game-font-size) / 4);
+    border-radius:var(--radius-small);
 }
 
 .player-name-cell input{
@@ -686,10 +690,10 @@ body.font-typewriter{
 }
 
 .icon-button{
-    font-size:calc(var(--game-font-size) * 1.0);
+    font-size:var(--game-font-size);
 /*    width:var(--icon-button-size);
     height:var(--icon-button-size);*/
-    padding:calc(var(--game-font-size) * 1.0);
+    padding:var(--game-font-size);
     border-radius:50%;
     background:var(--panel-color);
     color:var(--text-color);
@@ -704,9 +708,9 @@ body.font-typewriter{
 .primary-button{
     width:100%;
     min-height:var(--button-size);
-    padding:calc(var(--game-font-size) * 1.0) calc(var(--game-font-size) * 1.5);
+    padding:var(--game-font-size) calc(var(--game-font-size) * 1.5);
     border-radius:12px;
-    font-size:calc(var(--game-font-size) * 1.0);
+    font-size:var(--game-font-size);
 /*    font-weight:bold;*/
     background:var(--accent-color);
     color:var(--text-color);
@@ -724,7 +728,7 @@ body.font-typewriter{
     display:flex;
     align-items:center;
     gap:8px;
-    margin:calc(var(--game-font-size) / 2) 0;
+    margin:var(--menu-margin-half) 0;
     cursor:pointer;
     accent-color:var(--border-color);
 }
