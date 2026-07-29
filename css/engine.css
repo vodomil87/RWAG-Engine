@@ -194,6 +194,7 @@ body.theme-medieval{
 
 #menuButton:hover{
     filter:brightness(1.1);
+}
 
 .theme-preview.dark{
     background:#111;
