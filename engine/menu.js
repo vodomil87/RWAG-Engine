@@ -143,7 +143,7 @@ const Menu = {
     renderLauncherMenu(){
         document.getElementById("menuPanel").innerHTML=`
         <div class="menu-title">
-            ${icons.menu} Menu
+            ${icons.hamburger} Menu
         </div>
         <div class="menu-item" id="menuSettings">
             ${icons.nastaveni} Nastavení ${icons.vpred}
