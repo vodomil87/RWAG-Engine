@@ -131,7 +131,7 @@ const Menu = {
         document.getElementById("menuExit").onclick=(e)=>{
             e.stopPropagation();
             this.confirm(
-                "Opravdu chceš ukončit scénář?",
+                "Skutečně si přejete si opustit scénář?\n(Při opětovném otevření bude hra pokračovat na tomto místě.)",
                 ()=>{
                     Engine.exitScenario();
                 }
