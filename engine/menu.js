@@ -5,27 +5,13 @@ const Menu = {
     rolesPage:"list",
     selectedRole:null,
     init(){
-        const panel = document.getElementById("menuButton");
-        if(panel){
-            panel.onclick = (e)=>{
+        const b=document.getElementById("menuButton");
+        if(b){
+            b.onclick=(e)=>{
                 e.stopPropagation();
+                this.toggle();
             };
         }
-
-        document.addEventListener(
-            "click",
-            (e)=>{
-                const panel=document.getElementById("menuButton");
-                if(
-                    this.open &&
-                    panel &&
-                    !panel.contains(e.target) &&
-                    e.target.id !== "menuButton"
-                ){
-                    this.close();
-                }
-            }
-        );
 
         const panel = document.getElementById("menuPanel");
         if(panel){
