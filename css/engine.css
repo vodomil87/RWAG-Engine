@@ -754,10 +754,10 @@ body.font-typewriter{
 .checkbox-row,
 .checkbox-row label{
     cursor:pointer;
+    accent-color:var(--border-color);
 }
 
-.checkbox{
-    accent-color:var(--border-color);
+input[type='checkbox']{
     width:calc(var(--game-font-size) * 1.5);
     height:calc(var(--game-font-size) * 1.5);
 }
