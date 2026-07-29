@@ -19,7 +19,7 @@ html {
 
 #topbar{
     position: fixed;
-    top: 0;
+/*    top: 0;*/
     left: 0;
     right: 0;
     z-index: 1000;
@@ -286,7 +286,7 @@ body.font-typewriter{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+/*    margin-bottom: 15px;*/
     padding: 8px 0;
     font-size:calc(var(--game-font-size) + 2px);
 }
@@ -295,7 +295,7 @@ body.font-typewriter{
     background:none;
     border:none;
     color:var(--text-color);
-    font-size:calc(var(--game-font-size) + 10px);
+    font-size:calc(var(--game-font-size) + 4px);
     cursor:pointer;
 }
 
