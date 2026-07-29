@@ -53,6 +53,7 @@ kostka:"🎲",
 bryle:"👓",
 tv:"📺",
 kladivo_klic:"🛠️",
-zabrana:"🚧"
+zabrana:"🚧",
+hamburger:"🍔"
    
 };
