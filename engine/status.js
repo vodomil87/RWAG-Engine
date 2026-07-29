@@ -4,7 +4,7 @@ render(){
  if(!bar) return;
  if(!Engine.game){
     bar.innerHTML = `
-        <div class="menu-title">id="menuButton">${icons.hamburger} Menu</div>
+        <div class="menu-title" id="menuButton">${icons.hamburger} Menu</div>
     `;
     Menu.init();
     return;
@@ -13,7 +13,7 @@ render(){
  const icon=r>0?icons.rep_pos:r<0?icons.rep_neg:icons.rep_neu;
  bar.innerHTML=`
  
-<div class="menu-title">id="menuButton">${icons.hamburger} Menu</div>
+<div class="menu-title" id="menuButton">${icons.hamburger} Menu</div>
 
 <span>
 ${icon} ${r>0?"+":""}${r}
