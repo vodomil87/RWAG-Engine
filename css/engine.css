@@ -309,6 +309,10 @@ body.font-typewriter{
     font-size:calc(var(--game-font-size) + 2px);
 }
 
+#launcher {
+    padding-top:80px;
+}
+
 #game {
     max-width: 600px;
     margin: auto;
