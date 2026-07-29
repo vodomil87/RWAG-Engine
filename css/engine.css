@@ -102,6 +102,7 @@ h2{
 
 /* tmavé schéma */
 body.theme-dark{
+    --bg:#111;
     --bg-color:#111;
     --text-color:#eee;
     --panel-color:#222;
@@ -113,6 +114,7 @@ body.theme-dark{
 
 /* světlé schéma */
 body.theme-light{
+    --bg:#fff;
     --bg-color:#fff;
     --text-color:#111;
     --panel-color:#f0f0f0;
