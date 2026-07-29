@@ -4,7 +4,7 @@ body {
 /*    background:var(--bg-color);*/
     color:var(--text-color);
     margin: 0;
-    padding: 15px;
+    padding: 75px;
     min-height: 100vh;
     background:
         linear-gradient(
@@ -15,6 +15,22 @@ body {
 
 html {
     background: var(--bg);
+}
+
+#topBar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.topbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
 button,
@@ -296,6 +312,7 @@ body.font-typewriter{
 #game {
     max-width: 600px;
     margin: auto;
+    padding-top:60px;
 }
 
 .scene-image {
