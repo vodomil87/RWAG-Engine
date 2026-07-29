@@ -749,11 +749,18 @@ body.font-typewriter{
     align-items:center;
     gap:8px;
     margin:var(--menu-margin-half) 0;
-    cursor:pointer;
-    accent-color:var(--border-color);
 }
 
 .checkbox,
+.checkbox-row,
 .checkbox-row label{
     cursor:pointer;
 }
+
+.checkbox{
+    accent-color:var(--border-color);
+    width:calc(var(--game-font-size) * 1.5);
+    height:calc(var(--game-font-size) * 1.5);
+}
+
+
