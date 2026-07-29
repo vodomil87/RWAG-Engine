@@ -269,12 +269,26 @@ const Menu = {
             ${icons.tv} Další možnosti zobrazení
         </div>
             <div class="checkbox-row settings-section">
-                <input type="checkbox" id="choice_confirm" name="choice_confirm" checked />
-                <label for="choice_confirm"> Vyžadovat potvrzení o rozhodnutí</label>
+                <input 
+                    type="checkbox" 
+                    id="choice_confirm"
+                    ${Settings.getChoiceConfirm() ? "checked" : ""}
+                />
+                
+                <label for="choice_confirm">
+                    Vyžadovat potvrzení o rozhodnutí
+                </label>
             </div>
             <div class="checkbox-row settings-section">
-                <input type="checkbox" id="quests_done_show" name="quests_done_show" checked />
-                <label for="quests_done_show"> Zobrazit splněné úkoly</label>
+                <input 
+                    type="checkbox" 
+                    id="quests_done_show"
+                    ${Settings.getQuestsDoneShow() ? "checked" : ""}
+                />
+                
+                <label for="quests_done_show">
+                    Zobrazit splněné úkoly
+                </label>
             </div>
         <hr>
         <div class="menu-item" id="menuBack">
@@ -374,6 +388,23 @@ const Menu = {
             
             updateToggles();
         };
+
+        document
+        .getElementById("choice_confirm")
+        .onclick=(e)=>{
+            Settings.setChoiceConfirm(
+                e.target.checked
+            );
+        };
+                
+        document
+        .getElementById("quests_done_show")
+        .onclick=(e)=>{
+            Settings.setQuestsDoneShow(
+                e.target.checked
+            );
+        };
+        
         updateToggles();
         this.bindMenuTitle();
     },
