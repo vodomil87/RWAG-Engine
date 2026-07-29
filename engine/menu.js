@@ -479,7 +479,7 @@ const Menu = {
             <div class="players-header">
                 <div>Jméno</div>
                 <div></div>
-                <div>Role</div>
+                <div></div>
                 <div></div>
             </div>
             <div id="playersList"></div>
@@ -502,7 +502,7 @@ const Menu = {
             panel.innerHTML=`
         <div class="menu-title">
             ${icons.hraci}
-            Správa hráčů
+            Správa hráčů a rolí
         </div>
             <div class="players-table">
                 <div class="players-header">
@@ -815,7 +815,9 @@ const Menu = {
     renderPlayers(){
         const list=document.getElementById("playersList");
         list.innerHTML="";
+        
         const players=Engine.state.players || [];
+        
         // Hotoví hráči
         players.forEach(player=>{
             const row=document.createElement("div");
