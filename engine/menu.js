@@ -160,8 +160,21 @@ const Menu = {
             e.stopPropagation();
             this.showAbout();
         };
+        this.bindMenuTitle();
     },
 
+    bindMenuTitle(){
+        const title =
+            document.querySelector(".menu-title");
+        if(!title){
+            return;
+        }
+        title.onclick = (e)=>{
+            e.stopPropagation();
+            this.hideMenu();
+        };
+    },
+    
     showLegend(){
         this.page="legend";
         this.render();
@@ -360,7 +373,7 @@ const Menu = {
             
             updateToggles();
         };
-        
+        this.bindMenuTitle();
         updateToggles();
     },
 
@@ -424,6 +437,7 @@ const Menu = {
             e.stopPropagation();
             this.showMain();
         };
+        this.bindMenuTitle();
     },
     
     renderAbout(){
@@ -445,6 +459,7 @@ const Menu = {
             e.stopPropagation();
             this.showMain();
         };
+        this.bindMenuTitle();
     },
 
     renderRoles(){
@@ -466,6 +481,7 @@ const Menu = {
         }else{
             this.renderPlayersEditor();
         }
+        this.bindMenuTitle();
     },
 
     renderPlayersEditor(){
@@ -495,6 +511,7 @@ const Menu = {
             e.stopPropagation();
             this.showMain();
         };
+        this.bindMenuTitle();
     },
 
     renderAssignedPlayersEditor(){
@@ -707,6 +724,7 @@ const Menu = {
                 );
             };
         });
+        this.bindMenuTitle();
     },
 
     savePlayerName(index,newName){
@@ -809,7 +827,8 @@ const Menu = {
         document.getElementById("menuMain").onclick=(e)=>{
             e.stopPropagation();
             this.showMain();
-        };  
+        };
+        this.bindMenuTitle();
     },
         
     renderPlayers(){
@@ -978,6 +997,7 @@ const Menu = {
                 }
             );
         };
+        this.bindMenuTitle();
     },
 
     assignRolesToNewPlayers(){
@@ -1076,6 +1096,7 @@ const Menu = {
         document.getElementById("menuMain").onclick=()=>{
             this.showMain();
         };
+        this.bindMenuTitle();
     },
     
     assignRoles(){
@@ -1159,6 +1180,7 @@ const Menu = {
                 this.showMain();
             }
         };
+        this.bindMenuTitle();
     },
 
     openPlayersList(){
