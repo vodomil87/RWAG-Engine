@@ -30,10 +30,15 @@ html {
 button,
 input,
 select,
-textarea {
+textarea{
     font-family:inherit;
     box-sizing:border-box;
     color:var(--text-color);
+}
+
+button{
+    padding-block:0;
+    padding-inline:0;
 }
 
 :root{
@@ -186,6 +191,9 @@ body.theme-medieval{
 .primary-button:hover{
     filter:brightness(1.1);
 }
+
+#menuButton:hover{
+    filter:brightness(1.1);
 
 .theme-preview.dark{
     background:#111;
