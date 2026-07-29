@@ -421,8 +421,7 @@ body.font-typewriter{
 }
 
 .legend-section{
-    padding:var(--menu-padding-half) 0;
-    margin:var(--menu-margin-half) 0;
+    margin-top: calc(var(--game-font-size) * 1.5);
 }
     
 .legend-row{
