@@ -423,7 +423,8 @@ body.font-typewriter{
 .legend-section{
     padding:var(--menu-padding-half) 0;
     margin:var(--menu-margin-half) 0;
-
+}
+    
 .legend-row{
     display:flex;
     align-items:center;
