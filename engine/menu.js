@@ -819,7 +819,7 @@ const Menu = {
         const players=Engine.state.players || [];
         
         // Hotoví hráči
-        players.forEach(player=>{
+        players.forEach((player,index)=>{
             const row=document.createElement("div");
             row.className="player-row";
             row.innerHTML=`
@@ -870,17 +870,12 @@ const Menu = {
                     }
                 </div>
                 <div class="player-role-cell">
-                    ${
-                        this.playersMode === "edit"
-                        ? `
-                            <button
-                                class="cancelPlayer"
-                                data-index="${index}">
-                                ${icons.krizek}
-                            </button>
-                        `
-                        : ""
-                    }
+                    <button
+                        class="cancelPlayer"
+                        data-type="pending"
+                        data-index="${index}">
+                        ${icons.krizek}
+                    </button>
                 </div>
             `;
             list.appendChild(row);
