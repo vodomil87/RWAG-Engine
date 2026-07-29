@@ -129,6 +129,35 @@ const Settings = {
             true
         ) !== "false";
     },
+
+    setChoiceConfirm(value){
+        this.set(
+            "choice_confirm",
+            value
+        );
+    },
+    
+    getChoiceConfirm(){
+        return this.get(
+            "choice_confirm",
+            true
+        ) !== "false";
+    },
+    
+    
+    setQuestsDoneShow(value){
+        this.set(
+            "quests_done_show",
+            value
+        );
+    },
+    
+    getQuestsDoneShow(){
+        return this.get(
+            "quests_done_show",
+            true
+        ) !== "false";
+    },
     
     load(){
         const theme =
@@ -178,6 +207,14 @@ const Settings = {
 
         if(this.get("vibration", null) === null){
             this.set("vibration", true);
+        }
+        
+        if(this.get("choice_confirm", null) === null){
+            this.set("choice_confirm", true);
+        }
+        
+        if(this.get("quests_done_show", null) === null){
+            this.set("quests_done_show", true);
         }
     }
 };
