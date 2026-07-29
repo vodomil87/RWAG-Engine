@@ -734,6 +734,7 @@ body.font-typewriter{
     accent-color:var(--border-color);
 }
 
+.checkbox,
 .checkbox-row label{
     cursor:pointer;
 }
