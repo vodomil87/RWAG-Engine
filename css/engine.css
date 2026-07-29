@@ -398,7 +398,7 @@ body.font-typewriter{
     padding:var(--menu-padding-half) 0;
     margin:var(--menu-margin-half) 0;
     margin-top:15px;
-    margin-bottom:10px;
+/*    margin-bottom:10px;*/
 /*    font-weight:bold;*/
 }
 
