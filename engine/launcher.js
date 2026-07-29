@@ -27,7 +27,7 @@ const Launcher = {
         if(!root) return;
         root.innerHTML="";
         const title=document.createElement("h2");
-        title.innerText="Vyber scénář";
+        title.innerText="Vyberte si scénář";
         
         root.appendChild(title);
 
