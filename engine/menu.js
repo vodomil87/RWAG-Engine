@@ -137,6 +137,7 @@ const Menu = {
                 }
             );
         };
+        this.bindMenuTitle();
     },
 
     renderLauncherMenu(){
@@ -171,7 +172,7 @@ const Menu = {
         }
         title.onclick = (e)=>{
             e.stopPropagation();
-            this.hideMenu();
+            this.close();
         };
     },
     
@@ -373,8 +374,8 @@ const Menu = {
             
             updateToggles();
         };
-        this.bindMenuTitle();
         updateToggles();
+        this.bindMenuTitle();
     },
 
     renderLegend(){
