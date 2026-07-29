@@ -437,7 +437,7 @@ const Menu = {
         `;
         legend.slice(1).forEach(section=>{
             html+=`
-            <div class="menu-section">
+            <div class="legend-section">
                 ${section.subtitle}
             </div>
             `;
