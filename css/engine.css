@@ -312,6 +312,7 @@ body.font-typewriter{
     color:var(--text-color);
     font-size:var(--menu-font-size);
     cursor:pointer;
+    padding-left: 10px;
 }
 
 .status-right {
