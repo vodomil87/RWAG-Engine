@@ -757,7 +757,7 @@ body.font-typewriter{
     accent-color:var(--border-color);
 }
 
-input[type='checkbox']{
+input[type="checkbox"]{
     width:calc(var(--game-font-size) * 1.5);
     height:calc(var(--game-font-size) * 1.5);
 }
