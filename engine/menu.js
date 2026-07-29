@@ -5,13 +5,13 @@ const Menu = {
     rolesPage:"list",
     selectedRole:null,
     init(){
-        const b=document.getElementById("menuButton");
+        document.getElementById("menuButton").onclick = (e) => {
         if(b){
             b.onclick=(e)=>{
                 e.stopPropagation();
                 this.toggle();
             };
-        }
+        };
 
         const panel = document.getElementById("menuPanel");
         if(panel){
